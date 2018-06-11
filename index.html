@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Aditya Mishra</title>
+  <title>Lex-Icon</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,6 +12,101 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+
+  #loader-wrapper {
+      position: fixed;
+      background-color: black;
+        top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+  }
+      #loader {
+          display: block;
+          position: relative;
+          left: 50%;
+          top: 50%;
+          width: 150px;
+          height: 150px;
+          margin: -75px 0 0 -75px;
+
+          border: 3px solid #3498db;
+          z-index: 1500;
+
+              border: 3px solid transparent;
+              border-top-color: #3498db;
+              border-radius: 50%;
+              -webkit-animation: spin 1.5s linear infinite;
+              animation: spin 1.5s linear infinite;
+              -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    &.is-hidden {
+       visibility: hidden;
+       opacity: 0;
+   }
+      }
+      #loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 3px solid #e74c3c;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    border-radius: 50%;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid #f9c922;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    border-radius: 50%;
+    /* copy and paste the animation inside all 3 elements */
+    /* #loader, #loader:before, #loader:after */
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+
+}
+
+
+/* include this only once */
+@-webkit-keyframes spin {
+   0%   {
+       -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+       -ms-transform: rotate(0deg);  /* IE 9 */
+       transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+   }
+   100% {
+       -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+       -ms-transform: rotate(360deg);  /* IE 9 */
+       transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+   }
+}
+@keyframes spin {
+   0%   {
+       -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+       -ms-transform: rotate(0deg);  /* IE 9 */
+       transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+   }
+   100% {
+       -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+       -ms-transform: rotate(360deg);  /* IE 9 */
+       transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+   }
+}
 
   body {
       font: 400 15px Lato, sans-serif;
@@ -831,7 +926,9 @@
   </style>
 </head>
 <body id="login" data-spy="scroll" data-target=".navbar" data-offset="60">
-
+  <div id="loader-wrapper">
+      <div id="loader"></div>
+  </div>
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
@@ -1027,16 +1124,14 @@
 </footer>
 
 <script>
-
-
-$(function() {
-  $('a[href*=#]').on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
-  });
+jQuery(document).ready(function() {
+    jQuery('#loader').fadeOut(2000);
 });
 
 
+jQuery(document).ready(function() {
+    jQuery('#loader-wrapper').fadeOut(2000);
+});
 
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
