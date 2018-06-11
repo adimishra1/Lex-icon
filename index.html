@@ -952,16 +952,8 @@
 </nav>
 
 
+
 <section id="section07" class="demo">
-  <h1>Scroll Down Button #7</h1>
-  <a href="#section08"><span></span><span></span><span></span>Scroll</a>
-</section>
-<section id="section08" class="demo">
-  <h1>Scroll Down Button #8</h1>
-  <a href="#section09"><span></span>Scroll</a>
-</section>
-
-
   <div class="bgimg-1">
     <div class="captiona">
       <span class="bordera " >
@@ -971,6 +963,8 @@
       </span>
     </div>
   </div>
+  <a href="#about"><span></span><span></span><span></span></a>
+</section>
 
 
 
@@ -1133,6 +1127,33 @@ jQuery(document).ready(function() {
     jQuery('#loader-wrapper').fadeOut(2000);
 });
 
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
   $(".navbar a, footer a[href='#login']").on('click', function(event) {
@@ -1167,6 +1188,7 @@ $(document).ready(function(){
     });
   });
 })
+
 
 </script>
 
