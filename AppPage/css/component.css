@@ -89,8 +89,8 @@ html, body, .vs-container {
 .vs-triplelayout .vs-nav .vs-nav-current a,
 .vs-container.vs-move-left .vs-nav-right a,
 .vs-container.vs-move-right .vs-nav-left a {
-	border-color: #808080;
-	color: #808080;
+	border-color: #fff;
+	color: #fff;
 }
 
 .vs-container.vs-move-left .vs-nav-current a,

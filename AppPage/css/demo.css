@@ -18,13 +18,13 @@ body {
 	font-family: 'Lato', Arial, sans-serif;
 	color: #000;
 	position: relative;
-	background-color: rgba(255,255,255,0.6);
-	background-blend-mode: lighten;
+/*	background-color: rgba(255,255,255,0.6);
+	background-blend-mode: lighten;*/
 	background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(12.jpg);  /*to be changed*/
+    background-image: url(mbuntu-10.jpg);  /*to be changed*/
 }
 
 /* To Navigation Style */
@@ -45,7 +45,7 @@ body {
 	text-decoration: none;
 	padding: 0 10px;
 	letter-spacing: 0.1em;
-	color: rgba(0,0,0,0.4);
+	color: #fff;
 	display: inline-block;
 }
 
