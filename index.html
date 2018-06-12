@@ -13,6 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
 
+/*LOADER*/
   #loader-wrapper {
       position: fixed;
       background-color: black;
@@ -61,9 +62,8 @@
     animation: spin 1.5s linear infinite;
     -webkit-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
-
-}
-#loader:after {
+      }
+      #loader:after {
     content: "";
     position: absolute;
     top: 15px;
@@ -78,36 +78,36 @@
     /* #loader, #loader:before, #loader:after */
     -webkit-animation: spin 1.5s linear infinite;
     animation: spin 1.5s linear infinite;
+      }
 
-}
 
+	/* include this only once */
+	@-webkit-keyframes spin {
+	   0%   {
+	       -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+	       -ms-transform: rotate(0deg);  /* IE 9 */
+	       transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+	   }
+	   100% {
+	       -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+	       -ms-transform: rotate(360deg);  /* IE 9 */
+	       transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+	   }
+	}
+	@keyframes spin {
+	   0%   {
+	       -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+	       -ms-transform: rotate(0deg);  /* IE 9 */
+	       transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+	   }
+	   100% {
+	       -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+	       -ms-transform: rotate(360deg);  /* IE 9 */
+	       transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+	   }
+	}
 
-/* include this only once */
-@-webkit-keyframes spin {
-   0%   {
-       -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-       -ms-transform: rotate(0deg);  /* IE 9 */
-       transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-   }
-   100% {
-       -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-       -ms-transform: rotate(360deg);  /* IE 9 */
-       transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-   }
-}
-@keyframes spin {
-   0%   {
-       -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-       -ms-transform: rotate(0deg);  /* IE 9 */
-       transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-   }
-   100% {
-       -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-       -ms-transform: rotate(360deg);  /* IE 9 */
-       transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-   }
-}
-
+/*BODY AND HTML*/
   body {
       font: 400 15px Lato, sans-serif;
       line-height: 1.8;
@@ -122,6 +122,7 @@
     color: #777;
   }
 
+/*BACKGROUND IMAGES FOR PARALLAX*/
   .bgimg-1, .bgimg-2, .bgimg-3 {
     position: relative;
     opacity: 1;
@@ -147,8 +148,7 @@
     min-height: 400px;
   }
 
-
-
+/*CAPTION*/
   .captiona {
     position: absolute;
     left: -23%;
@@ -157,6 +157,8 @@
     text-align: center;
     color: #fff;
   }
+
+/*LOGIN*/
   .login {
     position: absolute;
     left: 0%;
@@ -167,12 +169,15 @@
 
   }
 
+/*CAPTION*/
   .captiona span.bordera {
     color: #fff;
     font: 600 83px/1.3 'Lobster Two', Helvetica, sans-serif;
     text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
     letter-spacing: 10px;
   }
+
+/*HEADINGS*/
   h2 {
       font-size: 24px;
       text-transform: uppercase;
@@ -196,54 +201,72 @@
       border: 5px solid #cfd8dc;
   }
 
+/*IMAGE*/
   img {
       height: 400px;
       width: 400px;
   }
 
+/*SINGLE LINE CSS*/
   .blacken{
     color: black;
   }
+
   .jumbotron {
       background-color: #f4511e;
       color: #fff;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;
   }
+
+/*SINGLE LINE CSS*/
   .container-fluid {
       padding: 60px 50px;
   }
+
   .bg-grey {
       background-color: #f6f6f6;
   }
+
+/*LOGO*/
   .logo-small {
       color: #f4511e;
       font-size: 50px;
   }
+
   .logo {
       color: #f4511e;
       font-size: 200px;
   }
+
+/*THUMBNAIL*/
   .thumbnail {
       padding: 0 0 15px 0;
       border: none;
       border-radius: 0;
   }
+
   .thumbnail img {
       width: 100%;
       height: 100%;
       margin-bottom: 10px;
   }
+
+/*CAROUSEL*/
   .carousel-control.right, .carousel-control.left {
       background-image: none;
       color: #f4511e;
   }
+
   .carousel-indicators li {
       border-color: #f4511e;
   }
+
   .carousel-indicators li.active {
       background-color: #f4511e;
   }
+
+/*ITEM*/
   .item h4 {
       font-size: 19px;
       line-height: 1.375em;
@@ -251,22 +274,28 @@
       font-style: italic;
       margin: 70px 0;
   }
+
   .item span {
       font-style: normal;
   }
+
+/*PANEL*/
   .panel {
       border: 1px solid #f4511e;
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
+
   .panel:hover {
       box-shadow: 5px 0px 40px rgba(0,0,0, .2);
   }
+
   .panel-footer .btn:hover {
       border: 1px solid #f4511e;
       background-color: #fff !important;
       color: #f4511e;
   }
+
   .panel-heading {
       color: #fff !important;
       background-color: #f4511e !important;
@@ -277,21 +306,27 @@
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
   }
+
   .panel-footer {
       background-color: white !important;
   }
+
   .panel-footer h3 {
       font-size: 32px;
   }
+
   .panel-footer h4 {
       color: #aaa;
       font-size: 14px;
   }
+
   .panel-footer .btn {
       margin: 15px 0;
       background-color: #f4511e;
       color: #fff;
   }
+
+/*NAVBAR*/
   .navbar {
       margin-bottom: 0;
       background-color: black;
@@ -303,23 +338,33 @@
       border-radius: 0;
       font-family: Montserrat, sans-serif;
   }
+
   .navbar li a, .navbar .navbar-brand {
       color: #fff !important;
   }
+
   .navbar-nav li a:hover, .navbar-nav li.active a {
       color: #f4511e !important;
       background-color: #fff !important;
   }
+
   .navbar-default .navbar-toggle {
       border-color: transparent;
       color: #fff !important;
   }
+
+/*FOOTER*/
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
       color: #f4511e;
   }
-  .slideanim {visibility:hidden;}
+
+/*SLIDE*/
+  .slideanim {
+    visibility:hidden;
+  }
+
   .slide {
       animation-name: slide;
       -webkit-animation-name: slide;
@@ -363,17 +408,19 @@
     }
   }
 
-
-
-
+/*IMPORT*/
     @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
     * {
       margin: 0;
       padding: 0;
     }
+
+/*HTML AND BODY*/
     html, body {
       height: 100%;
     }
+
+/*SECTION*/
     section {
       position: relative;
       width: 100%;
@@ -386,8 +433,8 @@
       content: '';
       width: 100%;
       height: 80%;
-      background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.8) 80%,rgba(0,0,0,.8) 100%);
-      background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,.8) 80%,rgba(0,0,0,.8) 100%);
+      background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0) 80%,rgba(0,0,0,0.6) 100%);
+      background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 80%,rgba(0,0,0,0.6) 100%);
     }
     section h1 {
       position: absolute;
@@ -402,51 +449,7 @@
       white-space: nowrap;
     }
 
-    #section01 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg01.jpg) center center / cover no-repeat;}
-    #section02 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg02.jpg) center center / cover no-repeat;}
-    #section03 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg03.jpg) center center / cover no-repeat;}
-    #section04 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg04.jpg) center center / cover no-repeat;}
-    #section05 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg05.jpg) center center / cover no-repeat;}
-    #section06 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg06.jpg) center center / cover no-repeat;}
-    #section07 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg07.jpg) center center / cover no-repeat;}
-    #section08 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg08.jpg) center center / cover no-repeat;}
-    #section09 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg09.jpg) center center / cover no-repeat;}
-    #section10 { background: url(https://www.nxworld.net/example/css-scroll-down-button/bg10.jpg) center center / cover no-repeat;}
-
-    #thanks {
-      background-color: #fff;
-    }
-    #thanks::after {
-      content: none;
-    }
-    #thanks div {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 2;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-    #thanks h2 {
-      margin-bottom: 60px;
-      color: #333;
-      font : normal 300 64px/1 'Josefin Sans', sans-serif;
-      text-align: center;
-      white-space: nowrap;
-    }
-    #thanks p {
-      color: #333;
-      font : normal 400 20px/1 'Josefin Sans', sans-serif;
-    }
-    #thanks p a {
-      color: #333;
-      text-decoration: none;
-      transition: color .3s;
-    }
-    #thanks p a:hover {
-      color: #888;
-    }
+/*DEMO*/
     .demo a {
       position: absolute;
       bottom: 20px;
@@ -461,273 +464,10 @@
       text-decoration: none;
       transition: opacity .3s;
     }
+
     .demo a:hover {
       opacity: .5;
     }
-
-
-
-    #section01 a {
-      padding-top: 60px;
-    }
-    #section01 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 24px;
-      height: 24px;
-      margin-left: -12px;
-      border-left: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      box-sizing: border-box;
-    }
-
-
-
-    #section02 a {
-      padding-top: 60px;
-    }
-    #section02 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 46px;
-      height: 46px;
-      margin-left: -23px;
-      border: 1px solid #fff;
-      border-radius: 100%;
-      box-sizing: border-box;
-    }
-    #section02 a span::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      content: '';
-      width: 16px;
-      height: 16px;
-      margin: -12px 0 0 -8px;
-      border-left: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      box-sizing: border-box;
-    }
-
-
-
-    #section03 a {
-      padding-top: 60px;
-    }
-    #section03 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 46px;
-      height: 46px;
-      margin-left: -23px;
-      border: 1px solid #fff;
-      border-radius: 100%;
-      box-sizing: border-box;
-    }
-    #section03 a span::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      content: '';
-      width: 16px;
-      height: 16px;
-      margin: -12px 0 0 -8px;
-      border-left: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      box-sizing: border-box;
-    }
-    #section03 a span::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      content: '';
-      width: 44px;
-      height: 44px;
-      box-shadow: 0 0 0 0 rgba(255,255,255,.1);
-      border-radius: 100%;
-      opacity: 0;
-      -webkit-animation: sdb03 3s infinite;
-      animation: sdb03 3s infinite;
-      box-sizing: border-box;
-    }
-    @-webkit-keyframes sdb03 {
-      0% {
-        opacity: 0;
-      }
-      30% {
-        opacity: 1;
-      }
-      60% {
-        box-shadow: 0 0 0 60px rgba(255,255,255,.1);
-        opacity: 0;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-    @keyframes sdb03 {
-      0% {
-        opacity: 0;
-      }
-      30% {
-        opacity: 1;
-      }
-      60% {
-        box-shadow: 0 0 0 60px rgba(255,255,255,.1);
-        opacity: 0;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-
-
-
-    #section04 a {
-      padding-top: 60px;
-    }
-    #section04 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 24px;
-      height: 24px;
-      margin-left: -12px;
-      border-left: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      -webkit-animation: sdb04 2s infinite;
-      animation: sdb04 2s infinite;
-      box-sizing: border-box;
-    }
-    @-webkit-keyframes sdb04 {
-      0% {
-        -webkit-transform: rotate(-45deg) translate(0, 0);
-      }
-      20% {
-        -webkit-transform: rotate(-45deg) translate(-10px, 10px);
-      }
-      40% {
-        -webkit-transform: rotate(-45deg) translate(0, 0);
-      }
-    }
-    @keyframes sdb04 {
-      0% {
-        transform: rotate(-45deg) translate(0, 0);
-      }
-      20% {
-        transform: rotate(-45deg) translate(-10px, 10px);
-      }
-      40% {
-        transform: rotate(-45deg) translate(0, 0);
-      }
-    }
-
-
-
-    #section05 a {
-      padding-top: 70px;
-    }
-    #section05 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 24px;
-      height: 24px;
-      margin-left: -12px;
-      border-left: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      -webkit-animation: sdb05 1.5s infinite;
-      animation: sdb05 1.5s infinite;
-      box-sizing: border-box;
-    }
-    @-webkit-keyframes sdb05 {
-      0% {
-        -webkit-transform: rotate(-45deg) translate(0, 0);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        -webkit-transform: rotate(-45deg) translate(-20px, 20px);
-        opacity: 0;
-      }
-    }
-    @keyframes sdb05 {
-      0% {
-        transform: rotate(-45deg) translate(0, 0);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: rotate(-45deg) translate(-20px, 20px);
-        opacity: 0;
-      }
-    }
-
-
-
-    #section06 a {
-      padding-top: 70px;
-    }
-    #section06 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 24px;
-      height: 24px;
-      margin-left: -12px;
-      border-left: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      -webkit-transform: rotateZ(-45deg);
-      transform: rotateZ(-45deg);
-      -webkit-animation: sdb06 1.5s infinite;
-      animation: sdb06 1.5s infinite;
-      box-sizing: border-box;
-    }
-    @-webkit-keyframes sdb06 {
-      0% {
-        -webkit-transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        -webkit-transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
-        opacity: 0;
-      }
-    }
-    @keyframes sdb06 {
-      0% {
-        transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
-        opacity: 0;
-      }
-    }
-
 
 
     #section07 a {
@@ -785,142 +525,6 @@
         opacity: 0;
       }
     }
-
-
-
-    #section08 a {
-      padding-top: 60px;
-    }
-    #section08 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 30px;
-      height: 50px;
-      margin-left: -15px;
-      border: 2px solid #fff;
-      border-radius: 50px;
-      box-sizing: border-box;
-    }
-    #section08 a span::before {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      content: '';
-      width: 6px;
-      height: 6px;
-      margin-left: -3px;
-      background-color: #fff;
-      border-radius: 100%;
-      box-sizing: border-box;
-    }
-
-
-
-    #section09 a {
-      padding-top: 80px;
-    }
-    #section09 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 30px;
-      height: 50px;
-      margin-left: -15px;
-      border: 2px solid #fff;
-      border-radius: 50px;
-      box-sizing: border-box;
-    }
-    #section09 a span::before {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      content: '';
-      width: 6px;
-      height: 6px;
-      margin-left: -3px;
-      background-color: #fff;
-      border-radius: 100%;
-      box-sizing: border-box;
-    }
-    #section09 a span::after {
-      position: absolute;
-      bottom: -18px;
-      left: 50%;
-      width: 18px;
-      height: 18px;
-      content: '';
-      margin-left: -9px;
-      border-left: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      box-sizing: border-box;
-    }
-
-
-
-    #section10 a {
-      padding-top: 60px;
-    }
-    #section10 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 30px;
-      height: 50px;
-      margin-left: -15px;
-      border: 2px solid #fff;
-      border-radius: 50px;
-      box-sizing: border-box;
-    }
-    #section10 a span::before {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      content: '';
-      width: 6px;
-      height: 6px;
-      margin-left: -3px;
-      background-color: #fff;
-      border-radius: 100%;
-      -webkit-animation: sdb10 2s infinite;
-      animation: sdb10 2s infinite;
-      box-sizing: border-box;
-    }
-    @-webkit-keyframes sdb10 {
-      0% {
-        -webkit-transform: translate(0, 0);
-        opacity: 0;
-      }
-      40% {
-        opacity: 1;
-      }
-      80% {
-        -webkit-transform: translate(0, 20px);
-        opacity: 0;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-    @keyframes sdb10 {
-      0% {
-        transform: translate(0, 0);
-        opacity: 0;
-      }
-      40% {
-        opacity: 1;
-      }
-      80% {
-        transform: translate(0, 20px);
-        opacity: 0;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-
 
 
   </style>
@@ -995,7 +599,7 @@
 <div id="portfolio" class="container-fluid text-center bg-grey slideanim">
   <h2>About Us</h2><br>
   <h4>WHO WE ARE</h4>
-  <div class="row text-center slideanim">
+  <div class="row text-center ">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
       Nisl suscipit adipiscing bibendum est ultricies integer quis. Fermentum posuere urna nec tincidunt praesent. Sit amet mattis vulputate enim nulla aliquet porttitor lacus. Ac auctor augue mauris augue neque. Quis hendrerit dolor magna eget est lorem.
       <br>
@@ -1020,66 +624,7 @@
       Ut eu sem integer vitae. At imperdiet dui accumsan sit amet nulla facilisi morbi. Cras adipiscing enim eu turpis egestas pretium aenean. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Mattis molestie a iaculis at erat pellentesque adipiscing. Vel eros donec ac odio tempor orci. Mollis aliquam ut porttitor leo. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Consequat interdum varius sit amet. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Nisi est sit amet facilisis. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Morbi tristique senectus et netus et malesuada fames ac turpis.
     </div><br>
 </div>
-<!--
-<div id="education" class="container-fluid slideanim">
-  <h2>Educational Experience</h2>
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <! Indicators >
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
 
-    <!- Wrapper for slides ->
-    <div class="carousel-inner slideanim" role="listbox">
-      <div class="item active">
-        <h4>INDIAN INSTITUTE OF TECHNOLOGY<br><span>2017-Present</span><br><span>Is a freshman at this collage</span></h4>
-      <span>
-      <div class="col-sm-6">
-        <img src="iitk1.jpg"></div>
-        <div class="col-sm-6"><img src="iitk2.jpg"></center>
-      </div>
-    </span>
-  </div>
-
-      <div class="item">
-        <h4>DELHI PUBLIC SCHOOL<br><span>2004-2016</span><br><span>Studied in this school</span><br>
-        <span>
-        <div class="col-sm-6">
-          <img src="dps1.jpg"></div>
-          <div class="col-sm-6"><img src="dps2.jpg"></center>
-        </div>
-        </div>
-      </span></h4>
-      </div>
-          <!- Left and right controls ->
-         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-</div>
--->
-<!--
-<div id="exam" class="container-fluid">
-  <div class="row slideanim">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Exam Schedule</h1>
-        </div>
-        <div class="panel-body">
-          <p><i class="fa fa-calendar fa-fw rb370-margin-right"></i>Click here for checking<a href="http://172.26.142.68/examscheduler/personal.html"> Mid-Semester Schedule</a></p>
-          <p><i class="fa fa-calendar fa-fw rb370-margin-right"></i>Click here for checking<a href="http://172.26.142.68/examscheduler2/personal.html"> End-Semester Schedule</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
--->
 
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey slideanim">
@@ -1189,9 +734,7 @@ $(document).ready(function(){
   });
 })
 
-
 </script>
-
 
 
 </body>
