@@ -280,7 +280,7 @@ html, body, .vs-container {
 	font-weight: 700;
 	font-size: 3em;
 }
-
+/*
 .vs-content .col {
 	margin: 0 auto;
 	color: #000;
@@ -295,10 +295,10 @@ html, body, .vs-container {
 	-webkit-column-gap: 1%;
 	-moz-column-gap: 1%;
 	column-gap: 1%;
-}
+}*/
 
 .vs-content p {
-	margin: 0 0 20px 0;
+	margin: 10px 20px 20px 20px;
 	padding: 0;
 }
 
