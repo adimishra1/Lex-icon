@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
 <head>
   <title>Lex-Icon</title>
   <meta charset="utf-8">
@@ -11,528 +14,19 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-
-/*LOADER*/
-  #loader-wrapper {
-      position: fixed;
-      background-color: black;
-        top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1000;
-  }
-      #loader {
-          display: block;
-          position: relative;
-          left: 50%;
-          top: 50%;
-          width: 150px;
-          height: 150px;
-          margin: -75px 0 0 -75px;
-
-          border: 3px solid #3498db;
-          z-index: 1500;
-
-              border: 3px solid transparent;
-              border-top-color: #3498db;
-              border-radius: 50%;
-              -webkit-animation: spin 1.5s linear infinite;
-              animation: spin 1.5s linear infinite;
-              -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-    &.is-hidden {
-       visibility: hidden;
-       opacity: 0;
-   }
-      }
-      #loader:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: 3px solid #e74c3c;
-    border: 3px solid transparent;
-    border-top-color: #e74c3c;
-    border-radius: 50%;
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-      }
-      #loader:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border: 3px solid #f9c922;
-    border: 3px solid transparent;
-    border-top-color: #f9c922;
-    border-radius: 50%;
-    /* copy and paste the animation inside all 3 elements */
-    /* #loader, #loader:before, #loader:after */
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
-      }
-
-
-	/* include this only once */
-	@-webkit-keyframes spin {
-	   0%   {
-	       -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-	       -ms-transform: rotate(0deg);  /* IE 9 */
-	       transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-	   }
-	   100% {
-	       -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-	       -ms-transform: rotate(360deg);  /* IE 9 */
-	       transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-	   }
-	}
-	@keyframes spin {
-	   0%   {
-	       -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-	       -ms-transform: rotate(0deg);  /* IE 9 */
-	       transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
-	   }
-	   100% {
-	       -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-	       -ms-transform: rotate(360deg);  /* IE 9 */
-	       transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
-	   }
-	}
-
-/*BODY AND HTML*/
-  body {
-      font: 400 15px Lato, sans-serif;
-      line-height: 1.8;
-      color: #818181;
-  }
-
-
-  body, html {
-    height: 100%;
-    margin: 10;
-    font: 400 15px/1.8 "Lato", sans-serif;
-    color: #777;
-  }
-
-/*BACKGROUND IMAGES FOR PARALLAX*/
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    position: relative;
-    opacity: 1;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-  }
-
-  .bgimg-1 {
-    background-image: url("images/1.jpg");
-    min-height: 100%;
-  }
-
-  .bgimg-2 {
-    background-image: url("images/img_parallax.jpg");
-    min-height: 200px;
-  }
-
-  .bgimg-3 {
-    background-image: url("images/img_parallax2.jpg");
-    min-height: 400px;
-  }
-
-/*CAPTION*/
-  .captiona {
-    position: absolute;
-    left: -23%;
-    top: 25%;
-    width: 100%;
-    text-align: center;
-    color: #fff;
-  }
-
-/*LOGIN*/
-  .login {
-    position: absolute;
-    left: 0%;
-    top: 140%;
-    width: 100%;
-    text-align: center;
-    color: #fff;
-
-  }
-
-/*CAPTION*/
-  .captiona span.bordera {
-    color: #fff;
-    font: 600 83px/1.3 'Lobster Two', Helvetica, sans-serif;
-    text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
-    letter-spacing: 10px;
-  }
-
-/*HEADINGS*/
-  h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      color: #303030;
-      font-weight: 600;
-      margin-bottom: 30px;
-  }
-  h4 {
-      font-size: 19px;
-      line-height: 1.375em;
-      color: #303030;
-      font-weight: 400;
-      margin-bottom: 30px;
-  }
-
-  .avatar {
-      display: block;
-      border-radius: 400px;
-      box-sizing: border-box;
-      background-color: #DDD;
-      border: 5px solid #cfd8dc;
-  }
-
-/*IMAGE*/
-  img {
-      height: 400px;
-      width: 400px;
-  }
-
-/*SINGLE LINE CSS*/
-  .blacken{
-    color: black;
-  }
-
-  .jumbotron {
-      background-color: #f4511e;
-      color: #fff;
-      padding: 100px 25px;
-      font-family: Montserrat, sans-serif;
-  }
-
-/*SINGLE LINE CSS*/
-  .container-fluid {
-      padding: 60px 50px;
-  }
-
-  .bg-grey {
-      background-color: #f6f6f6;
-  }
-
-/*LOGO*/
-  .logo-small {
-      color: #f4511e;
-      font-size: 50px;
-  }
-
-  .logo {
-      color: #f4511e;
-      font-size: 200px;
-  }
-
-/*THUMBNAIL*/
-  .thumbnail {
-      padding: 0 0 15px 0;
-      border: none;
-      border-radius: 0;
-  }
-
-  .thumbnail img {
-      width: 100%;
-      height: 100%;
-      margin-bottom: 10px;
-  }
-
-/*CAROUSEL*/
-  .carousel-control.right, .carousel-control.left {
-      background-image: none;
-      color: #f4511e;
-  }
-
-  .carousel-indicators li {
-      border-color: #f4511e;
-  }
-
-  .carousel-indicators li.active {
-      background-color: #f4511e;
-  }
-
-/*ITEM*/
-  .item h4 {
-      font-size: 19px;
-      line-height: 1.375em;
-      font-weight: 400;
-      font-style: italic;
-      margin: 70px 0;
-  }
-
-  .item span {
-      font-style: normal;
-  }
-
-/*PANEL*/
-  .panel {
-      border: 1px solid #f4511e;
-      border-radius:0 !important;
-      transition: box-shadow 0.5s;
-  }
-
-  .panel:hover {
-      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-  }
-
-  .panel-footer .btn:hover {
-      border: 1px solid #f4511e;
-      background-color: #fff !important;
-      color: #f4511e;
-  }
-
-  .panel-heading {
-      color: #fff !important;
-      background-color: #f4511e !important;
-      padding: 25px;
-      border-bottom: 1px solid transparent;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-  }
-
-  .panel-footer {
-      background-color: white !important;
-  }
-
-  .panel-footer h3 {
-      font-size: 32px;
-  }
-
-  .panel-footer h4 {
-      color: #aaa;
-      font-size: 14px;
-  }
-
-  .panel-footer .btn {
-      margin: 15px 0;
-      background-color: #f4511e;
-      color: #fff;
-  }
-
-/*NAVBAR*/
-  .navbar {
-      margin-bottom: 0;
-      background-color: black;
-      z-index: 9999;
-      border: 0;
-      font-size: 12px !important;
-      line-height: 1.42857143 !important;
-      letter-spacing: 4px;
-      border-radius: 0;
-      font-family: Montserrat, sans-serif;
-  }
-
-  .navbar li a, .navbar .navbar-brand {
-      color: #fff !important;
-  }
-
-  .navbar-nav li a:hover, .navbar-nav li.active a {
-      color: #f4511e !important;
-      background-color: #fff !important;
-  }
-
-  .navbar-default .navbar-toggle {
-      border-color: transparent;
-      color: #fff !important;
-  }
-
-/*FOOTER*/
-  footer .glyphicon {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #f4511e;
-  }
-
-/*SLIDE*/
-  .slideanim {
-    visibility:hidden;
-  }
-
-  .slide {
-      animation-name: slide;
-      -webkit-animation-name: slide;
-      animation-duration: 1s;
-      -webkit-animation-duration: 1s;
-      visibility: visible;
-  }
-  @keyframes slide {
-    0% {
-      opacity: 0;
-      transform: translateY(70%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-  }
-  @-webkit-keyframes slide {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateY(70%);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: translateY(0%);
-    }
-  }
-  @media screen and (max-width: 768px) {
-    .col-sm-4 {
-      text-align: center;
-      margin: 25px 0;
-    }
-    .btn-lg {
-        width: 100%;
-        margin-bottom: 35px;
-    }
-  }
-  @media screen and (max-width: 480px) {
-    .logo {
-        font-size: 150px;
-    }
-  }
-
-/*IMPORT*/
-    @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-/*HTML AND BODY*/
-    html, body {
-      height: 100%;
-    }
-
-/*SECTION*/
-    section {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    section::after {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      content: '';
-      width: 100%;
-      height: 80%;
-      background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0) 80%,rgba(0,0,0,0.6) 100%);
-      background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 80%,rgba(0,0,0,0.6) 100%);
-    }
-    section h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 2;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      color: #fff;
-      font : normal 300 64px/1 'Josefin Sans', sans-serif;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-/*DEMO*/
-    .demo a {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      z-index: 2;
-      display: inline-block;
-      -webkit-transform: translate(0, -50%);
-      transform: translate(0, -50%);
-      color: #fff;
-      font : normal 400 20px/1 'Josefin Sans', sans-serif;
-      letter-spacing: .1em;
-      text-decoration: none;
-      transition: opacity .3s;
-    }
-
-    .demo a:hover {
-      opacity: .5;
-    }
-
-
-    #section07 a {
-      padding-top: 80px;
-    }
-    #section07 a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 24px;
-      height: 24px;
-      margin-left: -12px;
-      border-left: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      -webkit-animation: sdb07 2s infinite;
-      animation: sdb07 2s infinite;
-      opacity: 0;
-      box-sizing: border-box;
-    }
-    #section07 a span:nth-of-type(1) {
-      -webkit-animation-delay: 0s;
-      animation-delay: 0s;
-    }
-    #section07 a span:nth-of-type(2) {
-      top: 16px;
-      -webkit-animation-delay: .15s;
-      animation-delay: .15s;
-    }
-    #section07 a span:nth-of-type(3) {
-      top: 32px;
-      -webkit-animation-delay: .3s;
-      animation-delay: .3s;
-    }
-    @-webkit-keyframes sdb07 {
-      0% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-    @keyframes sdb07 {
-      0% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-
-
-  </style>
+  <link href="CSS/Main.css" rel="stylesheet">
+  <link href="CSS/Loader.css" rel="stylesheet">
 </head>
+
+
+
 <body id="login" data-spy="scroll" data-target=".navbar" data-offset="60">
-  <div id="loader-wrapper">
-      <div id="loader"></div>
-  </div>
+  
+
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
@@ -556,8 +50,7 @@
 </nav>
 
 
-
-<section id="section07" class="demo">
+<section id="scroll" class="demo">
   <div class="bgimg-1">
     <div class="captiona">
       <span class="bordera " >
@@ -571,31 +64,31 @@
 </section>
 
 
-
 <!-- Container (About Section) -->
 
 <div class="bgimg-2">
   <div class="caption">
-<div id="about" class="container-fluid">
-  <div class="row">
-    <div class="col-xs-8">
-      <div class="blacken ">
-      <h2>
-        <div class="blacken slideanim">About</div></h2><br>
-      <h4>
-        <font color=white><div class="slideanim"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div></font></h4><br>
-      <p>
-        <font color=white><div class="slideanim">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div></font></p>
-      <br><button class="btn btn-default btn-lg slideanim"><a href="#contact">Contact Us</a></button>
-    </div>
-    </div>
-    <div class="col-xs-4" >
-      <img class="avatar img-responsive" src="images/lex-icon-logo.gif"/>
+    <div id="about" class="container-fluid">
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="blacken ">
+            <h2>
+              <div class="blacken slideanim">About</div></h2><br>
+            <h4>
+              <font color=white><div class="slideanim"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div></font></h4><br>
+            <p>
+              <font color=white><div class="slideanim">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div></font></p>
+            <br><button class="btn btn-default btn-lg slideanim"><a href="#contact">Contact Us</a></button>
+          </div>
+        </div>
+        <div class="col-xs-4" >
+          <img class="avatar img-responsive" src="images/lex-icon-logo.gif"/>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
-</div>
+
 <div id="portfolio" class="container-fluid text-center bg-grey slideanim">
   <h2>About Us</h2><br>
   <h4>WHO WE ARE</h4>
@@ -605,11 +98,11 @@
       <br>
       Tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Lectus urna duis convallis convallis tellus id. Id porta nibh venenatis cras sed felis eget.<br>
       Dui accumsan sit amet nulla facilisi. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Enim sit amet venenatis urna cursus eget. At quis risus sed vulputate odio ut. Lorem ipsum dolor sit amet consectetur. Massa id neque aliquam vestibulum. </p>
-<strong>
-<p> Also do check out our App :P <br></strong>
-  <button class="btn btn-default btn-lg slideanim"><a href="google.com">Link to app</a></button>
-</p>
-    </div><br>
+    <strong>
+      <p> Also do check out our App :P <br></strong>
+        <button class="btn btn-default btn-lg slideanim"><a href="google.com">Link to app</a></button>
+      </p>
+  </div><br>
 </div>
 
 <div id="faq" class="container-fluid text-center bg-grey slideanim">
@@ -622,17 +115,18 @@
       Dui accumsan sit amet nulla facilisi. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Enim sit amet venenatis urna cursus eget. At quis risus sed vulputate odio ut. Lorem ipsum dolor sit amet consectetur. Massa id neque aliquam vestibulum. </p>
       Nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum. Nulla pellentesque dignissim enim sit. Lacinia quis vel eros donec ac. Sem integer vitae justo eget magna fermentum. Fames ac turpis egestas sed tempus urna et pharetra. Non tellus orci ac auctor augue mauris. Nisl nisi scelerisque eu ultrices vitae auctor. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Lorem donec massa sapien faucibus et. Tincidunt dui ut ornare lectus sit. Libero id faucibus nisl tincidunt eget nullam non.
       Ut eu sem integer vitae. At imperdiet dui accumsan sit amet nulla facilisi morbi. Cras adipiscing enim eu turpis egestas pretium aenean. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Mattis molestie a iaculis at erat pellentesque adipiscing. Vel eros donec ac odio tempor orci. Mollis aliquam ut porttitor leo. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Consequat interdum varius sit amet. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Nisi est sit amet facilisis. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Morbi tristique senectus et netus et malesuada fames ac turpis.
-    </div><br>
+  </div><br>
 </div>
 
 
 <!-- Container (Contact Section) -->
+
 <div id="contact" class="container-fluid bg-grey slideanim">
   <h2 class="text-center">Contact Us </h2><h5><br><center>  If You need to</h5>
   <!--div class="row"-->
-<center>
+  <center>
     <i class="fa fa-phone" aria-hidden="true"></i>   Phone:  <strong>Confidential</strong> <em class="hide-on-small-only"> -  but my friends have it</em>
-<br>
+    <br>
     <i class="fa fa-envelope" aria-hidden="true"></i>      Mail:  <a href="mailto:adimis@iitk.ac.in" class="lime-text">adimis@iitk.ac.in</a>  or  <a href="mailto:adityamishra210899@gmail.com" class="lime-text">Gmail</a>
     <br><i class="fa fa-globe" aria-hidden="true"></i> Webpage: <span class="hide-on-small-only"> You are at it, but still :</span> <a href="https://home.iitk.ac.in/~adimis/" class="lime-text">home.iitk.ac.in/~adimis/</a>
     <br><i class="fa fa-github" aria-hidden="true"></i>  Github:  <a href="https://github.com/adimishra1" class="lime-text">adimishra1</a>
@@ -641,15 +135,16 @@
     <!--<br><i class="fa fa-twitter" aria-hidden="true"></i>   Twitter:  <a href="" class="lime-text">@adityamishra</a>
     <br><i class="fa fa-linkedin" aria-hidden="true"></i>  LinkedIn:  <a href="" class="lime-text">adimishra</a>-->
     <br><i class="fa fa-map-marker" aria-hidden="true"></i>   Our Headquaters:  Hall 2, IIT Kanpur, India<br>
-</center>
-    </center>
-    </div>
-
-<!-- Add Google Maps -->
-<div id="googleMap" style="height:600px;width:100%;">
-<iframe width="100%" height="600"frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJWxlvrP82nDkRGxOB-E5EjFQ&key=AIzaSyDxEEmSYwfpY9gWjhNBO-b-Q-5ZdW3yi6o" allowfullscreen></iframe>
+  </center>
+  </center>
 </div>
 
+
+<!-- Add Google Maps -->
+
+<div id="googleMap" style="height:600px;width:100%;">
+  <iframe width="100%" height="600"frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJWxlvrP82nDkRGxOB-E5EjFQ&key=AIzaSyDxEEmSYwfpY9gWjhNBO-b-Q-5ZdW3yi6o" allowfullscreen></iframe>
+</div>
 
 <footer class="container-fluid text-center">
   <a href="#login" title="To Top">
@@ -661,6 +156,7 @@
 					</footer>
 
 </footer>
+
 
 <script>
 jQuery(document).ready(function() {
@@ -733,9 +229,11 @@ $(document).ready(function(){
     });
   });
 })
-
 </script>
 
 
 </body>
+
+
+
 </html>
