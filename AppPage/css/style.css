@@ -18,7 +18,12 @@
 	padding: 30px 0 50px 0;
 	font-family: 'Gorditas', Arial, sans-serif;
 }
-
+.timeline .meaning{
+	font-family: 'Quicksand', sans-serif;
+}
+.timeline .example{
+font-family: 'IBM Plex Sans', sans-serif;
+}
 .timeline:before {
 	content: '';
 	position: absolute;
@@ -60,13 +65,13 @@
 	width: 51px;
 	top: 42px;
 	left: 100%;
-	margin-left: 8px;
+	/*margin-left: 8px;*/
 }
 
 .thumb span {
 	color: #41838e; 
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	font-weight: 700;
 	font-size: 15px;
 	text-transform: uppercase;
@@ -185,7 +190,7 @@
 
 .content-inner {
 	position: relative;
-	padding: 20px;
+	padding: 1px 20px 1px 20px;
 	color: #333;
 	border: none;
 	border-left: 5px solid #41838e;
@@ -195,7 +200,7 @@
 
 .content-inner h3 {
 	font-size: 26px;
-	padding: 5px 0 5px 0;
+	padding: 20px 0 30px 0;
 	color: #41838e;
 }
 
@@ -207,8 +212,13 @@
 	color: rgba(0,0,0,0);
 	text-align: left;
 }
-
-.content-inner:before {
+.content-inner h3 img {
+	height: 25px; width: 25px; 
+}
+.content-inner h3 img:active{
+	height: 30px; width: 30px; 
+}
+.content-inner .meaning:before {
 	font-family: 'fontawesome-selected';
 	content: '\25c2';
 	font-weight: normal;
@@ -298,7 +308,7 @@
 	transition-delay: 0s, 0.6s;
 }
 
-.event input[type="radio"]:checked ~ .content-perspective .content-inner:before {
+.event input[type="radio"]:checked ~ .content-perspective .content-inner .meaning:before {
 	color: #F26328;
 }
 
