@@ -201,9 +201,9 @@ font-family: 'IBM Plex Sans', sans-serif;
 
 .content-inner h3 {
 	font-size: 26px;
-	padding: 20px 0 30px 0;
+	padding: 20px 30px 30px 0;
 	color: #41838e;
-	margin-left: 5px;
+	margin-left: 20px;
 	margin-bottom:-2px;
 }
 
@@ -218,6 +218,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 }
 .content-inner h3 img {
 	height: 25px; width: 25px;
+	margin-left: 10px;
 	margin-bottom:-2px;
 }
 .content-inner h3 img:active{
