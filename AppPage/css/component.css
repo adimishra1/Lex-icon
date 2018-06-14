@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 html, body, .vs-container {
 	position: relative;
 	width: 100%;
@@ -17,15 +18,16 @@ html, body, .vs-container {
 .vs-header {
 	z-index: 200;
 	margin: 0 auto;
-	padding: 2em;
+	padding: 0px;
 	width: 80%;
 	text-align: center;
 	-webkit-backface-visibility: hidden;
 }
 
 .vs-container > header h1 {
-	margin: 0 0 2em 0;
-	padding: 0 0 0.8em;
+	margin: 0 0 1em 0;   /* to change distance b/w heading and lex-icon adjust 3rd parameter here*/
+	/* padding: 0 0 0.8em; */
+  padding-bottom: 0px;
 	font-weight: 300;
 	font-size: 2.4em;
 	line-height: 1.4;
@@ -72,16 +74,18 @@ html, body, .vs-container {
 	margin: 0 10px;
 	padding: 10px 0;
 	outline: none;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
-	color: #000;
+	/* border-top: 2px solid #000;
+	border-bottom: 2px solid #000; */
+	color: #808080;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-weight: 700;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	-webkit-transition: border-color 0.3s, color 0.3s;
 	transition: border-color 0.3s, color 0.3s;
+  margin-right: 10px;
+  margin-left:10px;
 }
 
 .vs-nav li a:hover,
@@ -89,14 +93,21 @@ html, body, .vs-container {
 .vs-triplelayout .vs-nav .vs-nav-current a,
 .vs-container.vs-move-left .vs-nav-right a,
 .vs-container.vs-move-right .vs-nav-left a {
-	border-color: #fff;
-	color: #fff;
+  border-top: 2px solid #C0C0C0;
+	border-bottom: 2px solid #C0C0C0;
+  border-color: #C0C0C0;
+  border-radius: 7px;
+	color: #C0C0C0;
+  font-weight:800;
+  font-size:1.5em;
+  margin-right: 10px;
+  margin-left:10px;
 }
 
 .vs-container.vs-move-left .vs-nav-current a,
 .vs-container.vs-move-right .vs-nav-current a {
-	border-color: #000;
-	color: #000;
+	border-color: #808080;
+	color: #808080;
 }
 
 .vs-triplelayout .vs-nav .vs-nav-left,
@@ -146,7 +157,7 @@ html, body, .vs-container {
 	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
 	transition: transform 0.5s, opacity 0.5s;
 	-webkit-transform: translate3d(100%,0,0);
-	transform: translate3d(100%,0,0);	
+	transform: translate3d(100%,0,0);
 }
 
 .vs-container.vs-move-left .vs-nav-left,
@@ -336,6 +347,7 @@ html, body, .vs-container {
 
 	.vs-container > header h1 {
 		margin-bottom: 0;
+    padding-bottom:-1em;
 	}
 
 	.vs-content h2 {
@@ -364,5 +376,29 @@ html, body, .vs-container {
 		-moz-column-count: auto;
 		column-count: auto;
 	}
+  .searchbox{
+/*definint width of form element*/
+    width:350px;
+/*centering the form element*/
+    margin:100px auto;
 }
-
+input[type="search"]{
+    padding:10px 15px 10px 50px;
+    font-size:36px;
+    color:#1f5350;
+/*removing boder from search box*/
+    border:none;
+/*defining background image as a search symbol*/
+    background-image:url('');
+    background-repeat:no-repeat;
+/*background-size*/
+-webkit-background-size:35px 35px;
+   -moz-background-size:35px 35px;
+     -o-background-size:35px 35px;
+        background-size:35px 35px;
+/*positioning background image*/
+    background-position:8px 12px;
+/*changing background color form white*/
+    background-color:#7accc8;
+}
+}
