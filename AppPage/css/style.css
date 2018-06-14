@@ -445,3 +445,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 		max-height: 300px;
 	}
 }
+.content-img {
+	width: 10px;
+	height: 10px;
+}
