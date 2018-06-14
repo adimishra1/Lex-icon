@@ -1,4 +1,4 @@
-@import url('demo2.css');
+@import url('demo_3d.css');
 
 @font-face {
 	font-family: 'fontawesome-selected';
@@ -18,12 +18,7 @@
 	padding: 30px 0 50px 0;
 	font-family: 'Gorditas', Arial, sans-serif;
 }
-.timeline .meaning{
-	font-family: 'Quicksand', sans-serif;
-}
-.timeline .example{
-font-family: 'IBM Plex Sans', sans-serif;
-}
+
 .timeline:before {
 	content: '';
 	position: absolute;
@@ -37,7 +32,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 .event {
 	position: relative;
 	margin-bottom: 80px;
-	padding-right: 10%;
+	padding-right: 40px;
 }
 
 .thumb {
@@ -65,19 +60,18 @@ font-family: 'IBM Plex Sans', sans-serif;
 	width: 51px;
 	top: 42px;
 	left: 100%;
-	/*margin-left: 8px;*/
+	margin-left: 8px;
 }
 
 .thumb span {
-	color:pink;
+	color: #41838e;
 	width: 100%;
-	text-align: left;
+	text-align: center;
 	font-weight: 700;
-	font-size: 25px;
+	font-size: 15px;
 	text-transform: uppercase;
 	position: absolute;
 	bottom: -30px;
-
 }
 
 .user-1 {
@@ -191,20 +185,18 @@ font-family: 'IBM Plex Sans', sans-serif;
 
 .content-inner {
 	position: relative;
-	padding: 1px 20px 1px 20px;
+	padding: 20px;
 	color: #333;
 	border: none;
 	border-left: 5px solid #41838e;
 	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 	background: #fff;
-	margin-bottom:-2px;
 }
 
 .content-inner h3 {
 	font-size: 26px;
-	padding: 20px 0 30px 0;
+	padding: 5px 0 5px 0;
 	color: #41838e;
-	margin-bottom:-2px;
 }
 
 .content-inner p {
@@ -214,20 +206,11 @@ font-family: 'IBM Plex Sans', sans-serif;
 	color: transparent;
 	color: rgba(0,0,0,0);
 	text-align: left;
-	margin-bottom:-2px;
 }
-.content-inner h3 img {
-	height: 25px; width: 25px;
-	margin-bottom:-2px;
-}
-.content-inner h3 img:active{
-	height: 30px; width: 30px;
-	margin-bottom:-2px;
-}
-.content-inner .meaning:before {
+
+.content-inner:before {
 	font-family: 'fontawesome-selected';
 	content: '\25c2';
-	margin-bottom:-2px;
 	font-weight: normal;
 	font-size: 54px;
 	line-height: 54px;
@@ -250,14 +233,12 @@ font-family: 'IBM Plex Sans', sans-serif;
 	-o-transition: all 0.6s ease-in-out 0.2s;
 	-ms-transition: all 0.6s ease-in-out 0.2s;
 	transition: all 0.6s ease-in-out 0.2s;
-	margin-bottom:-2px;
 }
 
 .content-inner {
 	-webkit-transition: box-shadow 0.8s linear 0.2s;
 	-moz-transition: box-shadow 0.8s linear 0.2s;
 	-o-transition: box-shadow 0.8s linear  0.2s;
-	margin-bottom:-2px;
 	-ms-transition: box-shadow 0.8s linear 0.2s;
 	transition: box-shadow 0.8s linear 0.2s;
 }
@@ -276,7 +257,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 	-o-transition: max-height 0.5s linear, color 0.3s linear;
 	-ms-transition: max-height 0.5s linear, color 0.3s linear;
 	transition: max-height 0.5s linear, color 0.3s linear;
-	margin-bottom:-1px;
 }
 
 /* Checked */
@@ -305,7 +285,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 
 .event input[type="radio"]:checked ~ .content-perspective .content-inner {
 	border-color: #F26328;
-	box-shadow: 10px 0px 10px -6px rgba(0, 0, 0, 0.1);
+	box-shadow: 10px 10px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 .event input[type="radio"]:checked ~ .content-perspective .content-inner p {
@@ -318,7 +298,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 	transition-delay: 0s, 0.6s;
 }
 
-.event input[type="radio"]:checked ~ .content-perspective .content-inner .meaning:before {
+.event input[type="radio"]:checked ~ .content-perspective .content-inner:before {
 	color: #F26328;
 }
 
