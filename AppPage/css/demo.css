@@ -25,6 +25,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(../images/wood1.jpg);  /*to be changed*/
+		background-blend-mode: lighten;
 }
 
 /* To Navigation Style */

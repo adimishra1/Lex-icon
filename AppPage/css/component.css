@@ -106,8 +106,8 @@ html, body, .vs-container {
 
 .vs-container.vs-move-left .vs-nav-current a,
 .vs-container.vs-move-right .vs-nav-current a {
-	border-color: #808080;
-	color: #808080;
+	border-color: #000;
+	color: #000;
 }
 
 .vs-triplelayout .vs-nav .vs-nav-left,
@@ -314,6 +314,16 @@ html, body, .vs-container {
 }
 
 /* Media queries */
+@media screen and (max-width: 850px) {
+  .vs-header{
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 540px) {
+  .vs-header{
+    font-size: 1.2vw;
+  }
+}
 @media screen and (max-width: 72.875em) {
 
 	.vs-header,
