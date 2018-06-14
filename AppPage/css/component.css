@@ -76,7 +76,7 @@ html, body, .vs-container {
 	outline: none;
 	/* border-top: 2px solid #000;
 	border-bottom: 2px solid #000; */
-	color: #808080;
+	color: #000;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -93,11 +93,11 @@ html, body, .vs-container {
 .vs-triplelayout .vs-nav .vs-nav-current a,
 .vs-container.vs-move-left .vs-nav-right a,
 .vs-container.vs-move-right .vs-nav-left a {
-  border-top: 2px solid #C0C0C0;
-	border-bottom: 2px solid #C0C0C0;
-  border-color: #C0C0C0;
+  border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+  border-color: #fff;
   border-radius: 7px;
-	color: #C0C0C0;
+	color: #fff;
   font-weight:800;
   font-size:1.5em;
   margin-right: 10px;

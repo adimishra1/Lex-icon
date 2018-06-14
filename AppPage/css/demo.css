@@ -24,7 +24,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(bg_img.jpg);  /*to be changed*/
+    background-image: url(../images/wood1.jpg);  /*to be changed*/
 }
 
 /* To Navigation Style */
