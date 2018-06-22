@@ -19,24 +19,21 @@ if(isset($_POST['submit'])){
     exit;
   }
 }
-  
+
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>particles.js</title>
-  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
-  <meta name="author" content="Vincent Garreau" />
+  <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" media="screen" href="style.css">
+  <link rel="stylesheet" media="screen" href="css/style.css">
   <style>
 
   $text: #fff;
   $link: #e34234;
   $link-hover: #ba160c;
-  $background: #00356B;
 
   canvas {
     display: block;
@@ -47,7 +44,8 @@ if(isset($_POST['submit'])){
     position: absolute;
     width: 100%;
     height: 100%;
-  	background: $background
+    background-image: url('images/img1.jpg');
+    height: 100vh;
   }
 
   .text {
@@ -165,13 +163,13 @@ if(isset($_POST['submit'])){
 
 <!-- scripts -->
 
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script> 
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	 <script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/select2/select2.min.js"></script>
   <script src="js/main.js"></script>
-<script src="particles.js"></script>
-<script src="app.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
 
 
 </body>
