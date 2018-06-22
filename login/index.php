@@ -1,3 +1,27 @@
+<?php
+include("core/init.inc.php");
+
+$errors = array();
+
+if(isset($_POST['submit'])){
+  if(empty($_POST['username'])){
+    $errors[] = 'The username cannot be empty.';
+  }
+  if(empty($_POST['password'])){
+    $errors[] = 'The password cannot be empty.';
+  }
+  if(valid_credentials($conn,$_POST['username'],$_POST['password']) === false){
+    $errors[] = 'Username / Password incorrect.';
+  }
+  if(empty($errors)){
+    $_SESSION['username']=htmlentities($_POST['username']);
+    header('location: ../MainPage/index.php');
+    exit;
+  }
+}
+  
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +112,7 @@
 
 <!-- <div class="container-login100"> -->
   <div class="wrap-login100">
-    <form class="login100-form validate-form">
+    <form class="login100-form validate-form" method="POST" action="index.php">
       <div class="login100-form-avatar">
         <img src="images/ln.png" alt="AVATAR">
       </div>
@@ -106,14 +130,14 @@
       </div>
 
       <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
-        <input class="input100" type="password" name="pass" placeholder="Password">
+        <input class="input100" type="password" name="password" placeholder="Password">
         <span class="focus-input100"></span>
         <span class="symbol-input100">
           <i class="fa fa-lock"></i>
         </span>
       </div>
       <div class="container-login100-form-btn p-t-10">
-        <button class="login100-form-btn">
+        <button class="login100-form-btn" type="submit" name="submit">
           Login
         </button>
       </div>
@@ -141,7 +165,7 @@
 
 <!-- scripts -->
 
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script> -->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script> 
 	 <script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/select2/select2.min.js"></script>

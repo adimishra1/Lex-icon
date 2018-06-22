@@ -1,9 +1,9 @@
-<?php
+<?php 
 
-include('core/init.inc.php');
+include('core/init.inc.php'); 
 
 if(isset($_POST['submit'])){
-
+	
 
 	$errors = array();
 	if(empty($_POST['username'])){
@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
 	}
 
     if(empty($errors)){
-
+    	echo "First level passed";
         $file =$_FILES['pic']['tmp_name'];
     	if(!isset($file))
     	{
@@ -33,23 +33,23 @@ if(isset($_POST['submit'])){
 
    		// Select file type
    		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
+   
    		// Valid file extensions
 	    $extensions_arr = array("jpg","jpeg","png","gif");
 
    		// Check extension
    		if( in_array($imageFileType,$extensions_arr) ){
-
-    		// Convert to base64
-    		//either of the image variable can be used.
+   			echo "seceond Level passed";
+    		// Convert to base64 
+    		//either of the image variable can be used.		
    			$image = addslashes(file_get_contents($_FILES['pic']['tmp_name']));
-
+   	
     		$image_base64 = base64_encode(file_get_contents($_FILES['pic']['tmp_name']) );
     		$image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 	    	// Insert record
-		    $bool = add_user($conn,$_POST['name'],$_POST['email'],$_POST['username'],$_POST['password'],$image);
-
-
+		    $bool = add_user($conn,$_POST['name'],$_POST['email'],$_POST['username'],$_POST['password'],$image);    		
+	
+		    echo "third level passed";
 	    	//upload
 	    	move_uploaded_file($_FILES['pic']['tmp_name'],$target_dir.$name);
 
@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
 	    	if(!$bool){
 	    		echo "Failed to Insert";
 	    	}else{
-    			header("location: ../MainPage/index.html");
+    			header("location: ../MainPage/index.php");
     			exit;
     		}
     	}

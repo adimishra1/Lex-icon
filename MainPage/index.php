@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -38,7 +42,7 @@
 <div id="vs-container" class="vs-container">
 
 	<div class="codrops-top clearfix">
-		<span class="right"><a href="#section-5">About</a><a href="#section-4">Favourites</a><a href="../index.html"><span><form method="POST" action="logout.php"><input type="submit" name="submit">Logout</form></span></a></span>
+		<span class="right"><a href="#section-5">About</a><a href="#section-4">Favourites</a><a href="logout.php"><span>Logout</span></a></span>
 	</div>
 
 	<header class="vs-header">

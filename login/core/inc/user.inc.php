@@ -25,8 +25,19 @@ function  valid_credentials($conn,$username,$password){
 	$username = mysqli_real_escape_string($conn,htmlentities($username));
 	//$password = sha1($password);
 
-	$total = mysqli_query($conn,"SELECT COUNT(`id`) FROM `users` WHERE `username` = '{$username}' AND `password` = '{$password}'") or die(mysqli_error($conn));
-	return (mysqli_result($conn,$total , 0) == '1') ?  true : false;
+	$query = "SELECT * FROM users WHERE username='".$username."' AND password ='".$password."'";
+	$result1 = mysqli_query($conn,$query) or die (mysqli_error($conn).$query);
+	$count = mysqli_num_rows($result1);
+
+	if ($count>0) {
+		//echo 'Sorry! This Username already exists!';
+		return true;
+	} else {
+		//echo "username dosent exist";
+		return false;
+	}
+	//$total = mysqli_query($conn,"SELECT COUNT(`id`) FROM `users` WHERE `username` = '{$username}' AND `password` = '{$password}'") or die(mysqli_error($conn));
+	//return (mysqli_result($conn,$total , 0) == '1') ?  true : false;
 }
 
 //adds a user to the database.
