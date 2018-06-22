@@ -143,7 +143,7 @@ if(isset($_POST['submit'])){
         <a href="#" class="txt1">
           Forgot Username / Password?
         </a><br>
-        <a class="txt1" href="#">
+        <a class="txt1" href="../register/index.php">
           Create new account
           <i class="fa fa-long-arrow-right"></i>
         </a>

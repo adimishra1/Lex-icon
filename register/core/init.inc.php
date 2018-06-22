@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	
+
 	$exception =  array('register', 'login');
 	//$page = substr(end(explode('/',$_SERVER['SCRIPT_NAME'])), 0, -4);
 
@@ -10,7 +10,7 @@
 		// 	die();
 		// }
 	//}
-	$conn = mysqli_connect('127.0.0.1','root','21522042003','Lex') or die("Failed to query database");
+	$conn = mysqli_connect('127.0.0.1','root','root','Lex') or die("Failed to query database");
 
 	$path = dirname(__FILE__);
 
