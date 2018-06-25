@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Created By</title>
+		<meta name="description" content="An animated pieces effect for images with many possibilities" />
+		<meta name="keywords" content="animation, piece, fragment, box, css, javascript, demo, effect, web dev" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo-switch.css" />
+		<link rel="stylesheet" type="text/css" href="pater/pater.css" />
+		<script>document.documentElement.className = 'js';</script>
+		<style>
+
+			.captiona {
+				position: absolute;
+				width: 100%;
+				text-align: left;
+				color: #fff;
+			}
+
+
+			  .captiona span.bordera {
+			    color: #fff;
+			    font: 600 83px/1.3 'Lobster Two', Helvetica, sans-serif;
+			    text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+			    letter-spacing: 10px;
+			  }
+		</style>
+	</head>
+	<body class="demo-switch loading">
+		<svg class="hidden">
+			<symbol id="icon-arrow" viewBox="0 0 24 24">
+				<title>arrow</title>
+				<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
+			</symbol>
+			<symbol id="icon-drop" viewBox="0 0 24 24">
+				<title>Created By</title>
+				<path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
+			</symbol>
+		</svg>
+		<main>
+			<div class="frame">
+
+			</div>
+			<div class="content">
+				<header class="content__header">
+					<div class="captiona1">
+			      <span class="bordera1 " >
+			        <div class="blacken"><h1>Created By</h1><br>
+			         </div>
+			      </span>
+			    </div>
+				</header>
+				<div class="slideshow">
+					<div id="slide-1" class="slide" style="background-image: url(img/2d.jpg)"></div>
+					<div id="slide-2" class="slide" style="background-image: url(img/3d.jpg)"></div>
+					<div id="slide-3" class="slide" style="background-image: url(img/4d.jpg)"></div>
+					<div id="slide-4" class="slide" style="background-image: url(img/1d.jpg)"></div>
+					<div id="slide-4" class="slide" style="background-image: url(img/1d.jpg)"></div>
+					<div id="slide-4" class="slide" style="background-image: url(img/1d.jpg)"></div>
+					<div class="pieces" style="background-image: url(img/2d.jpg)"></div>
+				</div>
+				<nav class="menu">
+					<a class="menu__item menu__item--current" href="#slide-1" data-image="img/2d.jpg">Ritesh Kumar</a><br />
+					<a class="menu__item" href="#slide-2" data-image="img/3d.jpg">Aditya Mishra</a><br />
+					<a class="menu__item" href="#slide-3" data-image="img/4d.jpg">Deepesh Lall</a><br />
+					<a class="menu__item" href="#slide-4" data-image="img/1d.jpg">Ram Goyal</a><br />
+					<a class="menu__item" href="#slide-4" data-image="img/1d.jpg">Nipun Goyal</a><br />
+					<a class="menu__item" href="#slide-4" data-image="img/1d.jpg">Aakash Khandelwal</a><br />
+				</nav>
+			</div>
+		</main>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script src="js/anime.min.js"></script>
+		<script src="js/main.js"></script>
+		<script>
+		{
+			imagesLoaded(document.body, { background: true }, () => document.body.classList.remove('loading'));
+
+			const menuItems = Array.from(document.querySelectorAll('.menu > .menu__item'));
+
+			const piecesObj = new Pieces(document.querySelector('.slideshow > .pieces'), {
+				pieces: {rows: 14, columns: 12},
+				delay: [0,40],
+				hasTilt: true,
+				tilt: {
+					maxRotationX: -1,
+					maxRotationY: -1,
+					maxTranslationX: -5,
+					maxTranslationY: -2
+				}
+			});
+
+			let isAnimating = false;
+			let current = 0;
+
+			const openImage = (ev, item, pos) => {
+				ev.preventDefault();
+				if ( isAnimating || current === pos ) {
+					return false;
+				}
+				isAnimating = true;
+				menuItems[current].classList.remove('menu__item--current');
+				current = pos;
+				menuItems[current].classList.add('menu__item--current');
+				const imgsrc = item.dataset.image;
+
+				piecesObj.animate({
+					duration: 200,
+					easing: 'easeOutQuad',
+					delay: (t,i,l) => {
+						return parseInt(t.dataset.row) * parseInt(t.dataset.delay);
+					},
+					translateX: (t,i) => {
+						return anime.random(-50,50)+'px';
+					},
+					translateY: (t,i) => {
+						return anime.random(-800,-200)+'px';
+					},
+					rotateZ: (t,i) => {
+						return anime.random(-45,45)+'deg';
+					},
+					opacity: 0,
+					complete: () => {
+						piecesObj.setImage(imgsrc);
+
+						piecesObj.animate({
+							duration: 500,
+							easing: [0.3,1,0.3,1],
+							delay: (t,i,l) => {
+								return parseInt(t.dataset.row) * parseInt(t.dataset.delay);
+							},
+							translateX: 0,
+							translateY: () => {
+								return [anime.random(200,800)+'px','0px'];
+							},
+							rotateZ: 0,
+							opacity: {
+								value: 1,
+								duration: 500,
+								easing: 'linear'
+							},
+							complete: () => {
+								isAnimating = false;
+							}
+						});
+					}
+				});
+			};
+
+			menuItems.forEach((item,pos) => item.addEventListener('click', (ev) => openImage(ev,item,pos)));
+		}
+		</script>
+		<script src="pater/pater.js"></script>
+	</body>
+</html>
