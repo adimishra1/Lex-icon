@@ -1,9 +1,9 @@
-<?php 
+<?php
 
-include('core/init.inc.php'); 
+include('core/init.inc.php');
 
 if(isset($_POST['submit'])){
-	
+
 
 	$errors = array();
 	if(empty($_POST['username'])){
@@ -33,22 +33,22 @@ if(isset($_POST['submit'])){
 
    		// Select file type
    		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-   
+
    		// Valid file extensions
 	    $extensions_arr = array("jpg","jpeg","png","gif");
 
    		// Check extension
    		if( in_array($imageFileType,$extensions_arr) ){
    			echo "seceond Level passed";
-    		// Convert to base64 
-    		//either of the image variable can be used.		
+    		// Convert to base64
+    		//either of the image variable can be used.
    			$image = addslashes(file_get_contents($_FILES['pic']['tmp_name']));
-   	
+
     		$image_base64 = base64_encode(file_get_contents($_FILES['pic']['tmp_name']) );
     		$image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 	    	// Insert record
-		    $bool = add_user($conn,$_POST['name'],$_POST['email'],$_POST['username'],$_POST['password'],$image);    		
-	
+		    $bool = add_user($conn,$_POST['name'],$_POST['email'],$_POST['username'],$_POST['password'],$image);
+
 		    echo "third level passed";
 	    	//upload
 	    	move_uploaded_file($_FILES['pic']['tmp_name'],$target_dir.$name);
@@ -97,6 +97,36 @@ if(isset($_POST['submit'])){
 <!--Google Fonts-->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 <script src="js/jquery-1.11.1.min.js"></script>
+
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<meta charset=utf-8 />
+<script>
+function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(80);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
+<style>
+  article, aside, figure, footer, header, hgroup,
+  menu, nav, section { display: block; }
+	img{
+		width:80px;
+		height: 80px;
+	}
+</style>
 
 </head>
 
@@ -160,7 +190,8 @@ if(isset($_POST['submit'])){
 							<input type="email" name="email" placeholder="Email" required="">
 							<input type="password" name="password" placeholder="Password" required="">
 							<input type="password" name="repeat_password" placeholder="Confirm Password" required="">
-							<input type="file" name="pic" id="pic">
+							<img id="blah" src="#" onerror="this.src='images/default.jpg'" /><br><br>
+							<input type='file' onchange="readURL(this);" /><br><br>
 							<input type="submit" name ="submit" value="Sign Up">
 						</form>
 					</div>
