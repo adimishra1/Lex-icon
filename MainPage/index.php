@@ -125,11 +125,17 @@
 							$word=$row['word'];
 							$meaning=$row['meaning'];
 							$sentence=$row['sentence'];
+							$timeliner_id=$row['user_id'];
+
+							$query2 = "SELECT name FROM users WHERE id='".$timeliner_id."'";
+							$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
+							$user2 = mysqli_fetch_array($result2);
+							$timeliner_name = $user2['name'];
 
 							echo '<li class="event">
 							<input type="radio" name="tl-group"/>
 							<label></label>
-							<div class="thumb user-3"><span>'.$user_name.'</span></div>
+							<div class="thumb user-3"><span>'.$timeliner_name.'</span></div>
 							<div class="content-perspective">
 								<div class="content">
 									<div class="content-inner black">
