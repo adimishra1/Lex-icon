@@ -53,7 +53,9 @@
 <link rel="stylesheet" type="text/css" href="css/component.css" />
 <script src="js/modernizr.custom.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+<style>input:focus{
+    outline: none;
+}</style>
 
 </head>
 
@@ -100,29 +102,52 @@
 											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent;"></p>
 										</div>
 										<input type="submit" name="submit">
-										<br><br>	
+										<br><br>
 									</form>
 								</div>
 							</div>
 						</li>
-						<li class="event">
+
+						<?php
+						//php
+						$sql = "select * from trending";
+						$result=mysqli_query($conn,$sql);
+
+
+
+						$rowcount=mysqli_num_rows($result);
+
+
+
+						for($x=$rowcount;$x>0;$x=$x-1){
+								$query=mysqli_query($conn,"select * from trending where id =$x");
+								$row=mysqli_fetch_array($query);
+							$word=$row['word'];
+							$meaning=$row['meaning'];
+							$sentence=$row['sentence'];
+
+							echo '<li class="event">
 							<input type="radio" name="tl-group"/>
 							<label></label>
-							<div class="thumb user-3"><span>RICKY</span></div>
+							<div class="thumb user-3"><span>'.$user_name.'</span></div>
 							<div class="content-perspective">
 								<div class="content">
 									<div class="content-inner black">
-										<h3>dichotomy
-												<img src="images/audio_button.jpeg" >
-										</h3>
-										<p class="meaning">a division or contrast between two things that are or are represented as being opposed or entirely different.</p>
-									</div>
-									<div class="content-inner">
-										<p class="example">a division or contrast between two things that are or are represented as being opposed or entirely different.<br><br></p>
+										<h3>'.$word.'</h3>
+										<p class="meaning">'.$meaning.'</p>
+										</div>
+										<div class="content-inner">
+											<p class="example">'.$sentence.'<br><br></p>
+										</div>
 									</div>
 								</div>
-							</div>
-						</li>
+							</li>
+							';
+						}
+
+
+						 ?>
+
 					</ul>
 				</div>
 			</div>
@@ -138,7 +163,7 @@
 										<!-- <h4>Meaning</h4> -->
 										<div class="para1">Meaning.</div>
 									</div>
-								
+
 									<div class="Usage">
 										<!-- <h4>Usage</h4> -->
 										<p class="para2">usage</p>
@@ -146,7 +171,7 @@
 
 									<div class="Pronunciation">
 										<!-- <h4>Pronunciation</h4> -->
-										<p class="para3">pronunciation</p>		
+										<p class="para3">pronunciation</p>
 
 									</div>
 								</div>
