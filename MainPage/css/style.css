@@ -313,12 +313,12 @@ font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .event input[type="radio"]:checked ~ .content-perspective .content-inner .example{
-	border-top-color: #fff !important; 
+	border-top-color: #fff !important;
 	box-shadow: 5px 10px 10px -6px rgba(0, 0, 0, 0.1);
 }
-	
+
 .event input[type="radio"]:checked ~ .content-perspective .content-inner .meaning{
-	border-top-color: #000; 
+	border-top-color: #000;
 	box-shadow: 10px 10px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
@@ -448,9 +448,9 @@ font-family: 'IBM Plex Sans', sans-serif;
 		border-left: none;
 		border-top: 5px solid #fff;
 	}
-	
+
 	.event input[type="radio"]:checked ~ .content-perspective .black {
-		border-top-color: #000; 
+		border-top-color: #000;
 		box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.1);
 	}
 	.black:before {
