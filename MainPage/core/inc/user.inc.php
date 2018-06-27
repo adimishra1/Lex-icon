@@ -1,5 +1,5 @@
 <?php
-	$conn = mysqli_connect('127.0.0.1','root','root','Lex') or die("Failed to query database".mysqli_error());
+	$conn = mysqli_connect('127.0.0.1','root','21522042003','Lex') or die("Failed to query database".mysqli_error());
 
 //check if the username exists in the database.
 function user_exists($conn,$username){
