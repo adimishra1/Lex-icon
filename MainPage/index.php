@@ -1,10 +1,36 @@
 <?php
-	session_start();
-	if(!isset($_SESSION['username'])){
-		header("location: ../index.html");
-		exit;
+	// session_start();
+	// $username = $_SESSION['username'];
+	include('core/init.inc.php');
+	if(isset($_POST['submit'])){
+
+		$word =  mysqli_real_escape_string($conn,stripcslashes($_POST['word']));
+		$meaning =  mysqli_real_escape_string($conn,stripcslashes($_POST['meaning']));
+		$sentence =  mysqli_real_escape_string($conn,stripcslashes($_POST['sentence']));
+
+		$errors = array();
+		if(empty($_POST['word'])){
+			$errors[] = 'The word cannot be empty.';
+		}
+		if(empty($_POST['meaning'])){
+			$errors[] = 'The meaning cannot be empty.';
+		}
+		if(empty($_POST['sentence'])){
+			$errors[] = 'The example cannot be empty.';
+		}
+		if(empty($errors)){
+			$bool = mysqli_query($conn,"INSERT INTO `trending` (`word`, `meaning`, `sentence`, `user_id`, `no_of_likes`) VALUES ('".$word."','".$meaning."','".$sentence."','".$user_id."','0')") or die(mysqli_error($conn));
+			if($bool){
+				$_SESSION['username'] = $username;
+				header("location: index.php");
+				exit;
+			}else{
+				echo "Failed to Insert";
+			}
+		}else{
+			var_dump($errors);
+		}
 	}
-	
 ?>
 
 <!DOCTYPE html>
@@ -19,21 +45,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sliding Triple View Layout</title>
+<title>Lex-icon</title>
 
 <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300|Quicksand:500" rel="stylesheet">
-<meta name="description" content="Sliding Triple View Layout with Visible Adjoining Sections" />
-<meta name="keywords" content="visible sides, layout, sliding, three panels, css transforms, web development, tutorial, template" />
-<meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/demo.css" />
 <link rel="stylesheet" type="text/css" href="css/component.css" />
 <script src="js/modernizr.custom.js"></script>
-<meta name="description" content="Responsive CSS Timeline with 3D Effect" />
-<meta name="keywords" content="timeline, 3d, css, css3, css-only, transitions, responsive, fluid" />
-<meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 
@@ -71,15 +89,19 @@
 							<div class="thumb user-4"><span>AJAY</span></div>
 							<div class="content-perspective">
 								<div class="content">
-									<div class="content-inner black">
-										<h3>altruistic
-											<img src="images/audio_button.jpeg" >
-										</h3>
-										<p class="meaning">showing a disinterested and selfless concern for the well-being of others; kl Q unselfish.</p>
-									</div>
-									<div class="content-inner">
-										<p class="example">a division or contrast between two things that are or are represented as being opposed or entirely different.<br><br></p>
-									</div>
+									<form method="post" action="index.php">
+										<div class="content-inner black">
+											<h3>
+												<input type="text" name="word" placeholder="write your Word" style="border: none; border-color: transparent;">
+											</h3>
+											<p class="meaning"><input type="text" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;"></p>
+										</div>
+										<div class="content-inner">
+											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent;"></p>
+										</div>
+										<input type="submit" name="submit">
+										<br><br>	
+									</form>
 								</div>
 							</div>
 						</li>

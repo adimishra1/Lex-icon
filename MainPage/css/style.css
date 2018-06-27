@@ -12,6 +12,9 @@
 	font-style: normal;
 }
 
+input:focus{
+    outline: none;
+}
 .timeline {
 	position: relative;
 	list-style-type: none;
@@ -371,6 +374,9 @@ font-family: 'IBM Plex Sans', sans-serif;
 	.event input[type="radio"]:checked ~ .content-perspective .content-inner p {
 		max-height: 500px;
 	}
+	.event input[type="text"]:focus ~ .content-perspective .content-inner p {
+		max-height: 500px;
+	}
 }
 
 @media screen and (max-width: 540px) {
@@ -454,6 +460,9 @@ font-family: 'IBM Plex Sans', sans-serif;
 	}
 
 	.event input[type="radio"]:checked ~ .content-perspective .content-inner p {
+		max-height: 300px;
+	}
+	.event input[type="text"]:focus ~ .content-perspective .content-inner p {
 		max-height: 300px;
 	}
 }
