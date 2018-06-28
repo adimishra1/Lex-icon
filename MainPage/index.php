@@ -59,6 +59,19 @@
     outline: none;
 }</style>
 
+
+
+<style>
+#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    width: 78%;
+    height: 150px;
+}
+
+</style>
+
 </head>
 
 
@@ -194,6 +207,29 @@
 			<div class="vs-content">
 				<div class="col">
 					content of about
+
+											<?php
+											$sql = "select * from fav";
+											$result=mysqli_query($conn,$sql);
+
+											$rowcount=mysqli_num_rows($result);
+
+											for($x=$rowcount;$x>0;$x=$x-1){
+												$query=mysqli_query($conn,"select * from fav where id =$x");
+												$row=mysqli_fetch_array($query);
+												$query_of_user = $row['user_id'];
+												if($query_of_user != $user_id) continue;
+												$fav_word_id =$row['word_id'];
+
+												$query2 = "SELECT word,meaning,sentence FROM trending WHERE id='".$fav_word_id."'";
+												$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
+												$word2 = mysqli_fetch_array($result2);
+												$word = $word2['word'];
+												$meaning = $word2['meaning'];
+												$sentence = $word2['sentence'];
+												echo '<p id="rcorners2">'.$word.'<br />'.$meaning.'<br />'.$sentence.'</p>';
+											}
+											 ?>
 				</div>
 			</div>
 		</section>

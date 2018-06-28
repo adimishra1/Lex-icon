@@ -1,10 +1,9 @@
 Please save the snippet of code show below by the name of cred.inc.php and do ensure that its absolute location is /var/www/html/cred.inc.php which is parrallel to /var/www/html/Lex-icon  folder and do update your username password and database name ('Lex'). in the code below.
 
-In case any one of you have saved the Lex-icon folder in home directory and have git init in that folder then you can save the folder name cred.inc.php in directory containing the Lex-icon folder although not being inside var folder would any how not affect the localhost in that case.
 
-////////////////Code to be updated and copy pasted//////////////////////// 
+////////////////Code to be updated and copy pasted////////////////////////
 
-<?php 
+<?php
 	$my_username ="";
 	$my_password = "";
 	$my_db_name = "";
