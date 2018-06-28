@@ -1,5 +1,7 @@
 <?php
-	$conn = mysqli_connect('127.0.0.1','root','root','Lex') or die("Failed to query database".mysqli_error());
+	include("/var/www/html/cred.inc.php");
+
+	$conn = mysqli_connect('127.0.0.1',$my_username,$my_password,$my_db_name) or die("Failed to query database".mysqli_error());
 
 //check if the username exists in the database.
 function user_exists($conn,$username){
@@ -36,8 +38,6 @@ function  valid_credentials($conn,$username,$password){
 		//echo "username dosent exist";
 		return false;
 	}
-	//$total = mysqli_query($conn,"SELECT COUNT(`id`) FROM `users` WHERE `username` = '{$username}' AND `password` = '{$password}'") or die(mysqli_error($conn));
-	//return (mysqli_result($conn,$total , 0) == '1') ?  true : false;
 }
 
 //adds a user to the database.

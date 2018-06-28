@@ -1,6 +1,4 @@
 <?php
-	// session_start();
-	// $username = $_SESSION['username'];
 	include('core/init.inc.php');
 	if(isset($_POST['submit'])){
 
@@ -18,6 +16,10 @@
 		if(empty($_POST['sentence'])){
 			$errors[] = 'The example cannot be empty.';
 		}
+		if(mysqli_query($conn,"SELECT * from trending WHERE word=".$word."")){
+			$errors = 'The word is already in timeline';
+		}
+
 		if(empty($errors)){
 			$bool = mysqli_query($conn,"INSERT INTO `trending` (`word`, `meaning`, `sentence`, `user_id`, `no_of_likes`) VALUES ('".$word."','".$meaning."','".$sentence."','".$user_id."','0')") or die(mysqli_error($conn));
 			if($bool){
@@ -88,7 +90,7 @@
 						<li class="event">
 							<input type="radio" name="tl-group" checked/>
 							<label></label>
-							<div class="thumb user-4"><span>AJAY</span></div>
+							<?php echo "<div class='thumb user-".$user_id."' style='background-image: url(".$user_image.");'>"; ?><span><?php echo $user_name; ?></span></div>
 							<div class="content-perspective">
 								<div class="content">
 									<form method="post" action="index.php">
@@ -109,33 +111,29 @@
 						</li>
 
 						<?php
-						//php
 						$sql = "select * from trending";
 						$result=mysqli_query($conn,$sql);
 
-
-
 						$rowcount=mysqli_num_rows($result);
 
-
-
 						for($x=$rowcount;$x>0;$x=$x-1){
-								$query=mysqli_query($conn,"select * from trending where id =$x");
-								$row=mysqli_fetch_array($query);
+							$query=mysqli_query($conn,"select * from trending where id =$x");
+							$row=mysqli_fetch_array($query);
 							$word=$row['word'];
 							$meaning=$row['meaning'];
 							$sentence=$row['sentence'];
 							$timeliner_id=$row['user_id'];
 
-							$query2 = "SELECT name FROM users WHERE id='".$timeliner_id."'";
+							$query2 = "SELECT name,images FROM users WHERE id='".$timeliner_id."'";
 							$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
 							$user2 = mysqli_fetch_array($result2);
 							$timeliner_name = $user2['name'];
+							$timeliner_image = $user2['images'];
 
 							echo '<li class="event">
 							<input type="radio" name="tl-group"/>
 							<label></label>
-							<div class="thumb user-3"><span>'.$timeliner_name.'</span></div>
+							<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
 							<div class="content-perspective">
 								<div class="content">
 									<div class="content-inner black">
@@ -147,8 +145,7 @@
 										</div>
 									</div>
 								</div>
-							</li>
-							';
+							</li>';
 						}
 
 

@@ -1,6 +1,7 @@
 <?php
-	$conn = mysqli_connect('127.0.0.1','root','root','Lex') or die("Failed to query database".mysqli_error());
+	include("/var/www/html/cred.inc.php");
 
+	$conn = mysqli_connect('127.0.0.1',$my_username,$my_password,$my_db_name) or die("Failed to query database".mysqli_error());
 //check if the username exists in the database.
 function user_exists($conn,$username){
 	$user =mysqli_real_escape_string($conn,$username);

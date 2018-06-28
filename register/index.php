@@ -20,7 +20,6 @@ if(isset($_POST['submit'])){
 	}
 
     if(empty($errors)){
-    	echo "First level passed";
         $file =$_FILES['pic']['tmp_name'];
     	if(!isset($file))
     	{
@@ -177,7 +176,7 @@ function readURL(input) {
 							</ul>
 						</div>
 						<div class="agile-signin">
-							<h4>Already have an account <a href="#">Sign In</a></h4>
+							<h4>Already have an account <a href="../login/index.php">Sign In</a></h4>
 						</div>
 					</div>
 				</div>
