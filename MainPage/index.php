@@ -164,6 +164,7 @@
 
 						 ?>
 
+
 					</ul>
 				</div>
 			</div>
@@ -221,9 +222,18 @@
 												if($query_of_user != $user_id) continue;
 												$fav_word_id =$row['word_id'];
 
+												$table_id = $row['table_id'];
+												if($table_id==0){
 												$query2 = "SELECT word,meaning,sentence FROM trending WHERE id='".$fav_word_id."'";
 												$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
 												$word2 = mysqli_fetch_array($result2);
+												}
+												else{
+													$query2 = "SELECT word,meaning,sentence FROM dictionary WHERE id='".$fav_word_id."'";
+													$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
+													$word2 = mysqli_fetch_array($result2);
+
+												}
 												$word = $word2['word'];
 												$meaning = $word2['meaning'];
 												$sentence = $word2['sentence'];
