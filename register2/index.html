@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Lex-icon</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	</head>
+	<body class="demo-1 loading">
+		<main>
+			<div class="content content--side">
+				<header class="codrops-header">
+					<div class="codrops-links">
+						<a class="codrops-icon codrops-icon--prev" href="https://tympanus.net/Development/DistortionHoverEffect/" title="Previous Demo"><svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg></a>
+						<a class="codrops-icon codrops-icon--drop" href="https://tympanus.net/codrops/?p=34613" title="Back to the article"><svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg></a>
+					</div>
+					<h1 class="codrops-header__title">LEX-ICON SIGNUP</h1>
+					<p class="info">Based on <a href="https://app.colibro.com/accounts-register/register">Colibro's sign up form</a>. Read more about <a href="https://www.reddit.com/r/web_design/comments/8bzbue/the_stronger_your_password_the_more_of_the/?st=jg1t6m9c&sh=e057ce1f">the idea</a>.</p>
+				</header>
+				<form class="form" action="index.php" method="POST">
+					<div class="form__item">
+						<label class="form__label" for="name">Full Name</label>
+						<input class="form__input" type="text" name="name" id="name">
+					</div>
+					<div class="form__item">
+						<label class="form__label" for="email">Email Address</label>
+						<input class="form__input" type="email" name="email" id="email">
+					</div>
+					<div class="form__item">
+						<label class="form__label" for="username">Username</label>
+						<input class="form__input" type="username" name="username" id="username">
+					</div>
+					<div class="form__item">
+						<label class="form__label" for="password">Password</label>
+						<div class="form__input-wrap">
+							<input class="form__input" type="password" name="password" id="password">
+							<p class="form__password-strength" id="strength-output"></p>
+							<br><br>
+						</div>
+					</div>
+					<div class="form__item">
+						<label class="form__label" for="repeat_password">Repeat Password</label>
+						<div class="form__input-wrap">
+							<input class="form__input" type="password" name="repeat_password" id="password">
+							<p class="form__password-strength" id="strength-output"></p>
+						</div>
+					</div>
+					<div class="form__item">
+						<img id="blah" src="#" onerror="this.src='img/default.jpg'" style="height: 7em; width: 5em;" />
+						<input type='file' onchange="readURL(this);" name="pic" />
+					</div>
+					<div class="form__item form__item--actions">
+						<span>Already have an account? <a class="form__link" href="#">Login here</a></span>
+						<input class="form__button" type="button" name="signup" value="Signup">
+					</div>
+				</form>
+			</div>
+			<div class="content content--side">
+				<div class="poster" style="background-image:url(img/1.jpg)"></div>
+				<div class="canvas-wrap">
+					<canvas></canvas>
+				</div>
+			</div>
+		</main>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script src="js/zxcvbn.js"></script>
+		<script src="js/demo1.js"></script>
+	</body>
+</html>
