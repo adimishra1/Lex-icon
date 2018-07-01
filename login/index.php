@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
   }
   if(empty($errors)){
     $_SESSION['username']=htmlentities($_POST['username']);
-    header('location: ../MainPage/index.php');
+    header('location: ../mainpage/index.php');
     exit;
   }
 }

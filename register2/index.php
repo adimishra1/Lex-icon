@@ -20,10 +20,10 @@ if(isset($_POST['submit'])){
 		$errors[] = 'The username you entered is already taken.';
 	}
 	if (!preg_match("/^[a-zA-Z ]*$/",$_POST["name"])){
-	  	$errors[] = "Only letters and white space allowed"; 
+	  	$errors[] = "Only letters and white space allowed";
 	}
 	if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-  		$errors[] = "Invalid email format"; 
+  		$errors[] = "Invalid email format";
 	}
     if(!($_FILES['file']['error'] === UPLOAD_ERR_OK)){
         $errors[] = 'Please select an Image';
@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
 	    		echo "Failed to Insert";
 	    	}else{
 	    		$_SESSION['username'] = htmlentities($_POST['username']);
-    			header("location: ../MainPage/index.php");
+    			header("location: ../mainpage/index.php");
     			exit;
     		}
     	}

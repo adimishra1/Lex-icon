@@ -56,7 +56,7 @@ if(isset($_POST['submit'])){
 	    	if(!$bool){
 	    		echo "Failed to Insert";
 	    	}else{
-    			header("location: ../MainPage/index.php");
+    			header("location: ../mainpage/index.php");
     			exit;
     		}
     	}
