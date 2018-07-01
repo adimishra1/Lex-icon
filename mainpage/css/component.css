@@ -95,9 +95,9 @@ html, body, .vs-container {
 .vs-container.vs-move-right .vs-nav-left a {
   border-top: 2px solid #fff;
 	border-bottom: 2px solid #fff;
-  border-color: #fff;
+  border-color: #000;
   border-radius: 7px;
-	color: #fff;
+	color: #000;
   font-weight:800;
   font-size:1.5em;
   margin-right: 10px;

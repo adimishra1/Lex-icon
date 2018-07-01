@@ -28,7 +28,7 @@
 			}else{
 				echo "Failed to Insert";
 			}
-		}else{ 
+		}else{
 			//error to be shown.
 		}
 	}
@@ -49,6 +49,7 @@
 <title>Lex-icon</title>
 
 <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300|Quicksand:500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/demo.css" />
 <link rel="stylesheet" type="text/css" href="css/component.css" />
@@ -99,21 +100,21 @@
 			<div class="vs-content">
 				<div class="col">
 					<ul class="timeline">
+						<label>
 						<li class="event">
 							<input type="radio" name="tl-group" checked/>
-							<label></label>
 							<?php echo "<div class='thumb user-".$user_id."' style='background-image: url(".$user_image.");'>"; ?><span><?php echo $user_name; ?></span></div>
 							<div class="content-perspective">
 								<div class="content">
 									<form method="post" action="index.php">
 										<div class="content-inner black">
 											<h3>
-												<input type="text" name="word" placeholder="write your Word" style="border: none; border-color: transparent;">
+												<input type="text" name="word" placeholder="write your Word" style="border: none; border-color: transparent; background-color:#ffea96; ">
 											</h3>
-											<p class="meaning"><input type="text" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;"></p>
+											<p class="meaning"><input type="text" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent; background-color:#ffea96;"></p>
 										</div>
 										<div class="content-inner">
-											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent;"></p>
+											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent; background-color:#ffea96;"></p>
 										</div>
 										<input type="submit" name="submit">
 										<br><br>
@@ -121,7 +122,7 @@
 								</div>
 							</div>
 						</li>
-
+					</label>
 						<?php
 						$sql = "select * from trending";
 						$result=mysqli_query($conn,$sql);
@@ -142,9 +143,8 @@
 							$timeliner_name = $user2['name'];
 							$timeliner_image = $user2['images'];
 
-							echo '<li class="event">
+							echo '<label><li class="event">
 							<input type="radio" name="tl-group"/>
-							<label></label>
 							<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
 							<div class="content-perspective">
 								<div class="content">
@@ -157,7 +157,7 @@
 										</div>
 									</div>
 								</div>
-							</li>';
+							</li></label>';
 						}
 
 
@@ -168,28 +168,44 @@
 				</div>
 			</div>
 		</section>
+		<?php
+$d=date("d");
+$m=date("m");
+$da=intval($d);
+$mo=intval($m);
+$t= $da * $mo;
+$t = $t % 5;
+$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=$t";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+?>
 		<section id="section-2">
 			<div class="vs-content">
 				<div class="col">
 					<div class="wordOfTheWeak">
 							<center>
 								<div class="description">
-									<h2>Word</h2>
+									<h2 id="wo">
+										<?php echo $row["word"];?>
+									</h2>
 									<div class="Meaning">
 										<!-- <h4>Meaning</h4> -->
-										<div class="para1">Meaning.</div>
+									  <div class="para1" id="me">
+											<i><?php echo $row["meaning"]; ?></i>
+										</div>
 									</div>
-
-									<div class="Usage">
+                  <div class="Usage">
 										<!-- <h4>Usage</h4> -->
-										<p class="para2">usage</p>
+									  <p class="para2" id="us">
+											<?php echo $row["sentence"];?>
+										</p>
 									</div>
-
+<!--
 									<div class="Pronunciation">
-										<!-- <h4>Pronunciation</h4> -->
-										<p class="para3">pronunciation</p>
+										<! <h4>Pronunciation</h4> -->
+										<!-- <p class="para3">pronunciation</p>
+                  </div> -->
 
-									</div>
 								</div>
 							</center>
 						</div>
