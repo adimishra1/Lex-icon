@@ -28,7 +28,7 @@
 			}else{
 				echo "Failed to Insert";
 			}
-		}else{ 
+		}else{
 			//error to be shown.
 		}
 	}
@@ -49,6 +49,7 @@
 <title>Lex-icon</title>
 
 <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300|Quicksand:500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/demo.css" />
 <link rel="stylesheet" type="text/css" href="css/component.css" />
@@ -168,28 +169,47 @@
 				</div>
 			</div>
 		</section>
+		<?php
+$d=date("d");
+$m=date("m");
+$da=intval($d);
+$mo=intval($m);
+$t= $da * $mo;
+$t = $t % 5;
+$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=$t";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+?>
 		<section id="section-2">
 			<div class="vs-content">
 				<div class="col">
 					<div class="wordOfTheWeak">
 							<center>
 								<div class="description">
-									<h2>Word</h2>
+									<h2 id="wo">
+										<?php echo $row["word"];
+										?>
+									</h2>
 									<div class="Meaning">
 										<!-- <h4>Meaning</h4> -->
-										<div class="para1">Meaning.</div>
+									  <div class="para1" id="me">
+											<i><?php echo $row["meaning"]; ?></i>
+										</div>
 									</div>
-
-									<div class="Usage">
+                  <div class="Usage">
 										<!-- <h4>Usage</h4> -->
-										<p class="para2">usage</p>
+									  <p class="para2" id="us">
+											<?php echo $row["sentence"];
+											  echo $ide;
+											?>
+										</p>
 									</div>
 
 									<div class="Pronunciation">
 										<!-- <h4>Pronunciation</h4> -->
 										<p class="para3">pronunciation</p>
+                  </div>
 
-									</div>
 								</div>
 							</center>
 						</div>
