@@ -74,7 +74,7 @@
 	};
 
 	// grid items:
-	var items = [].slice.call(document.querySelectorAll('ol.grid > .grid__item'));
+	var items = [].slice.call(document.querySelectorAll('div.grid__item'));
 
 	function init() {
 		/* Icon 1 */
