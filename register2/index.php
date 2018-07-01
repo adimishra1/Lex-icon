@@ -1,7 +1,6 @@
 <?php
 
 include('core/init.inc.php');
-
 if(isset($_POST['submit'])){
 
 	$errors = array();
@@ -59,6 +58,10 @@ if(isset($_POST['submit'])){
     			exit;
     		}
     	}
+    }else{
+    	session_destroy();
+    	header("location: index.php");
+    	exit;
     }
 }
 ?>
@@ -106,10 +109,10 @@ if(isset($_POST['submit'])){
 					</div>
 					<div class="form__item">
 						<img id="blah" src="#" onerror="this.src='img/default.jpg'" style="height: 7em; width: 5em;" />
-						<input type='file' name="file" />
+						<input type='file' name="file" value="upload a photo" />
 					</div>
 					<div class="form__item form__item--actions">
-						<span>Already have an account? <a class="form__link" href="#">Login here</a></span>
+						<span>Already have an account? <a class="form__link" href="../login/index.php">Login here</a></span>
 						<input class="form__button" type="submit" name="submit" value="Signup">
 					</div>
 				</form>

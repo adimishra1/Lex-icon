@@ -51,4 +51,22 @@ function add_user($conn,$name,$email,$username,$password,$image){
 	return $bool;
 }
 
+//check if the word exist in trending
+function word_exists($conn,$word){
+	$user =mysqli_real_escape_string($conn,$word);
+
+	$query = "SELECT * FROM trending WHERE word='".$word."'";
+
+	$result1 = mysqli_query($conn,$query) or die (mysqli_error($conn).$query);
+	$count = mysqli_num_rows($result1);
+
+	if ($count>0) {
+		//echo 'Sorry! This word already exists!';
+		return true;
+	} else {
+		//echo "word dosent exist";
+		return false;
+	}
+
+}
 ?>

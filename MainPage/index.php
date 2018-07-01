@@ -16,10 +16,9 @@
 		if(empty($_POST['sentence'])){
 			$errors[] = 'The example cannot be empty.';
 		}
-		if(mysqli_query($conn,"SELECT * from trending WHERE word=".$word."")){
-			$errors = 'The word is already in timeline';
+		if(word_exists($conn,$_POST['word'])){
+			$errors[] = 'The word you entered exist in trending.';
 		}
-
 		if(empty($errors)){
 			$bool = mysqli_query($conn,"INSERT INTO `trending` (`word`, `meaning`, `sentence`, `user_id`, `no_of_likes`) VALUES ('".$word."','".$meaning."','".$sentence."','".$user_id."','0')") or die(mysqli_error($conn));
 			if($bool){
@@ -29,8 +28,8 @@
 			}else{
 				echo "Failed to Insert";
 			}
-		}else{
-			var_dump($errors);
+		}else{ 
+			//error to be shown.
 		}
 	}
 ?>
