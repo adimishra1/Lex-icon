@@ -103,18 +103,19 @@
 						<label>
 						<li class="event">
 							<input type="radio" name="tl-group" checked/>
+							<label></label>
 							<?php echo "<div class='thumb user-".$user_id."' style='background-image: url(".$user_image.");'>"; ?><span><?php echo $user_name; ?></span></div>
 							<div class="content-perspective">
 								<div class="content">
 									<form method="post" action="index.php">
 										<div class="content-inner black">
 											<h3>
-												<input type="text" name="word" placeholder="write your Word" style="border: none; border-color: transparent; background-color:#ffea96; ">
+												<input type="text"  name="word" placeholder="New Word" style="border: none; border-color: transparent;background-color:#ffea96;">
 											</h3>
-											<p class="meaning"><input type="text" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent; background-color:#ffea96;"></p>
+											<h6><p class="meaning"><input type="text" width="1000" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h6>
 										</div>
 										<div class="content-inner">
-											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent; background-color:#ffea96;"></p>
+											<h7><p class="example"><input type="text" name="sentence" placeholder="Example" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h7>
 										</div>
 										<input type="submit" name="submit">
 										<br><br>
@@ -122,7 +123,7 @@
 								</div>
 							</div>
 						</li>
-					</label>
+						</label>
 						<?php
 						$sql = "select * from trending";
 						$result=mysqli_query($conn,$sql);
@@ -132,7 +133,7 @@
 						for($x=$rowcount;$x>0;$x=$x-1){
 							$query=mysqli_query($conn,"select * from trending where id =$x");
 							$row=mysqli_fetch_array($query);
-							$word=$row['word'];
+							$word=strtoupper($row['word']);
 							$meaning=$row['meaning'];
 							$sentence=$row['sentence'];
 							$timeliner_id=$row['user_id'];
@@ -145,15 +146,16 @@
 
 							echo '<label><li class="event">
 							<input type="radio" name="tl-group"/>
+							<label></label>
 							<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
 							<div class="content-perspective">
 								<div class="content">
 									<div class="content-inner black">
 										<h3>'.$word.'</h3>
-										<p class="meaning">'.$meaning.'</p>
+										<h6><p class="meaning">'.$meaning.'</p></h6>
 										</div>
 										<div class="content-inner">
-											<p class="example">'.$sentence.'<br><br></p>
+											<b><p class="example">'.$sentence.'<br><br></p></b>
 										</div>
 									</div>
 								</div>
@@ -186,7 +188,8 @@ $row = $result->fetch_assoc();
 							<center>
 								<div class="description">
 									<h2 id="wo">
-										<?php echo $row["word"];?>
+										<?php echo strtoupper($row["word"]);
+										?>
 									</h2>
 									<div class="Meaning">
 										<!-- <h4>Meaning</h4> -->
@@ -197,14 +200,16 @@ $row = $result->fetch_assoc();
                   <div class="Usage">
 										<!-- <h4>Usage</h4> -->
 									  <p class="para2" id="us">
-											<?php echo $row["sentence"];?>
+											<?php echo $row["sentence"];
+											  echo $ide;
+											?>
 										</p>
 									</div>
-<!--
+
 									<div class="Pronunciation">
-										<! <h4>Pronunciation</h4> -->
-										<!-- <p class="para3">pronunciation</p>
-                  </div> -->
+										<!-- <h4>Pronunciation</h4> -->
+										<p class="para3">pronunciation</p>
+                  </div>
 
 								</div>
 							</center>
