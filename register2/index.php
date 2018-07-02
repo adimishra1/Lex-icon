@@ -72,7 +72,11 @@ if(isset($_POST['submit'])){
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Lex-icon</title>
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
-		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<script>document.documentElement.className="js";
+		var supportsCssVars=function(){var e,t=document.createElement("style");
+		return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};
+		supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");
+	  </script>
 	</head>
 	<body class="demo-1 loading">
 		<main>
@@ -83,20 +87,20 @@ if(isset($_POST['submit'])){
 				<form class="form" action="index.php" method="POST" enctype='multipart/form-data'>
 					<div class="form__item">
 						<label class="form__label" for="name">Full Name</label>
-						<input class="form__input" type="text" name="name" id="name">
+						<input class="form__input" type="text" name="name" id="name" required="">
 					</div>
 					<div class="form__item">
 						<label class="form__label" for="email">Email Address</label>
-						<input class="form__input" type="email" name="email" id="email">
+						<input class="form__input" type="email" name="email" id="email" required="">
 					</div>
 					<div class="form__item">
 						<label class="form__label" for="username">Username</label>
-						<input class="form__input" type="username" name="username" id="username">
+						<input class="form__input" type="username" name="username" id="username" required="">
 					</div>
 					<div class="form__item">
 						<label class="form__label" for="password">Password</label>
 						<div class="form__input-wrap">
-							<input class="form__input" type="password" name="password" id="password">
+							<input class="form__input" type="password" name="password" id="password" required="">
 							<p class="form__password-strength" id="strength-output"></p>
 							<br><br>
 						</div>
@@ -104,12 +108,12 @@ if(isset($_POST['submit'])){
 					<div class="form__item">
 						<label class="form__label" for="repeat_password">Repeat Password</label>
 						<div class="form__input-wrap">
-							<input class="form__input" type="password" name="repeat_password" id="password">
+							<input class="form__input" type="password" name="repeat_password" id="password" required="">
 						</div>
 					</div>
 					<div class="form__item">
 						<img id="blah" src="#" onerror="this.src='img/default.jpg'" style="height: 7em; width: 5em;" />
-						<input type='file' name="file" value="upload a photo" />
+						<input type='file' name="file" value="upload a photo" required=""/>
 					</div>
 					<div class="form__item form__item--actions">
 						<span>Already have an account? <a class="form__link" href="../login/index.php">Login here</a></span>
