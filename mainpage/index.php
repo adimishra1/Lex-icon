@@ -106,12 +106,12 @@ input:focus,input{
 									<form method="post" action="index.php">
 										<div class="content-inner black">
 											<h3>
-												<input type="text" name="word" placeholder="write your Word" style="border: none; border-color: transparent;">
+												<input type="text" name="word" placeholder="write your Word" style="border: none; border-color: transparent;width:100%;">
 											</h3>
-											<p class="meaning"><input type="text" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;"></p>
+											<p class="meaning"><input type="text" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;width:100%;"></p>
 										</div>
 										<div class="content-inner">
-											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent;"></p>
+											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent;width:100%;"></p>
 										</div>
 										<input type="submit" name="submit">
 										<br><br>
@@ -344,7 +344,7 @@ input:focus,input{
 			// 			}else{
 			// 				$sql2="UPDATE fav SET status=1";
 			// 				mysqli_query($com,$sql2);
-							
+
 			// 				$sql="SELECT * from trending where id ='".$x."'";
 			// 				$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
 			// 				$row=mysqli_fetch_array($query);
@@ -375,7 +375,7 @@ input:focus,input{
 			// 		$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
 			// 		$reuslt3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
 			// 		$fav_row=mysqli_fetch_array($reuslt3);
-					
+
 			// 		$sql2="UPDATE fav SET status=0";
 			// 		mysqli_query($com,$sql2);
 
@@ -402,13 +402,13 @@ input:focus,input{
 			var items = [].slice.call(document.querySelectorAll('div.grid__item'));
 			/*icon 1*/
 			function init() {
-			<?php 
+			<?php
 			$order='0';
 			for($x=$rowcount_trending;$x>0;$x--){
 				$temp = $order;
 				$order++;
 				echo "
-			
+
 				var ell".$order." = items[".$temp."].querySelector('button.icobutton'), ell".$order."span = ell".$order.".querySelector('span'), ell".$order."counter = ell".$order.".querySelector('span.icobutton__text');
 				new Animocon(ell".$order.", {
 					tweens : [
@@ -540,7 +540,7 @@ input:focus,input{
 				/* Icon 1 */
 			";
 		}
-		
+
 			?>
 		}
 			init();

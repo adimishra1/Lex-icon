@@ -47,11 +47,12 @@ body {
 	padding: 0 10px;
 	letter-spacing: 0.1em;
 	color: #000;
+	/* color change of aabout section here*/
 	display: inline-block;
 }
 
 .codrops-top a:hover {
-	color: #000;
+	color: #fff;
 }
 
 .codrops-top span.right {
@@ -61,6 +62,7 @@ body {
 .codrops-top span.right a {
 	float: left;
 	display: block;
+
 }
 
 .codrops-icon:before {
