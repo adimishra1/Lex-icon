@@ -41,7 +41,6 @@
 
 <head>
 
-
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,13 +54,14 @@
 <link rel="stylesheet" type="text/css" href="css/component.css" />
 <script src="js/modernizr.custom.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<style>input:focus{
-    outline: none;
-}</style>
-
-
-
+<link href='https://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/icons.css" />
 <style>
+input:focus,input{
+    outline: none;
+    background-color:rgb(255, 234, 150);
+}
 #rcorners2 {
     border-radius: 25px;
     border: 2px solid #73AD21;
@@ -69,12 +69,8 @@
     width: 78%;
     height: 150px;
 }
-
 </style>
-
 </head>
-
-
 
 <body>
 
@@ -100,6 +96,7 @@
 			<div class="vs-content">
 				<div class="col">
 					<ul class="timeline">
+						<label>
 						<li class="event">
 							<input type="radio" name="tl-group" checked/>
 							<label></label>
@@ -122,64 +119,81 @@
 								</div>
 							</div>
 						</li>
-
+						</label>
 						<?php
-						$sql = "select * from trending";
-						$result=mysqli_query($conn,$sql);
+							$sql = "select * from trending";
+							$result=mysqli_query($conn,$sql);
+							$rowcount_trending=mysqli_num_rows($result);
+							for($x=$rowcount_trending;$x>0;$x=$x-1){
+								$sql="SELECT * from trending where id ='".$x."'";
+								$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
+								$row=mysqli_fetch_array($query);
+								$word=$row['word'];
+								$meaning=$row['meaning'];
+								$sentence=$row['sentence'];
+								$no_of_likes=$row['no_of_likes'];
 
-						$rowcount=mysqli_num_rows($result);
+								$timeliner_id=$row['user_id'];
+								$query2 = "SELECT name,images FROM users WHERE id='".$timeliner_id."'";
+								$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
+								$user2 = mysqli_fetch_array($result2);
+								$timeliner_name = $user2['name'];
+								$timeliner_image = $user2['images'];
 
-						for($x=$rowcount;$x>0;$x=$x-1){
-							$query=mysqli_query($conn,"select * from trending where id =$x");
-							$row=mysqli_fetch_array($query);
-							$word=$row['word'];
-							$meaning=$row['meaning'];
-							$sentence=$row['sentence'];
-							$timeliner_id=$row['user_id'];
-
-							$query2 = "SELECT name,images FROM users WHERE id='".$timeliner_id."'";
-							$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
-							$user2 = mysqli_fetch_array($result2);
-							$timeliner_name = $user2['name'];
-							$timeliner_image = $user2['images'];
-
-							echo '<li class="event">
-							<input type="radio" name="tl-group"/>
-							<label></label>
-							<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
-							<div class="content-perspective">
-								<div class="content">
-									<div class="content-inner black">
-										<h3>'.$word.'</h3>
-										<p class="meaning">'.$meaning.'</p>
-										</div>
-										<div class="content-inner">
-											<p class="example">'.$sentence.'<br><br></p>
+								if($no_of_likes==0){
+									$likes="";
+								}else{
+									$likes=$no_of_likes;
+								}
+								//check in fav table if user logged in exist with that particular word id if yes and status's value'  of one then give color code #F35186 else color code of #C0C1C3.
+								$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
+								$reuslt3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
+								if($reuslt3){
+									$fav_row=mysqli_fetch_array($reuslt3);
+									if($fav_row['status']==1){
+										$color_code ='#F35186';
+									}else{
+										$color_code='#C0C1C3';
+									}
+								}else{
+									$color_code='#C0C1C3';
+								}
+								echo '<label><li class="event">
+								<input type="radio" name="tl-group"/>
+								<label></label>
+								<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
+								<div class="content-perspective">
+									<div class="content">
+										<div class="content-inner black">
+											<h3>'.$word.'
+											<div class="grid__item">
+												<button class="icobutton icobutton--heart"><span class="fa fa-heart" style="color:'.$color_code.';"></span><span class="icobutton__text icobutton__text--side">'.$likes.'</span></button>
+											</div></h3>
+											<p class="meaning">'.$meaning.'</p>
+											</div>
+											<div class="content-inner">
+												<p class="example">'.$sentence.'<br><br></p>
+											</div>
 										</div>
 									</div>
-								</div>
-							</li>';
-						}
-
-
-						 ?>
-
-
+								</li></label>';
+							}
+						?>
 					</ul>
 				</div>
 			</div>
 		</section>
 		<?php
-$d=date("d");
-$m=date("m");
-$da=intval($d);
-$mo=intval($m);
-$t= $da * $mo;
-$t = $t % 5;
-$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=$t";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-?>
+			$d=date("d");
+			$m=date("m");
+			$da=intval($d);
+			$mo=intval($m);
+			$t= $da * $mo;
+			$t = $t % 5;
+			$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=$t";
+			$result = $conn->query($sql);
+			$row = $result->fetch_assoc();
+		?>
 		<section id="section-2">
 			<div class="vs-content">
 				<div class="col">
@@ -196,69 +210,49 @@ $row = $result->fetch_assoc();
 											<i><?php echo $row["meaning"]; ?></i>
 										</div>
 									</div>
-                  <div class="Usage">
+                  					<div class="Usage">
 										<!-- <h4>Usage</h4> -->
-									  <p class="para2" id="us">
+									  	<p class="para2" id="us">
 											<?php echo $row["sentence"];
-											  echo $ide;
 											?>
 										</p>
 									</div>
-
-									<div class="Pronunciation">
-										<!-- <h4>Pronunciation</h4> -->
-										<p class="para3">pronunciation</p>
-                  </div>
-
 								</div>
 							</center>
 						</div>
 				</div>
 			</div>
 		</section>
-		<!-- <section id="section-3">
+		<section id="section-3">
 			<div class="vs-content">
 				<div class="col">
-
-				</div>
-			</div>
-		</section> -->
-		<section id="section-4">
-			<div class="vs-content">
-				<div class="col">
-					content of about
-
-											<?php
-											$sql = "select * from fav";
-											$result=mysqli_query($conn,$sql);
-
-											$rowcount=mysqli_num_rows($result);
-
-											for($x=$rowcount;$x>0;$x=$x-1){
-												$query=mysqli_query($conn,"select * from fav where id =$x");
-												$row=mysqli_fetch_array($query);
-												$query_of_user = $row['user_id'];
-												if($query_of_user != $user_id) continue;
-												$fav_word_id =$row['word_id'];
-
-												$table_id = $row['table_id'];
-												if($table_id==0){
-												$query2 = "SELECT word,meaning,sentence FROM trending WHERE id='".$fav_word_id."'";
-												$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
-												$word2 = mysqli_fetch_array($result2);
-												}
-												else{
-													$query2 = "SELECT word,meaning,sentence FROM dictionary WHERE id='".$fav_word_id."'";
-													$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
-													$word2 = mysqli_fetch_array($result2);
-
-												}
-												$word = $word2['word'];
-												$meaning = $word2['meaning'];
-												$sentence = $word2['sentence'];
-												echo '<p id="rcorners2">'.$word.'<br />'.$meaning.'<br />'.$sentence.'</p>';
-											}
-											 ?>
+					<?php
+						$sql = "select * from fav";
+						$result=mysqli_query($conn,$sql);
+						$rowcount=mysqli_num_rows($result);
+						for($x=$rowcount;$x>0;$x=$x-1){
+							$query=mysqli_query($conn,"select * from fav where id =$x");
+							$row=mysqli_fetch_array($query);
+							$query_of_user = $row['user_id'];
+							if($query_of_user != $user_id) continue;
+							$fav_word_id =$row['word_id'];
+							$table_id = $row['table_id'];
+							if($table_id==0){
+								$query2 = "SELECT word,meaning,sentence FROM trending WHERE id='".$fav_word_id."'";
+								$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
+								$word2 = mysqli_fetch_array($result2);
+							}
+							else{
+								$query2 = "SELECT word,meaning,sentence FROM dictionary WHERE id='".$fav_word_id."'";
+								$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
+								$word2 = mysqli_fetch_array($result2);
+							}
+							$word = $word2['word'];
+							$meaning = $word2['meaning'];
+							$sentence = $word2['sentence'];
+							echo '<p id="rcorners2">'.$word.'<br />'.$meaning.'<br />'.$sentence.'</p>';
+						}
+					?>
 				</div>
 			</div>
 		</section>
@@ -267,7 +261,291 @@ $row = $result->fetch_assoc();
 	<script src="js/classie.js"></script>
 	<script src="js/hammer.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/mo.min.js"></script>
+	<script >
+		;(function(window) {
 
+			'use strict';
+
+			// taken from mo.js demos
+			function isIOSSafari() {
+				var userAgent;
+				userAgent = window.navigator.userAgent;
+				return userAgent.match(/iPad/i) || userAgent.match(/iPhone/i);
+			};
+
+			// taken from mo.js demos
+			function isTouch() {
+				var isIETouch;
+				isIETouch = navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+				return [].indexOf.call(window, 'ontouchstart') >= 0 || isIETouch;
+			};
+
+			// taken from mo.js demos
+			var isIOS = isIOSSafari(),
+				clickHandler = isIOS || isTouch() ? 'touchstart' : 'click';
+
+			function extend( a, b ) {
+				for( var key in b ) {
+					if( b.hasOwnProperty( key ) ) {
+						a[key] = b[key];
+					}
+				}
+				return a;
+			}
+
+			function Animocon(ell, options) {
+				this.ell = ell;
+				this.options = extend( {}, this.options );
+				extend( this.options, options );
+
+				this.checked = false;
+
+				this.timeline = new mojs.Timeline();
+
+				for(var i = 0, len = this.options.tweens.length; i < len; ++i) {
+					this.timeline.add(this.options.tweens[i]);
+				}
+
+				var self = this;
+				this.ell.addEventListener(clickHandler, function() {
+					if( self.checked ) {
+						self.options.onUnCheck();
+					}
+					else {
+						self.options.onCheck();
+						self.timeline.replay();
+					}
+					self.checked = !self.checked;
+				});
+			}
+
+			// function onchangedb(x){
+			// 	var jvalue = x ;
+			// 	<?php $x ;?>
+			// 	<?php
+			// 		//first search in fav table if not found then insert a new row inside fav table else update the existing row status's value to one and update the no_of_likes in trending's coloumn i.e. increment it by one.
+
+			// 		$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
+			// 		$reuslt3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
+			// 		if($reuslt3){
+			// 			$fav_row=mysqli_fetch_array($reuslt3);
+			// 			if($fav_row['status']==1){
+			// 				$sql2="UPDATE fav SET status=0";
+			// 				mysqli_query($com,$sql2);
+
+			// 				$sql="SELECT * from trending where id ='".$x."'";
+			// 				$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
+			// 				$row=mysqli_fetch_array($query);
+			// 				$no_of_likes=$row['no_of_likes'];
+			// 				$no_of_likes--;
+			// 				$sql3="UPDATE trending SET no_of_likes=".$no_of_likes."";
+			// 				mysql_query($conn,$sql3);
+			// 			}else{
+			// 				$sql2="UPDATE fav SET status=1";
+			// 				mysqli_query($com,$sql2);
+							
+			// 				$sql="SELECT * from trending where id ='".$x."'";
+			// 				$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
+			// 				$row=mysqli_fetch_array($query);
+			// 				$no_of_likes=$row['no_of_likes'];
+			// 				$no_of_likes++;
+			// 				$sql3="UPDATE trending SET no_of_likes=".$no_of_likes."";
+			// 				mysqli_query($com,$sql3);
+			// 			}
+			// 		}else{
+			// 			$sql2="INSERT INTO fav (`user_id`,`word_id`,`status`) VALUES (".$user_id.",".$x.",'1')";
+			// 			mysql_query($conn,$sql2);
+
+			// 			$sql="SELECT * from trending where id ='".$x."'";
+			// 			$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
+			// 			$row=mysqli_fetch_array($query);
+			// 			$no_of_likes=$row['no_of_likes'];
+			// 			$no_of_likes++;
+			// 			$sql3="UPDATE trending SET no_of_likes=".$no_of_likes."";
+			// 			mysqli_query($com,$sql3);
+			// 		}
+			// 	?>
+			// }
+			// function inchangedb(x){
+			// 	var jvalue = x ;
+			// 	<?php $x;?>
+			// 	<?php
+			// 		//update the inserted rows status's value to zero and updated the no_of_like in trending's column i.e. decrement it by one.
+			// 		$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
+			// 		$reuslt3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
+			// 		$fav_row=mysqli_fetch_array($reuslt3);
+					
+			// 		$sql2="UPDATE fav SET status=0";
+			// 		mysqli_query($com,$sql2);
+
+			// 		$sql="SELECT * from trending where id ='".$x."'";
+			// 		$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
+			// 		$row=mysqli_fetch_array($query);
+			// 		$no_of_likes=$row['no_of_likes'];
+			// 		$no_of_likes--;
+			// 		$sql3="UPDATE trending SET no_of_likes=".$no_of_likes."";
+			// 		mysql_query($conn,$sql3);
+			// 	?>
+			// }
+
+
+			Animocon.prototype.options = {
+				tweens : [
+					new mojs.Burst({})
+				],
+				onCheck : function() { return false; },
+				onUnCheck : function() { return false; }
+			};
+
+			// grid items:
+			var items = [].slice.call(document.querySelectorAll('div.grid__item'));
+			/*icon 1*/
+			function init() {
+			<?php 
+			$order='0';
+			for($x=$rowcount_trending;$x>0;$x--){
+				$temp = $order;
+				$order++;
+				echo "
+			
+				var ell".$order." = items[".$temp."].querySelector('button.icobutton'), ell".$order."span = ell".$order.".querySelector('span'), ell".$order."counter = ell".$order.".querySelector('span.icobutton__text');
+				new Animocon(ell".$order.", {
+					tweens : [
+						// ring animation
+						new mojs.Shape({
+							parent: ell".$order.",
+							duration: 750,
+							type: 'circle',
+							radius: {0: 40},
+							fill: 'transparent',
+							stroke: '#F35186',
+							strokeWidth: {35:0},
+							opacity: 0.2,
+							top: '45%',
+							easing: mojs.easing.bezier(0, 1, 0.5, 1)
+						}),
+						new mojs.Shape({
+							parent: ell".$order.",
+							duration: 500,
+							delay: 100,
+							type: 'circle',
+							radius: {0: 20},
+							fill: 'transparent',
+							stroke: '#F35186',
+							strokeWidth: {5:0},
+							opacity: 0.2,
+							x : 40,
+							y : -60,
+							easing: mojs.easing.sin.out
+						}),
+						new mojs.Shape({
+							parent: ell".$order.",
+							duration: 500,
+							delay: 180,
+							type: 'circle',
+							radius: {0: 10},
+							fill: 'transparent',
+							stroke: '#F35186',
+							strokeWidth: {5:0},
+							opacity: 0.5,
+							x: -10,
+							y: -80,
+							isRunLess: true,
+							easing: mojs.easing.sin.out
+						}),
+						new mojs.Shape({
+							parent: ell".$order.",
+							duration: 800,
+							delay: 240,
+							type: 'circle',
+							radius: {0: 20},
+							fill: 'transparent',
+							stroke: '#F35186',
+							strokeWidth: {5:0},
+							opacity: 0.3,
+							x: -70,
+							y: -10,
+							easing: mojs.easing.sin.out
+						}),
+						new mojs.Shape({
+							parent: ell".$order.",
+							duration: 800,
+							delay: 240,
+							type: 'circle',
+							radius: {0: 20},
+							fill: 'transparent',
+							stroke: '#F35186',
+							strokeWidth: {5:0},
+							opacity: 0.4,
+							x: 80,
+							y: -50,
+							easing: mojs.easing.sin.out
+						}),
+						new mojs.Shape({
+							parent: ell".$order.",
+							duration: 1000,
+							delay: 300,
+							type: 'circle',
+							radius: {0: 15},
+							fill: 'transparent',
+							stroke: '#F35186',
+							strokeWidth: {5:0},
+							opacity: 0.2,
+							x: 20,
+							y: -100,
+							easing: mojs.easing.sin.out
+						}),
+						new mojs.Shape({
+							parent: ell".$order.",
+							duration: 600,
+							delay: 330,
+							type: 'circle',
+							radius: {0: 25},
+							fill: 'transparent',
+							stroke: '#F35186',
+							strokeWidth: {5:0},
+							opacity: 0.4,
+							x: -40,
+							y: -90,
+							easing: mojs.easing.sin.out
+						}),
+						// icon scale animation
+						new mojs.Tween({
+							duration : 1200,
+							easing: mojs.easing.ease.out,
+							onUpdate: function(progress) {
+								if(progress > 0.3) {
+									var elasticOutProgress = mojs.easing.elastic.out(1.43*progress-0.43);
+									ell".$order."span.style.WebkitTransform = ell".$order."span.style.transform = 'scale3d(' + elasticOutProgress + ',' + elasticOutProgress + ',1)';
+								}
+								else {
+									ell".$order."span.style.WebkitTransform = ell".$order."span.style.transform = 'scale3d(0,0,1)';
+								}
+							}
+						})
+					],
+					onCheck : function() {
+						ell".$order.".style.color = '#F35186';
+						ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
+						/*onchangedb(".$x.");*/
+					},
+					onUnCheck : function() {
+						ell".$order.".style.color = '#C0C1C3';
+						var current = Number(ell".$order."counter.innerHTML);
+						ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
+						/*inchangedb(".$x.");*/
+					}
+				});
+				/* Icon 1 */
+			";
+		}
+		
+			?>
+		}
+			init();
+		})(window);
+	</script>
 </div>
 
 
