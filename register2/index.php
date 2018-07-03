@@ -25,9 +25,9 @@ if(isset($_POST['submit'])){
 	if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
   		$errors[] = "Invalid email format";
 	}
-    if(!($_FILES['file']['error'] === UPLOAD_ERR_OK)){
-        $errors[] = 'Please select an Image';
-   	}
+  if(!($_FILES['file']['error'] === UPLOAD_ERR_OK)){
+      $errors[] = 'Please select an Image';
+ 	}
     if(empty($errors)){
    		$name = $_FILES['file']['name'];
    		$target_dir = "upload/";
@@ -58,10 +58,6 @@ if(isset($_POST['submit'])){
     			exit;
     		}
     	}
-    }else{
-    	session_destroy();
-    	header("location: index.php");
-    	exit;
     }
 }
 ?>
@@ -84,6 +80,21 @@ if(isset($_POST['submit'])){
 				<header class="codrops-header">
 					<h1 class="codrops-header__title">LEX-ICON SIGNUP</h1>
 				</header>
+				<div>
+				<?php
+				 if(empty($errors)===false){
+			  ?>
+					<ul>
+						 <?php
+						 		foreach($errors as $error){
+									echo "<li>$error</li>";
+								}
+				 		 ?>
+					</ul>
+					<?php
+					}
+					?>
+				</div>
 				<form class="form" action="index.php" method="POST" enctype='multipart/form-data'>
 					<div class="form__item">
 						<label class="form__label" for="name">Full Name</label>
@@ -108,7 +119,7 @@ if(isset($_POST['submit'])){
 					<div class="form__item">
 						<label class="form__label" for="repeat_password">Repeat Password</label>
 						<div class="form__input-wrap">
-							<input class="form__input" type="password" name="repeat_password" id="password" required="">
+							<input class="form__input" type="password" name="repeat_password" id="reppassword" required="">
 						</div>
 					</div>
 					<div class="form__item">
