@@ -494,7 +494,9 @@ $row = $result->fetch_assoc();
 												$query=mysqli_query($conn,"select * from fav where id =$x");
 												$row=mysqli_fetch_array($query);
 												$query_of_user = $row['user_id'];
+												$current_status = $row['status'];
 												if($query_of_user != $user_id) continue;
+												if($current_status != 1) continue;
 												$fav_word_id =$row['word_id'];
 
 												$table_id = $row['table_id'];
