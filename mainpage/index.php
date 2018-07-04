@@ -56,6 +56,10 @@
 <script src="js/modernizr.custom.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700' rel='stylesheet'>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="../css/Loader.css" rel="stylesheet">
+
 <style>input:focus{
     outline: none;
 }</style>
@@ -391,11 +395,14 @@ h1+p, p+p {
 
 <body>
 
+	<div id="loader-wrapper">
+	  <div id="loader"></div>
+	</div>
 
 <div id="vs-container" class="vs-container">
 
 	<div class="codrops-top clearfix">
-		<span class="right"><a href="#section-5">About</a><a href="#section-4">Favourites</a><a href="logout.php"><span>Logout</span></a></span>
+		<span class="right"><a href="aboutus/index.html">About</a><a href="#section-4">Favourites</a><a href="logout.php"><span>Logout</span></a></span>
 	</div>
 
 	<header class="vs-header">
@@ -557,7 +564,9 @@ $row = $result->fetch_assoc();
 												$query=mysqli_query($conn,"select * from fav where id =$x");
 												$row=mysqli_fetch_array($query);
 												$query_of_user = $row['user_id'];
+												$current_status = $row['status'];
 												if($query_of_user != $user_id) continue;
+												if($current_status != 1) continue;
 												$fav_word_id =$row['word_id'];
 
 												$table_id = $row['table_id'];
@@ -602,6 +611,23 @@ $row = $result->fetch_assoc();
 
 </div>
 
+
+<script>
+// jQuery('#loader').fadeOut(2000);
+// jQuery('#loader-wrapper').fadeOut(2000);
+
+
+jQuery(document).ready(function() {
+    jQuery('#loader').fadeOut(2000);
+});
+
+
+jQuery(document).ready(function() {
+    jQuery('#loader-wrapper').fadeOut(2000);
+});
+
+
+</script>
 
 </body>
 
