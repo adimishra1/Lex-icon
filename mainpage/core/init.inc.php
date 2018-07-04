@@ -4,7 +4,6 @@
 	//$exception =  array('register', 'login');
 	$path = dirname(__FILE__);
 	include("/var/www/html/cred.inc.php");
-
 	if(!isset($_SESSION['username'])){
 		header("location: ../index.html");
 		exit;

@@ -70,6 +70,7 @@ input:focus,input{
     height: 150px;
 }
 </style>
+
 </head>
 
 <body>
@@ -147,27 +148,37 @@ input:focus,input{
 								}
 								//check in fav table if user logged in exist with that particular word id if yes and status's value'  of one then give color code #F35186 else color code of #C0C1C3.
 								$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
-								$reuslt3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
-								if($reuslt3){
-									$fav_row=mysqli_fetch_array($reuslt3);
+								$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
+								$cond ='';
+								$result3count = mysqli_num_rows($result3);
+								if($result3count>0){
+									$fav_row=mysqli_fetch_array($result3);
 									if($fav_row['status']==1){
 										$color_code ='#F35186';
+										$cond = '0';
 									}else{
 										$color_code='#C0C1C3';
+										$cond = '1';
 									}
 								}else{
 									$color_code='#C0C1C3';
+									$cond = '1';
 								}
 								echo '<label><li class="event">
 								<input type="radio" name="tl-group"/>
 								<label></label>
+								<style>
+									.icoButton'.$x.'{
+										color :'.$color_code.';
+									}
+								</style>
 								<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
 								<div class="content-perspective">
 									<div class="content">
 										<div class="content-inner black">
 											<h3>'.$word.'
-											<div class="grid__item">
-												<button class="icobutton icobutton--heart"><span class="fa fa-heart" style="color:'.$color_code.';"></span><span class="icobutton__text icobutton__text--side">'.$likes.'</span></button>
+											<div class="grid__item" >
+												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.');" value="submit"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side">'.$likes.'</span></button>
 											</div></h3>
 											<p class="meaning">'.$meaning.'</p>
 											</div>
@@ -177,6 +188,17 @@ input:focus,input{
 										</div>
 									</div>
 								</li></label>';
+								echo "<script type='text/javascript'>
+										function post(x){
+											console.log(2);
+											var user_id = ".$user_id.";
+											var word_id = x;
+
+											$.post('core/server.php',{user_id:user_id,word_id:word_id},function(data){
+													$('#result').html(data);
+												});
+										}
+									</script>";
 							}
 						?>
 					</ul>
@@ -327,9 +349,9 @@ input:focus,input{
 			// 		//first search in fav table if not found then insert a new row inside fav table else update the existing row status's value to one and update the no_of_likes in trending's coloumn i.e. increment it by one.
 
 			// 		$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
-			// 		$reuslt3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
-			// 		if($reuslt3){
-			// 			$fav_row=mysqli_fetch_array($reuslt3);
+			// 		$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
+			// 		if($result3){
+			// 			$fav_row=mysqli_fetch_array($result3);
 			// 			if($fav_row['status']==1){
 			// 				$sql2="UPDATE fav SET status=0";
 			// 				mysqli_query($com,$sql2);
@@ -373,8 +395,8 @@ input:focus,input{
 			// 	<?php
 			// 		//update the inserted rows status's value to zero and updated the no_of_like in trending's column i.e. decrement it by one.
 			// 		$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
-			// 		$reuslt3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
-			// 		$fav_row=mysqli_fetch_array($reuslt3);
+			// 		$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
+			// 		$fav_row=mysqli_fetch_array($result3);
 
 			// 		$sql2="UPDATE fav SET status=0";
 			// 		mysqli_query($com,$sql2);
@@ -407,8 +429,35 @@ input:focus,input{
 			for($x=$rowcount_trending;$x>0;$x--){
 				$temp = $order;
 				$order++;
-				echo "
+				if ($cond == '1') {
+					$string ="onCheck : function() {
+						ell".$order.".style.color = '#F35186';
+						ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
 
+						/*onchangedb(".$x.");*/
+					},
+					onUnCheck : function() {
+						ell".$order.".style.color = '#C0C1C3';
+						var current = Number(ell".$order."counter.innerHTML);
+						ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
+						/*inchangedb(".$x.");*/
+					}";
+				}else{
+					$string ="onCheck : function() {
+						ell".$order.".style.color = '#C0C1C3';
+						var current = Number(ell".$order."counter.innerHTML);
+						ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
+
+						/*onchangedb(".$x.");*/
+					},
+					onUnCheck : function() {
+						ell".$order.".style.color = '#F35186';
+						ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
+						/*inchangedb(".$x.");*/
+					}";
+				}
+
+				echo "
 				var ell".$order." = items[".$temp."].querySelector('button.icobutton'), ell".$order."span = ell".$order.".querySelector('span'), ell".$order."counter = ell".$order.".querySelector('span.icobutton__text');
 				new Animocon(ell".$order.", {
 					tweens : [
@@ -525,17 +574,7 @@ input:focus,input{
 							}
 						})
 					],
-					onCheck : function() {
-						ell".$order.".style.color = '#F35186';
-						ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
-						/*onchangedb(".$x.");*/
-					},
-					onUnCheck : function() {
-						ell".$order.".style.color = '#C0C1C3';
-						var current = Number(ell".$order."counter.innerHTML);
-						ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
-						/*inchangedb(".$x.");*/
-					}
+					".$string."
 				});
 				/* Icon 1 */
 			";
@@ -546,6 +585,9 @@ input:focus,input{
 			init();
 		})(window);
 	</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 </div>
 
 

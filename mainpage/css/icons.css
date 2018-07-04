@@ -4,7 +4,6 @@
 	position: relative;
 	margin: 0;
 	padding: 0;
-	color: #c0c1c3;
 	border: 0;
 	background: none;
 	overflow: visible;
@@ -47,5 +46,5 @@
 
 /* Unicorn */
 .icobutton--unicorn svg {
-	fill: #c0c1c3;
+	fill: #f35816;
 }
