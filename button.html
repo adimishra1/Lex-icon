@@ -5,7 +5,7 @@
 
 
 
-    .button {
+    .buttona {
       float: left;
       min-width: 150px;
       max-width: 250px;
@@ -24,78 +24,78 @@
 
 
 
-    .button:focus {
+    .buttona:focus {
       outline: none;
     }
-    .button > span {
+    .buttona > span {
       vertical-align: middle;
     }
 
 
     /* Text color adjustments (we could stick to the "inherit" but that does not work well in Safari) */
-    .bg-1 .button {
+    .bg-1 .buttona {
       color: #37474f;
       border-color: #37474f;
     }
-    .bg-2 .button {
+    .bg-2 .buttona {
       color: #ECEFF1;
       border-color: #ECEFF1;
     }
-    .bg-3 .button {
+    .bg-3 .buttona {
       color: #fff;
       border-color: #fff;
     }
 
     /* Sizes */
-    .button--size-s {
+    .buttona--size-s {
       font-size: 14px;
     }
-    .button--size-m {
+    .buttona--size-m {
       font-size: 16px;
     }
-    .button--size-l {
+    .buttona--size-l {
       font-size: 18px;
     }
 
     /* Typography and Roundedness */
-    .button--text-upper {
+    .buttona--text-upper {
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-    .button--text-thin {
+    .buttona--text-thin {
       font-weight: 300;
     }
-    .button--text-medium {
+    .buttona--text-medium {
       font-weight: 500;
     }
-    .button--text-thick {
+    .buttona--text-thick {
       font-weight: 600;
     }
-    .button--round-s {
+    .buttona--round-s {
       border-radius: 5px;
     }
-    .button--round-m {
+    .buttona--round-m {
       border-radius: 15px;
     }
-    .button--round-l {
+    .buttona--round-l {
       border-radius: 40px;
     }
 
     /* Borders */
-    .button--border-thin {
+    .buttona--border-thin {
       border: 1px solid;
     }
-    .button--border-medium {
+    .buttona--border-medium {
       border: 2px solid;
     }
-    .button--border-thick {
+    .buttona--border-thick {
       border: 3px solid;
     }
 
 
 
     /* Nina */
-    .button--nina {
+    .buttona--nina {
       padding: 0 2em;
       background: #7986cb;
       color: #fff;
@@ -103,11 +103,11 @@
       -webkit-transition: background-color 0.3s;
       transition: background-color 0.3s;
     }
-    .button--nina.button--inverted {
+    .buttona--nina.buttona--inverted {
       background: #fff;
       color: #7986cb;
     }
-    .button--nina > span {
+    .buttona--nina > span {
       display: inline-block;
       padding: 1em 0;
       opacity: 0;
@@ -119,7 +119,7 @@
       -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
       transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
     }
-    .button--nina::before {
+    .buttona--nina::before {
       content: attr(data-text);
       position: absolute;
       top: 0;
@@ -132,56 +132,56 @@
       -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
       transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
     }
-    .button--nina:hover {
+    .buttona--nina:hover {
       background-color: #3f51b5;
     }
-    .button--nina:hover::before {
+    .buttona--nina:hover::before {
       opacity: 0;
       -webkit-transform: translate3d(0, 100%, 0);
       transform: translate3d(0, 100%, 0);
     }
-    .button--nina:hover > span {
+    .buttona--nina:hover > span {
       opacity: 1;
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
     }
-    .button--nina:hover > span:nth-child(1) {
+    .buttona--nina:hover > span:nth-child(1) {
       -webkit-transition-delay: 0.045s;
       transition-delay: 0.045s;
     }
-    .button--nina:hover > span:nth-child(2) {
+    .buttona--nina:hover > span:nth-child(2) {
       -webkit-transition-delay: 0.09s;
       transition-delay: 0.09s;
     }
-    .button--nina:hover > span:nth-child(3) {
+    .buttona--nina:hover > span:nth-child(3) {
       -webkit-transition-delay: 0.135s;
       transition-delay: 0.135s;
     }
-    .button--nina:hover > span:nth-child(4) {
+    .buttona--nina:hover > span:nth-child(4) {
       -webkit-transition-delay: 0.18s;
       transition-delay: 0.18s;
     }
-    .button--nina:hover > span:nth-child(5) {
+    .buttona--nina:hover > span:nth-child(5) {
       -webkit-transition-delay: 0.225s;
       transition-delay: 0.225s;
     }
-    .button--nina:hover > span:nth-child(6) {
+    .buttona--nina:hover > span:nth-child(6) {
       -webkit-transition-delay: 0.27s;
       transition-delay: 0.27s;
     }
-    .button--nina:hover > span:nth-child(7) {
+    .buttona--nina:hover > span:nth-child(7) {
       -webkit-transition-delay: 0.315s;
       transition-delay: 0.315s;
     }
-    .button--nina:hover > span:nth-child(8) {
+    .buttona--nina:hover > span:nth-child(8) {
       -webkit-transition-delay: 0.36s;
       transition-delay: 0.36s;
     }
-    .button--nina:hover > span:nth-child(9) {
+    .buttona--nina:hover > span:nth-child(9) {
       -webkit-transition-delay: 0.405s;
       transition-delay: 0.405s;
     }
-    .button--nina:hover > span:nth-child(10) {
+    .buttona--nina:hover > span:nth-child(10) {
       -webkit-transition-delay: 0.45s;
       transition-delay: 0.45s;
     }
@@ -194,7 +194,7 @@
   </head>
   <body>
 
-    <button class="button button--nina button--round-l button--text-thick button--inverted" data-text="Create">
+    <button class="buttona buttona--nina buttona--round-l buttona--text-thick buttona--inverted" data-text="Create">
       <span>C</span><span>r</span><span>e</span><span>a</span><span>t</span><span>e</span>
     </button>
 
