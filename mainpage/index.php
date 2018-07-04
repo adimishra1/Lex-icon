@@ -599,13 +599,6 @@ h1+p, p+p {
 			</div>
 		</section>
 		<section id="section-3">
-			<div class="vs-content">
-				<div class="col">
-
-				</div>
-			</div>
-		</section> -->
-		<section id="section-4">
 			<div class="vs-content ">
 				<div class="col">
 
@@ -652,11 +645,11 @@ h1+p, p+p {
 											           <a class="info" href="#">'.$meaning.'<br/>
 																'.$sentence.'</a>
 										         </div>
-										     </div></div>
-										 </div><br /><br /><br /><br />';
-											}
-											 ?>
-											 </div>
+							</div></div>
+							</div><br /><br /><br /><br />';
+						}
+						?>
+					</div>
 				</div>
 			</div>
 		</section>
