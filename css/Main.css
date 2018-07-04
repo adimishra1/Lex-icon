@@ -67,6 +67,14 @@
     color: #fff;
 
   }
+  
+  .demo .login1 {
+	left: 0%;
+    top: 100%;
+    width: 100%;
+	text-decoration: underline;
+	color: #000;
+  }
 
 /*CAPTION*/
   .captiona span.bordera {

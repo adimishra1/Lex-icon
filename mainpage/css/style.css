@@ -125,6 +125,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 	top: 36px;
 	position: absolute;
 	display: block;
+
 }
 
 .event input[type="radio"] {
@@ -531,7 +532,11 @@ font-family: 'IBM Plex Sans', sans-serif;
 	position: relative;
 	top: 30%;
 	background-color: rgba(0,0,0,0.2);
+<<<<<<< HEAD
+	/* text-align:justify; */
+=======
 	text-align:right;
+>>>>>>> f4d3af3c591916ec4c50381ec29e9939ff7f0df9
 	font-weight: bold;
 }
 .para2{
@@ -539,7 +544,11 @@ font-family: 'IBM Plex Sans', sans-serif;
 	margin-top: 20px;
 	margin-bottom: 12px;
 	background-color: rgba(0,0,0,0.3);
+<<<<<<< HEAD
+	/* text-align: justify; */
+=======
 	text-align: right;
+>>>>>>> f4d3af3c591916ec4c50381ec29e9939ff7f0df9
 }
 .para3{
 	padding: auto ;
