@@ -236,6 +236,7 @@ h1+p, p+p {
 
 <style>
 
+
 .hovereffect {
   width: 100%;
   height: 100%;
@@ -244,6 +245,9 @@ h1+p, p+p {
   position: relative;
   text-align: center;
   cursor: default;
+	margin: 0 0 50px 0;
+
+
 }
 
 .hovereffect .overlay {
@@ -285,7 +289,7 @@ h1+p, p+p {
 .hovereffect:hover h2 {
   -webkit-transform: translateY(5px);
   -ms-transform: translateY(5px);
-  transform: translateY(5px);
+  transform: translateY(50px);
 }
 
 .hovereffect a.info {
@@ -394,7 +398,7 @@ h1+p, p+p {
 							$timeliner_name = $user2['name'];
 							$timeliner_image = $user2['images'];
 
-							echo '<label><li class="event">
+							echo '<label><li class="event gap">
 							<input type="radio" name="tl-group"/>
 							<label></label>
 							<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
@@ -478,7 +482,7 @@ $row = $result->fetch_assoc();
 			<div class="vs-content ">
 				<div class="col">
 
-					<h1 class="title">Your Favourites</h1>
+					<h1 class="title">Your Favourites<br /><br /></h1>
 
 											<?php
 											$sql = "select * from fav";
