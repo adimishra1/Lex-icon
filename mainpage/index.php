@@ -147,7 +147,7 @@ input:focus,input{
 									$likes=$no_of_likes;
 								}
 								//check in fav table if user logged in exist with that particular word id if yes and status's value'  of one then give color code #F35186 else color code of #C0C1C3.
-								$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
+								$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."' AND table_id=0";
 								$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
 								$cond ='';
 								$result3count = mysqli_num_rows($result3);
@@ -178,7 +178,7 @@ input:focus,input{
 										<div class="content-inner black">
 											<h3>'.$word.'
 											<div class="grid__item" >
-												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.');" value="submit"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side">'.$likes.'</span></button>
+												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.',0);" value="submit"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side">'.$likes.'</span></button>
 											</div></h3>
 											<p class="meaning">'.$meaning.'</p>
 											</div>
@@ -189,12 +189,11 @@ input:focus,input{
 									</div>
 								</li></label>';
 								echo "<script type='text/javascript'>
-										function post(x){
-											console.log(2);
+										function post(x,table_id){
 											var user_id = ".$user_id.";
 											var word_id = x;
-
-											$.post('core/server.php',{user_id:user_id,word_id:word_id},function(data){
+											var table_id = table_id;
+											$.post('core/server.php',{user_id:user_id,word_id:word_id,table_id:table_id},function(data){
 													$('#result').html(data);
 												});
 										}
@@ -212,7 +211,7 @@ input:focus,input{
 			$mo=intval($m);
 			$t= $da * $mo;
 			$t = $t % 5;
-			$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=$t";
+			$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=".$t."";
 			$result = $conn->query($sql);
 			$row = $result->fetch_assoc();
 		?>
@@ -239,6 +238,44 @@ input:focus,input{
 											?>
 										</p>
 									</div>
+									<?php
+									$y=$row['id'];
+									$query4="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$y."' AND  table_id=1";
+									$result4=mysqli_query($conn,$query4) or die (mysqli_error($conn));
+									$cond ='';
+									$result4count = mysqli_num_rows($result3);
+									if($result4count>0){
+										$fav_row=mysqli_fetch_array($result3);
+										if($fav_row['status']==1){
+											$color_code ='#F35186';
+											$cond = '0';
+										}else{
+											$color_code='#C0C1C3';
+											$cond = '1';
+										}
+									}else{
+										$color_code='#C0C1C3';
+										$cond = '1';
+									}
+									echo '<style>
+										.icoButton-i{
+											color :'.$color_code.';
+										}
+									</style>';
+									echo '<div class="grid__item" >
+										<button class="icobutton icobutton--heart like-btn icoButton-i" onclick="postme('.$y.',1);" value="submit"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side"></span></button>
+									</div>';
+									echo "<script type='text/javascript'>
+										function postme(x,table_id){
+											var user_id = ".$user_id.";
+											var word_id = x;
+											var table_id = table_id;
+											$.post('core/server.php',{user_id:user_id,word_id:word_id,table_id:table_id},function(data){
+													$('#result').html(data);
+												});
+										}
+									</script>"
+									?>
 								</div>
 							</center>
 						</div>
@@ -342,76 +379,6 @@ input:focus,input{
 				});
 			}
 
-			// function onchangedb(x){
-			// 	var jvalue = x ;
-			// 	<?php $x ;?>
-			// 	<?php
-			// 		//first search in fav table if not found then insert a new row inside fav table else update the existing row status's value to one and update the no_of_likes in trending's coloumn i.e. increment it by one.
-
-			// 		$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
-			// 		$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
-			// 		if($result3){
-			// 			$fav_row=mysqli_fetch_array($result3);
-			// 			if($fav_row['status']==1){
-			// 				$sql2="UPDATE fav SET status=0";
-			// 				mysqli_query($com,$sql2);
-
-			// 				$sql="SELECT * from trending where id ='".$x."'";
-			// 				$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
-			// 				$row=mysqli_fetch_array($query);
-			// 				$no_of_likes=$row['no_of_likes'];
-			// 				$no_of_likes--;
-			// 				$sql3="UPDATE trending SET no_of_likes=".$no_of_likes."";
-			// 				mysql_query($conn,$sql3);
-			// 			}else{
-			// 				$sql2="UPDATE fav SET status=1";
-			// 				mysqli_query($com,$sql2);
-
-			// 				$sql="SELECT * from trending where id ='".$x."'";
-			// 				$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
-			// 				$row=mysqli_fetch_array($query);
-			// 				$no_of_likes=$row['no_of_likes'];
-			// 				$no_of_likes++;
-			// 				$sql3="UPDATE trending SET no_of_likes=".$no_of_likes."";
-			// 				mysqli_query($com,$sql3);
-			// 			}
-			// 		}else{
-			// 			$sql2="INSERT INTO fav (`user_id`,`word_id`,`status`) VALUES (".$user_id.",".$x.",'1')";
-			// 			mysql_query($conn,$sql2);
-
-			// 			$sql="SELECT * from trending where id ='".$x."'";
-			// 			$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
-			// 			$row=mysqli_fetch_array($query);
-			// 			$no_of_likes=$row['no_of_likes'];
-			// 			$no_of_likes++;
-			// 			$sql3="UPDATE trending SET no_of_likes=".$no_of_likes."";
-			// 			mysqli_query($com,$sql3);
-			// 		}
-			// 	?>
-			// }
-			// function inchangedb(x){
-			// 	var jvalue = x ;
-			// 	<?php $x;?>
-			// 	<?php
-			// 		//update the inserted rows status's value to zero and updated the no_of_like in trending's column i.e. decrement it by one.
-			// 		$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."'";
-			// 		$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
-			// 		$fav_row=mysqli_fetch_array($result3);
-
-			// 		$sql2="UPDATE fav SET status=0";
-			// 		mysqli_query($com,$sql2);
-
-			// 		$sql="SELECT * from trending where id ='".$x."'";
-			// 		$query=mysqli_query($conn,$sql)or die (mysqli_error($conn));
-			// 		$row=mysqli_fetch_array($query);
-			// 		$no_of_likes=$row['no_of_likes'];
-			// 		$no_of_likes--;
-			// 		$sql3="UPDATE trending SET no_of_likes=".$no_of_likes."";
-			// 		mysql_query($conn,$sql3);
-			// 	?>
-			// }
-
-
 			Animocon.prototype.options = {
 				tweens : [
 					new mojs.Burst({})
@@ -426,21 +393,18 @@ input:focus,input{
 			function init() {
 			<?php
 			$order='0';
-			for($x=$rowcount_trending;$x>0;$x--){
+			for($x=$rowcount_trending+1;$x>0;$x--){
 				$temp = $order;
 				$order++;
 				if ($cond == '1') {
 					$string ="onCheck : function() {
 						ell".$order.".style.color = '#F35186';
 						ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
-
-						/*onchangedb(".$x.");*/
 					},
 					onUnCheck : function() {
 						ell".$order.".style.color = '#C0C1C3';
 						var current = Number(ell".$order."counter.innerHTML);
 						ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
-						/*inchangedb(".$x.");*/
 					}";
 				}else{
 					$string ="onCheck : function() {
@@ -576,7 +540,6 @@ input:focus,input{
 					],
 					".$string."
 				});
-				/* Icon 1 */
 			";
 		}
 
