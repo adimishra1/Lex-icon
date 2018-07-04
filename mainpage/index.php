@@ -106,12 +106,12 @@ input:focus,input{
 									<form method="post" action="index.php">
 										<div class="content-inner black">
 											<h3>
-												<input type="text" name="word" placeholder="write your Word" style="border: none; border-color: transparent;">
+												<input type="text"  name="word" placeholder="New Word" style="border: none; border-color: transparent;background-color:#ffea96;">
 											</h3>
-											<p class="meaning"><input type="text" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;"></p>
+											<h6><p class="meaning"><input type="text" size="75%" width="1000" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h6>
 										</div>
 										<div class="content-inner">
-											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent;"></p>
+											<h7><p class="example"><input type="text" size="95%" name="sentence" placeholder="Example" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h7>
 										</div>
 										<input type="submit" name="submit">
 										<br><br>
@@ -121,6 +121,7 @@ input:focus,input{
 						</li>
 						</label>
 						<?php
+<<<<<<< HEAD
 							$sql = "select * from trending";
 							$result=mysqli_query($conn,$sql);
 							$rowcount_trending=mysqli_num_rows($result);
@@ -179,6 +180,49 @@ input:focus,input{
 								</li></label>';
 							}
 						?>
+=======
+						$sql = "select * from trending";
+						$result=mysqli_query($conn,$sql);
+
+						$rowcount=mysqli_num_rows($result);
+
+						for($x=$rowcount;$x>0;$x=$x-1){
+							$query=mysqli_query($conn,"select * from trending where id =$x");
+							$row=mysqli_fetch_array($query);
+							$word=strtoupper($row['word']);
+							$meaning=$row['meaning'];
+							$sentence=$row['sentence'];
+							$timeliner_id=$row['user_id'];
+
+							$query2 = "SELECT name,images FROM users WHERE id='".$timeliner_id."'";
+							$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
+							$user2 = mysqli_fetch_array($result2);
+							$timeliner_name = $user2['name'];
+							$timeliner_image = $user2['images'];
+
+							echo '<label><li class="event">
+							<input type="radio" name="tl-group"/>
+							<label></label>
+							<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
+							<div class="content-perspective">
+								<div class="content">
+									<div class="content-inner black">
+										<h3>'.$word.'</h3>
+										<h6><p class="meaning">'.$meaning.'</p></h6>
+										</div>
+										<div class="content-inner">
+											<b><p class="example">'.$sentence.'<br><br></p></b>
+										</div>
+									</div>
+								</div>
+							</li></label>';
+						}
+
+
+						 ?>
+
+
+>>>>>>> a81f43292aa912ac357c8c629a163f126ca1338a
 					</ul>
 				</div>
 			</div>
@@ -201,7 +245,7 @@ input:focus,input{
 							<center>
 								<div class="description">
 									<h2 id="wo">
-										<?php echo $row["word"];
+										<?php echo strtoupper($row["word"]);
 										?>
 									</h2>
 									<div class="Meaning">
