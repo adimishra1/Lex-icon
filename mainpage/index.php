@@ -107,12 +107,12 @@ input:focus,input{
 									<form method="post" action="index.php">
 										<div class="content-inner black">
 											<h3>
-												<input type="text" name="word" placeholder="write your Word" style="border: none; border-color: transparent;width:100%;">
+												<input type="text"  name="word" placeholder="New Word" style="border: none; border-color: transparent;background-color:#ffea96;">
 											</h3>
-											<p class="meaning"><input type="text" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;width:100%;"></p>
+											<h6><p class="meaning"><input type="text" size="75%" width="1000" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h6>
 										</div>
 										<div class="content-inner">
-											<p class="example"><input type="text" name="sentence" placeholder="example" style="border: none; border-color: transparent;width:100%;"></p>
+											<h7><p class="example"><input type="text" size="95%" name="sentence" placeholder="Example" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h7>
 										</div>
 										<input type="submit" name="submit">
 										<br><br>
@@ -222,7 +222,7 @@ input:focus,input{
 							<center>
 								<div class="description">
 									<h2 id="wo">
-										<?php echo $row["word"];
+										<?php echo strtoupper($row["word"]);
 										?>
 									</h2>
 									<div class="Meaning">
