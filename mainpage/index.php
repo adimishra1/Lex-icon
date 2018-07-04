@@ -81,6 +81,65 @@ body {
   color: #5D4037;
   text-align: center;
 }
+
+
+/*  html,body{
+  height:100%;
+}
+body{
+  text-align:center;
+}
+body:before{
+  content:'';
+  height:100%;
+  display:inline-block;
+  vertical-align:middle;
+}  */
+.fo{
+	text-align:center;
+
+}
+.button{
+  background:rgb(255, 234, 150);
+  color:#000;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.button:hover{
+  background:rgb(255,234, 150);;
+  color:rgb(65, 131, 142);;
+}
+.button:before,.button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.button:hover:before,.button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+
+
+
+
 /*
 p {
   line-height: 1.5em;
@@ -364,14 +423,18 @@ h1+p, p+p {
 									<form method="post" action="index.php">
 										<div class="content-inner black">
 											<h3>
-												<input type="text"  name="word" placeholder="New Word" style="border: none; border-color: transparent;background-color:#ffea96;">
+												<input type="text"  name="word" placeholder="New Word" style="border: none; border-color: transparent;background-color:#ffea96;align:left;">
 											</h3>
 											<h6><p class="meaning"><input type="text" size="75%" width="1000" name="meaning" placeholder="Meaning" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h6>
 										</div>
 										<div class="content-inner">
 											<h7><p class="example"><input type="text" size="95%" name="sentence" placeholder="Example" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h7>
+											<div class="fo">
+													<input type="submit" name="submit" class="button" value="SUBMIT"></input>
+											</div>
+
 										</div>
-										<input type="submit" name="submit">
+										<!-- <input type="button" class="button" value="Hover me">Hover me !</input> -->
 										<br><br>
 									</form>
 								</div>
