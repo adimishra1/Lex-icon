@@ -93,7 +93,7 @@ body {
   border:none;
   position:relative;
   height:60px;
-  font-size:1.6em;
+  font-size:1.2em;
   padding:0 2em;
   cursor:pointer;
   transition:800ms ease all;
@@ -102,6 +102,7 @@ body {
 .button:hover{
   background:rgb(255,234, 150);;
   color:rgb(65, 131, 142);;
+	font-size:1.6em;;
 }
 .button:before,.button:after{
   content:'';
@@ -111,7 +112,7 @@ body {
   height:2px;
   width:0;
   background: #1AAB8A;
-  transition:400ms ease all;
+  transition:500ms ease all;
 }
 .button:after{
   right:inherit;
@@ -121,7 +122,7 @@ body {
 }
 .button:hover:before,.button:hover:after{
   width:100%;
-  transition:800ms ease all;
+  transition:500ms ease all;
 }
 
 
@@ -135,7 +136,7 @@ body {
 }
 
 .zoom:hover {
-    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.04); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 
@@ -170,7 +171,7 @@ body {
   position: absolute;
   overflow: hidden;
   top: 0;
-  left: 0;
+  left: 1em;
   background-color: rgba(75,75,75,0.7);
   -webkit-transition: all 0.6s  cubic-bezier(0.88,-0.99, 0, 1.81);
   transition: all 0.6s  cubic-bezier(0.88,-0.99, 0, 1.81);
@@ -183,6 +184,7 @@ body {
 .hovereffect img {
   display: block;
   position: relative;
+	left: 1em;
 }
 
 .hovereffect h2 {
@@ -351,11 +353,11 @@ body {
 								<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
 								<div class="content-perspective">
 									<div class="content">
-										<div class="content-inner black">
+									<div class="content-inner black grid__item">
 											<h3>'.$word.'
-											<div class="grid__item" >
+
 												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.',0);" value="submit"><span class="fa fa-heart" style="font-size:40px;"></span><span class="icobutton__text icobutton__text--side" style="font-size:40px;">'.$likes.'</span></button>
-											</div></h3>
+											</h3>
 											<p class="meaning">'.$meaning.'</p>
 											</div>
 											<div class="content-inner">
