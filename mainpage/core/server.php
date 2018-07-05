@@ -1,6 +1,5 @@
 <?php
-include("/var/www/html/cred.inc.php");
-$conn = mysqli_connect('127.0.0.1',$my_username,$my_password,$my_db_name) or die("Failed to query database".mysqli_error());
+include("/var/www/html/Lex-icon/cred.inc.php");
 $user_id = $_POST['user_id'];
 $word_id = $_POST['word_id'];
 $table_id = $_POST['table_id'];

@@ -3,7 +3,7 @@
 
 	//$exception =  array('register', 'login');
 	$path = dirname(__FILE__);
-	include("/var/www/html/cred.inc.php");
+	include("/var/www/html/Lex-icon/cred.inc.php");
 	if(!isset($_SESSION['username'])){
 		header("location: ../index.html");
 		exit;
@@ -12,7 +12,6 @@
 
 	$username = $_SESSION['username'];
 
-	$conn = mysqli_connect('127.0.0.1',$my_username,$my_password,$my_db_name) or die("Failed to query database".mysqli_error());
 	$query = "SELECT * FROM users WHERE username='".$username."'";
 	$result1 = mysqli_query($conn,$query) or die (mysqli_error($conn).$query);
 	$user = mysqli_fetch_array($result1);

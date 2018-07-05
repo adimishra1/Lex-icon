@@ -771,12 +771,12 @@ body {
 
 
 jQuery(document).ready(function() {
-    jQuery('#loader').fadeOut(2000);
+    jQuery('#loader').fadeOut(200);
 });
 
 
 jQuery(document).ready(function() {
-    jQuery('#loader-wrapper').fadeOut(2000);
+    jQuery('#loader-wrapper').fadeOut(200);
 });
 
 
