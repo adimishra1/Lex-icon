@@ -59,9 +59,13 @@
 <link href='https://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="css/icons.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link href="../css/Loader.css" rel="stylesheet">
+<link rel="stylesheet" href="https://toert.github.io/Isolated-Bootstrap/versions/3.3.7/iso_bootstrap3.3.7min.css">
+
 <style>
-/* $hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
-$returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95); */
 
 body {
   margin: 40px 0;
@@ -79,19 +83,6 @@ body {
   text-align: center;
 }
 
-
-/*  html,body{
-  height:100%;
-}
-body{
-  text-align:center;
-}
-body:before{
-  content:'';
-  height:100%;
-  display:inline-block;
-  vertical-align:middle;
-}  */
 .fo{
 	text-align:center;
 
@@ -136,139 +127,7 @@ body:before{
 
 
 
-
-/*
-p {
-  line-height: 1.5em;
-}
-
-h1+p, p+p {
-  margin-top: 10px;
-}
-
-.container {
-  padding: 40px 80px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card-wrap {
-  margin: 10px;
-  transform: perspective(8900px);
-  transform-style: preserve-3d;
-  cursor: pointer;
-  // background-color: #fff;
-
-  &:hover {
-    .card-info {
-      transform: translateY(0);
-    }
-    .card-info p {
-      opacity: 1;
-    }
-    .card-info, .card-info p {
-      transition: 0.6s $hoverEasing;
-    }
-    .card-info:after {
-      transition: 5s $hoverEasing;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .card-bg {
-      transition:
-        0.6s $hoverEasing,
-        opacity 5s $hoverEasing;
-      opacity: 0.8;
-    }
-    .card {
-      transition:
-        0.6s $hoverEasing,
-        box-shadow 2s $hoverEasing;
-      box-shadow:
-        rgba(white, 0.2) 0 0 40px 5px,
-        rgba(white, 1) 0 0 0 1px,
-        rgba(black, 0.66) 0 30px 60px 0,
-        inset #333 0 0 0 5px,
-        inset white 0 0 0 6px;
-    }
-  }
-}
-
-.card {
-  position: relative;
-  flex: 0 0 240px;
-  width: 240px;
-  height: 320px;
-  background-color: #333;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow:
-    rgba(black, 0.66) 0 30px 60px 0,
-    inset #333 0 0 0 5px,
-    inset rgba(white, 0.5) 0 0 0 6px;
-  transition: 1s $returnEasing;
-}
-.card-bg {
-  opacity: 0.8;
-  position: absolute;
-  top: -20px; left: -20px;
-  width: 120%;
-  height: 120%;
-  padding: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  transition:
-    1s $returnEasing,
-    opacity 5s 1s $returnEasing;
-  pointer-events: none;
-}
-
-.card-info {
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  color: #fff;
-  transform: translateY(40%);
-  transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-  p {
-    opacity: 0;
-    text-shadow: rgba(black, 1) 0 2px 3px;
-    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  * {
-    position: relative;
-    z-index: 1;
-  }
-
-   	&:after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.6) 100%);
-    background-blend-mode: overlay;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: 6s 1s $returnEasing;
-  }
-}
-
-.card-info h1 {
-  font-family: "Playfair Display";
-  font-size: 36px;
-  font-weight: 700;
-  text-shadow: rgba(black, 0.5) 0 10px 10px;
-} */
-
 .zoom {
-    /* padding: 50px; */
-    /* background-color: green; */
     transition: transform .2s; /* Animation */
     width: 200px;
     height: 200px;
@@ -495,12 +354,13 @@ h1+p, p+p {
 										<div class="content-inner black">
 											<h3>'.$word.'
 											<div class="grid__item" >
-												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.',0);" value="submit"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side">'.$likes.'</span></button>
+												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.',0);" value="submit"><span class="fa fa-heart" style="font-size:40px;"></span><span class="icobutton__text icobutton__text--side" style="font-size:40px;">'.$likes.'</span></button>
 											</div></h3>
 											<p class="meaning">'.$meaning.'</p>
 											</div>
 											<div class="content-inner">
 												<p class="example">'.$sentence.'<br><br></p>
+
 											</div>
 										</div>
 									</div>
@@ -527,8 +387,11 @@ h1+p, p+p {
 			$da=intval($d);
 			$mo=intval($m);
 			$t= $da * $mo;
-			$t = $t % 5 +1;
-			$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=".$t."";
+			$sql2 = "SELECT * FROM dictionary";
+			$res = $conn->query($sql2);
+			$numrow = mysqli_num_rows($res);
+			$t = $t % $numrow + 1;
+			$sql = "SELECT id, word, meaning, sentence FROM dictionary where id='".$t."'";
 			$result = $conn->query($sql);
 			$row = $result->fetch_assoc();
 		?>
@@ -537,6 +400,12 @@ h1+p, p+p {
 				<div class="col">
 					<div class="wordOfTheWeak">
 							<center>
+								<div class="bootstrap">
+									<div class="row">
+										<div class="col-sm-1"></div>
+										<div class="col-sm-10"><b><h1><?php echo date("l jS \of F Y")?></h1></b></div>
+									</div>
+								</div>
 								<div class="description">
 									<h2 id="word">
 										<?php echo strtoupper($row["word"]);?>
@@ -636,15 +505,16 @@ h1+p, p+p {
 												$sentence = $word2['sentence'];
 												echo '<div class="row">
 																<div class="col-lg-12 col-md-4 col-sm-6 col-xs-12">
-											    <div class="hovereffect zoom">
-											        <img class="img-responsive" src="'.$link.'" alt="">
-											        <div class="overlay">
-											           <h2>'.$word.'</h2>
-											           <a class="info" href="#">'.$meaning.'<br/>
-																'.$sentence.'</a>
-										         </div>
-							</div></div>
-							</div><br /><br /><br /><br />';
+											    				<div class="hovereffect zoom">
+											        			<img class="img-responsive" src="'.$link.'" alt="">
+											        			<div class="overlay">
+											           			<h2>'.$word.'</h2>
+											           			<a class="info" href="#">'.$meaning.'<br/>
+																			'.$sentence.'</a>
+										         				</div>
+																	</div>
+																</div>
+															</div>';
 						}
 						?>
 					</div>
