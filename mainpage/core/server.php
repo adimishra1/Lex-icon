@@ -4,7 +4,7 @@ $user_id = $_POST['user_id'];
 $word_id = $_POST['word_id'];
 $table_id = $_POST['table_id'];
 $sql = "SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."'";
-$result=mysqli_query($conn,$sql) or die (mysqli_error($conn).$sql);
+$result=mysqli_query($conn,$sql) or die (mysqli_error($conn));
 $count = mysqli_num_rows($result);
 if($table_id=='0'){
   $sql1="SELECT * from trending where id ='".$word_id."'";
@@ -17,11 +17,11 @@ if($table_id=='1'){
   $query1=mysqli_query($conn,$sql1)or die (mysqli_error($conn));
   $row=mysqli_fetch_array($query1);
 }
-if($count > 0){
+if($count>'0'){
   $favrow = mysqli_fetch_array($result);
   $status = $favrow['status'];
   if($status == '0'){
-    $sql2 = "UPDATE fav SET status='1' WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."''";
+    $sql2 = "UPDATE fav SET status='1' WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."'";
     if ($table_id=='0') {
       $no_of_likes++;
       $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
@@ -44,9 +44,6 @@ if($count > 0){
     $no_of_likes++;
     $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
     $bool2 = mysqli_query($conn,$sql3)or die (mysqli_error($conn));
-    if ($no_of_likes!=1) {
-      echo $no_of_likes-1;
-    }
   }
   $bool = mysqli_query($conn,$sql2)or die (mysqli_error($conn));
 }

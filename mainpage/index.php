@@ -296,6 +296,7 @@ body {
 							<?php echo "<div class='thumb user-".$user_id."' style='background-image: url(".$user_image.");'>"; ?><span><?php echo $user_name; ?></span></div>
 							<div class="content-perspective">
 								<div class="content">
+									<!-- <div id="result"></div> -->
 									<form method="post" action="index.php">
 										<div class="content-inner black">
 											<h3>
