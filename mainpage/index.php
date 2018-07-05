@@ -342,7 +342,7 @@ body {
 								}else{
 									$likes=$no_of_likes;
 								}
-								$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."' AND table_id=0";
+								$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."' AND table_id='0'";
 								$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
 								$result3count = mysqli_num_rows($result3);
 								if($result3count>0){
@@ -440,7 +440,7 @@ body {
 									</div>
 									<?php
 									$y=$row['id'];
-									$query4="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$y."' AND  table_id=1";
+									$query4="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$y."' AND  table_id='1'";
 									$result4=mysqli_query($conn,$query4) or die (mysqli_error($conn));
 									$result4count = mysqli_num_rows($result4);
 									if($result4count>0){
