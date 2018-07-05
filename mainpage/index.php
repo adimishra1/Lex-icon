@@ -614,31 +614,56 @@ body {
 			for($x=$rowcount_trending;$x>-1;$x--){
 				$temp = $order;
 				$order++;
-				if ($cond[$x]=='1') {
-					$string ="onCheck : function() {
-						ell".$order.".style.color = '#F35186';
-						ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
-					},
-					onUnCheck : function() {
-						ell".$order.".style.color = '#C0C1C3';
-						var current = Number(ell".$order."counter.innerHTML);
-						ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
-					}";
+
+				if ($x==0) {
+					if ($cond[$x]=='1') {
+						$string ="onCheck : function() {
+							ell".$order.".style.color = '#F35186';
+						},
+						onUnCheck : function() {
+							ell".$order.".style.color = '#C0C1C3';
+							var current = Number(ell".$order."counter.innerHTML);
+							ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
+						}";
+					}else{
+						$string ="onCheck : function() {
+							ell".$order.".style.color = '#C0C1C3';
+							var current = Number(ell".$order."counter.innerHTML);
+							ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
+
+							/*onchangedb(".$x.");*/
+						},
+						onUnCheck : function() {
+							ell".$order.".style.color = '#F35186';
+							/*inchangedb(".$x.");*/
+						}";
+					}
 				}else{
-					$string ="onCheck : function() {
-						ell".$order.".style.color = '#C0C1C3';
-						var current = Number(ell".$order."counter.innerHTML);
-						ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
+					if ($cond[$x]=='1') {
+						$string ="onCheck : function() {
+							ell".$order.".style.color = '#F35186';
+							ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
+						},
+						onUnCheck : function() {
+							ell".$order.".style.color = '#C0C1C3';
+							var current = Number(ell".$order."counter.innerHTML);
+							ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
+						}";
+					}else{
+						$string ="onCheck : function() {
+							ell".$order.".style.color = '#C0C1C3';
+							var current = Number(ell".$order."counter.innerHTML);
+							ell".$order."counter.innerHTML = current > 1 ? Number(ell".$order."counter.innerHTML) - 1 : '';
 
-						/*onchangedb(".$x.");*/
-					},
-					onUnCheck : function() {
-						ell".$order.".style.color = '#F35186';
-						ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
-						/*inchangedb(".$x.");*/
-					}";
+							/*onchangedb(".$x.");*/
+						},
+						onUnCheck : function() {
+							ell".$order.".style.color = '#F35186';
+							ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
+							/*inchangedb(".$x.");*/
+						}";
+					}
 				}
-
 				echo "
 				var ell".$order." = items[".$temp."].querySelector('button.icobutton'), ell".$order."span = ell".$order.".querySelector('span'), ell".$order."counter = ell".$order.".querySelector('span.icobutton__text');
 				new Animocon(ell".$order.", {
