@@ -293,7 +293,7 @@ body {
 						<li class="event">
 							<input type="radio" name="tl-group" checked/>
 							<label></label>
-							<?php echo "<div class='thumb user-".$user_id."' style='background-image: url(".$user_image.");'>"; ?><span><?php echo $user_name; ?></span></div>
+							<?php echo "<div class='thumb user-".$user_id."' style='background-image: url(".$user_image.");  background-size: cover; background-size: contain; background-size: 100% 100%;'>"; ?><span><?php echo $username; ?></span></div>
 							<div class="content-perspective">
 								<div class="content">
 									<!-- <div id="result"></div> -->
@@ -332,11 +332,12 @@ body {
 								$no_of_likes=$row['no_of_likes'];
 
 								$timeliner_id=$row['user_id'];
-								$query2 = "SELECT name,images FROM users WHERE id='".$timeliner_id."'";
+								$query2 = "SELECT name,images,username FROM users WHERE id='".$timeliner_id."'";
 								$result2 = mysqli_query($conn,$query2) or die (mysqli_error($conn).$query2);
 								$user2 = mysqli_fetch_array($result2);
 								$timeliner_name = $user2['name'];
 								$timeliner_image = $user2['images'];
+								$timeliner_username = $user2['username'];
 
 								if($no_of_likes==0){
 									$likes="";
@@ -367,7 +368,7 @@ body {
 										color :'.$color_code.';
 									}
 								</style>
-								<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
+								<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'); background-size: cover; background-size: contain; background-size: 100% 100%;"><span>'.$timeliner_username.'</span></div>
 								<div class="content-perspective">
 									<div class="content">
 										<div class="content-inner black grid__item">
