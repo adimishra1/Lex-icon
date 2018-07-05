@@ -1,10 +1,10 @@
-<?php 
+<?php
 include("/var/www/html/cred.inc.php");
 $conn = mysqli_connect('127.0.0.1',$my_username,$my_password,$my_db_name) or die("Failed to query database".mysqli_error());
 $user_id = $_POST['user_id'];
 $word_id = $_POST['word_id'];
 $table_id = $_POST['table_id'];
-$sql = "SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."'"; 
+$sql = "SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."'";
 $result=mysqli_query($conn,$sql) or die (mysqli_error($conn).$sql);
 $count = mysqli_num_rows($result);
 if($table_id=='0'){
@@ -26,6 +26,9 @@ if($count > 0){
     if ($table_id=='0') {
       $no_of_likes++;
       $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
+      if($no_of_likes!=1){
+        echo $no_of_likes-1;
+      }
     }
   }
   if($status == '1'){
@@ -33,6 +36,9 @@ if($count > 0){
     if ($table_id=='0') {
       $no_of_likes--;
       $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
+      if($no_of_likes!=0){
+        echo $no_of_likes;
+      }
     }
   }
   $bool = mysqli_query($conn,$sql2)or die (mysqli_error($conn));
@@ -45,6 +51,9 @@ if($count > 0){
     $no_of_likes++;
     $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
     $bool2 = mysqli_query($conn,$sql3)or die (mysqli_error($conn));
+    if ($no_of_likes!=1) {
+      echo $no_of_likes-1;
+    }
   }
   $bool = mysqli_query($conn,$sql2)or die (mysqli_error($conn));
 }

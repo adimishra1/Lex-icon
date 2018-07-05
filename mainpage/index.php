@@ -1,5 +1,6 @@
 <?php
 	include('core/init.inc.php');
+	$cond =array();
 	if(isset($_POST['submit'])){
 
 		$word =  mysqli_real_escape_string($conn,stripcslashes($_POST['word']));
@@ -426,7 +427,7 @@ h1+p, p+p {
 										<div class="content-inner">
 											<h7><p class="example"><input type="text" size="95%" name="sentence" placeholder="Example" style="border: none; border-color: transparent;background-color:#ffea96;"></p></h7>
 											<div class="fo">
-													<input type="submit" name="submit" class="button" value="SUBMIT"></input>
+												<input type="submit" name="submit" class="button" value="SUBMIT"></input>
 											</div>
 
 										</div>
@@ -438,6 +439,7 @@ h1+p, p+p {
 						</li>
 						</label>
 						<?php
+							$cond =array();
 							$sql = "select * from trending";
 							$result=mysqli_query($conn,$sql);
 							$rowcount_trending=mysqli_num_rows($result);
@@ -465,20 +467,19 @@ h1+p, p+p {
 								//check in fav table if user logged in exist with that particular word id if yes and status's value'  of one then give color code #F35186 else color code of #C0C1C3.
 								$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."' AND table_id=0";
 								$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
-								$cond ='';
 								$result3count = mysqli_num_rows($result3);
 								if($result3count>0){
 									$fav_row=mysqli_fetch_array($result3);
 									if($fav_row['status']==1){
 										$color_code ='#F35186';
-										$cond = '0';
+										$cond[$x] = '0';
 									}else{
 										$color_code='#C0C1C3';
-										$cond = '1';
+										$cond[$x] = '1';
 									}
 								}else{
 									$color_code='#C0C1C3';
-									$cond = '1';
+									$cond[$x] = '1';
 								}
 								echo '<label><li class="event">
 								<input type="radio" name="tl-group"/>
@@ -526,7 +527,7 @@ h1+p, p+p {
 			$da=intval($d);
 			$mo=intval($m);
 			$t= $da * $mo;
-			$t = $t % 5;
+			$t = $t % 5 +1;
 			$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=".$t."";
 			$result = $conn->query($sql);
 			$row = $result->fetch_assoc();
@@ -537,9 +538,8 @@ h1+p, p+p {
 					<div class="wordOfTheWeak">
 							<center>
 								<div class="description">
-									<h2 id="wo">
-										<?php echo strtoupper($row["word"]);
-										?>
+									<h2 id="word">
+										<?php echo strtoupper($row["word"]);?>
 									</h2>
 									<div class="Meaning">
 										<!-- <h4>Meaning</h4> -->
@@ -550,36 +550,34 @@ h1+p, p+p {
                   					<div class="Usage">
 										<!-- <h4>Usage</h4> -->
 									  	<p class="para2" id="us">
-											<?php echo $row["sentence"];
-											?>
+											<?php echo $row["sentence"];?>
 										</p>
 									</div>
 									<?php
 									$y=$row['id'];
 									$query4="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$y."' AND  table_id=1";
 									$result4=mysqli_query($conn,$query4) or die (mysqli_error($conn));
-									$cond ='';
-									$result4count = mysqli_num_rows($result3);
+									$result4count = mysqli_num_rows($result4);
 									if($result4count>0){
-										$fav_row=mysqli_fetch_array($result3);
+										$fav_row=mysqli_fetch_array($result4);
 										if($fav_row['status']==1){
 											$color_code ='#F35186';
-											$cond = '0';
+											$cond[0] = '0';
 										}else{
 											$color_code='#C0C1C3';
-											$cond = '1';
+											$cond[0] = '1';
 										}
 									}else{
 										$color_code='#C0C1C3';
-										$cond = '1';
+										$cond[0] = '1';
 									}
 									echo '<style>
-										.icoButton-i{
+										.icoButtoN{
 											color :'.$color_code.';
 										}
 									</style>';
 									echo '<div class="grid__item" >
-										<button class="icobutton icobutton--heart like-btn icoButton-i" onclick="postme('.$y.',1);" value="submit"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side"></span></button>
+										<button class="icobutton icobutton--heart like-btn icoButtoN" onclick="postme('.$y.',1);" value="submit"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side"></span></button>
 									</div>';
 									echo "<script type='text/javascript'>
 										function postme(x,table_id){
@@ -731,10 +729,10 @@ h1+p, p+p {
 			function init() {
 			<?php
 			$order='0';
-			for($x=$rowcount_trending+1;$x>0;$x--){
+			for($x=$rowcount_trending;$x>-1;$x--){
 				$temp = $order;
 				$order++;
-				if ($cond == '1') {
+				if ($cond[$x]=='1') {
 					$string ="onCheck : function() {
 						ell".$order.".style.color = '#F35186';
 						ell".$order."counter.innerHTML = Number(ell".$order."counter.innerHTML) + 1;
