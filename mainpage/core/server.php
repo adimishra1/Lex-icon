@@ -24,14 +24,14 @@ if($count > 0){
     $sql2 = "UPDATE fav SET status='1' WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."''";
     if ($table_id=='0') {
       $no_of_likes++;
-      $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."' AND table_id='".$table_id."'";
+      $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
     }
   }
   if($status == '1'){
     $sql2 = "UPDATE fav SET status='0' WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."'";
     if ($table_id=='0') {
       $no_of_likes--;
-      $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."' AND table_id='".$table_id."'";
+      $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
     }
   }
   $bool = mysqli_query($conn,$sql2)or die (mysqli_error($conn));
@@ -42,7 +42,7 @@ if($count > 0){
   $sql2 = "INSERT INTO `fav` (`user_id`,`word_id`,`status`,`table_id`) VALUES ('".$user_id."','".$word_id."','1','".$table_id."')";
   if($table_id=='0'){
     $no_of_likes++;
-    $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."' AND table_id='".$table_id."'";
+    $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
     $bool2 = mysqli_query($conn,$sql3)or die (mysqli_error($conn));
     if ($no_of_likes!=1) {
       echo $no_of_likes-1;
