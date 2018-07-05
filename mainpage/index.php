@@ -281,7 +281,6 @@ body {
 			<li><a href="#section-1">Trending</a></li>
 			<li><a href="#section-2">Word Of the Day</a></li>
 			<li><a href="#section-3">Favourites</a></li>
-			<!-- <li><a href="#section-4">About</a></li> -->
 		</ul>
 	</header>
 
@@ -311,7 +310,6 @@ body {
 											</div>
 
 										</div>
-										<!-- <input type="button" class="button" value="Hover me">Hover me !</input> -->
 										<br><br>
 									</form>
 								</div>
@@ -344,7 +342,6 @@ body {
 								}else{
 									$likes=$no_of_likes;
 								}
-								//check in fav table if user logged in exist with that particular word id if yes and status's value'  of one then give color code #F35186 else color code of #C0C1C3.
 								$query3="SELECT * FROM fav WHERE user_id='".$user_id."' AND word_id='".$x."' AND table_id=0";
 								$result3=mysqli_query($conn,$query3) or die (mysqli_error($conn));
 								$result3count = mysqli_num_rows($result3);
@@ -432,13 +429,11 @@ body {
 										<?php echo strtoupper($row["word"]);?>
 									</h2>
 									<div class="Meaning">
-										<!-- <h4>Meaning</h4> -->
 									  <div class="para1" id="me">
 											<i><?php echo $row["meaning"]; ?></i>
 										</div>
 									</div>
                   					<div class="Usage">
-										<!-- <h4>Usage</h4> -->
 									  	<p class="para2" id="us">
 											<?php echo $row["sentence"];?>
 										</p>
@@ -553,21 +548,18 @@ body {
 
 			'use strict';
 
-			// taken from mo.js demos
 			function isIOSSafari() {
 				var userAgent;
 				userAgent = window.navigator.userAgent;
 				return userAgent.match(/iPad/i) || userAgent.match(/iPhone/i);
 			};
 
-			// taken from mo.js demos
 			function isTouch() {
 				var isIETouch;
 				isIETouch = navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 				return [].indexOf.call(window, 'ontouchstart') >= 0 || isIETouch;
 			};
 
-			// taken from mo.js demos
 			var isIOS = isIOSSafari(),
 				clickHandler = isIOS || isTouch() ? 'touchstart' : 'click';
 
@@ -614,9 +606,7 @@ body {
 				onUnCheck : function() { return false; }
 			};
 
-			// grid items:
 			var items = [].slice.call(document.querySelectorAll('div.grid__item'));
-			/*icon 1*/
 			function init() {
 			<?php
 			$order='0';
