@@ -111,10 +111,12 @@ if(isset($_POST['submit'])){
 <!-- <div class="container-login100"> -->
   <div class="wrap-login100">
     <form class="login100-form validate-form" method="POST" action="index.php">
-      <div class="login100-form-avatar">
-        <img src="images/ln.png" alt="AVATAR">
-      </div>
-
+      <!-- <div class="login100-form-avatar">
+        <img src="images/logo.png" alt="AVATAR">
+      </div> -->
+      <center>
+        <img src="images/logo.png" alt="AVATAR" style="height:200px; width:200px;">
+     <center>
       <span class="login100-form-title p-t-20 p-b-45">
         Lexicon
       </span>
