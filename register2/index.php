@@ -61,6 +61,7 @@ if(isset($_POST['submit'])){
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -68,6 +69,9 @@ if(isset($_POST['submit'])){
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Lex-icon</title>
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+		<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 		<script>document.documentElement.className="js";
 		var supportsCssVars=function(){var e,t=document.createElement("style");
 		return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};
@@ -123,8 +127,25 @@ if(isset($_POST['submit'])){
 						</div>
 					</div>
 					<div class="form__item">
+						<script>
+						function readURL(input) {
+						            if (input.files && input.files[0]) {
+						                var reader = new FileReader();
+
+						                reader.onload = function (e) {
+						                    $('#blah')
+						                        .attr('src', e.target.result)
+						                        .width(80)
+						                        .height(80);
+						                };
+
+						                reader.readAsDataURL(input.files[0]);
+						            }
+						        }
+						</script>
+
 						<img id="blah" src="#" onerror="this.src='img/default.jpg'" style="height: 7em; width: 5em;" />
-						<input type='file' name="file" value="upload a photo" required=""/>
+						<input type='file' onchange="readURL(this);" name="file" value="upload a photo" required=""/>
 					</div>
 					<div class="form__item form__item--actions">
 						<span>Already have an account? <a class="form__link" href="../login/index.php">Login here</a></span>

@@ -62,6 +62,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <link href="../css/Loader.css" rel="stylesheet">
+<link rel="stylesheet" href="https://toert.github.io/Isolated-Bootstrap/versions/3.3.7/iso_bootstrap3.3.7min.css">
 
 <style>
 
@@ -352,12 +353,13 @@ body {
 										<div class="content-inner black">
 											<h3>'.$word.'
 											<div class="grid__item" >
-												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.',0);" value="submit"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side">'.$likes.'</span></button>
+												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.',0);" value="submit"><span class="fa fa-heart" style="font-size:40px;"></span><span class="icobutton__text icobutton__text--side" style="font-size:40px;">'.$likes.'</span></button>
 											</div></h3>
 											<p class="meaning">'.$meaning.'</p>
 											</div>
 											<div class="content-inner">
 												<p class="example">'.$sentence.'<br><br></p>
+
 											</div>
 										</div>
 									</div>
@@ -384,8 +386,11 @@ body {
 			$da=intval($d);
 			$mo=intval($m);
 			$t= $da * $mo;
-			$t = $t % 5;
-			$sql = "SELECT id, word, meaning, sentence FROM dictionary where id=".$t."";
+			$sql2 = "SELECT * FROM dictionary";
+			$res = $conn->query($sql2);
+			$numrow = mysqli_num_rows($res);
+			$t = $t % $numrow + 1;
+			$sql = "SELECT id, word, meaning, sentence FROM dictionary where id='".$t."'";
 			$result = $conn->query($sql);
 			$row = $result->fetch_assoc();
 		?>
@@ -394,6 +399,12 @@ body {
 				<div class="col">
 					<div class="wordOfTheWeak">
 							<center>
+								<div class="bootstrap">
+									<div class="row">
+										<div class="col-sm-1"></div>
+										<div class="col-sm-10"><b><h1><?php echo date("l jS \of F Y")?></h1></b></div>
+									</div>
+								</div>
 								<div class="description">
 									<h2 id="wo">
 										<?php echo strtoupper($row["word"]);

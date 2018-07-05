@@ -79,7 +79,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 	font-size: 20px;
 	text-transform: uppercase;
 	position: absolute;
-	bottom: -30px;
+	bottom: -60px;
 
 }
 
@@ -417,7 +417,16 @@ font-family: 'IBM Plex Sans', sans-serif;
 		-ms-transform: scale(0.8);
 		transform: scale(0.8);
 	}
-
+	.thumb span {
+		color: white;
+		width: 100%;
+		text-align: center;
+		font-weight: 700;
+		font-size: 20px;
+		text-transform: uppercase;
+		position: absolute;
+		top: -30px;
+	}
 	.event input[type="radio"] {
 		width: 100px;
 		height: 100px;
