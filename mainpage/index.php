@@ -100,15 +100,9 @@ body {
   outline:none;
 }
 .button:hover{
-<<<<<<< HEAD
-  background:rgb(255,234, 150);;
-  color:rgb(65, 131, 142);;
-	font-size:1.6em;;
-=======
   background:rgb(255,234, 150);
   color:rgb(65, 131, 142);
 	font-size:1.6em;
->>>>>>> c1d47bd9eceba7d70c10ad1f28db5e5a25ce7256
 }
 .button:before,.button:after{
   content:'';
@@ -129,13 +123,10 @@ body {
 .button:hover:before,.button:hover:after{
   width:100%;
   transition:500ms ease all;
-<<<<<<< HEAD
-=======
 }
 .button:active{
 	font-size: 1.4em;
   color:brown;
->>>>>>> c1d47bd9eceba7d70c10ad1f28db5e5a25ce7256
 }
 
 
@@ -365,11 +356,7 @@ body {
 								<div class="thumb user-'.$timeliner_id.'" style="background-image: url('.$timeliner_image.'"><span>'.$timeliner_name.'</span></div>
 								<div class="content-perspective">
 									<div class="content">
-<<<<<<< HEAD
-									<div class="content-inner black grid__item">
-=======
 										<div class="content-inner black grid__item">
->>>>>>> c1d47bd9eceba7d70c10ad1f28db5e5a25ce7256
 											<h3>'.$word.'
 
 												<button class="icobutton icobutton--heart like-btn icoButton'.$x.'" onclick="post('.$x.',0);" value="submit"><span class="fa fa-heart" style="font-size:40px;"></span><span class="icobutton__text icobutton__text--side" style="font-size:40px;">'.$likes.'</span></button>
