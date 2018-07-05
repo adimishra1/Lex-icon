@@ -243,11 +243,27 @@ body {
   box-shadow: 0 0 5px #fff;
 }
 
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100vh;
+    min-height: 100vh;
+}
+
+
 </style>
 
 </head>
 
 <body>
+
+
+	<video autoplay muted loop id="myVideo">
+  <source src="your_video_name.mp4" type="video/mp4">
+</video>
+
 
 	<div id="loader-wrapper">
 	  <div id="loader"></div>
