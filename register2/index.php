@@ -10,6 +10,9 @@ if(isset($_POST['submit'])){
 	if(empty($_POST['name'])){
 		$errors[] = 'The name cannot be empty.';
 	}
+	if(empty($_POST['name'])){
+		$errors[] = 'The name cannot be empty.';
+	}
 	if(empty($_POST['password']) || empty($_POST['repeat_password'])){
 		$errors[] = 'The password cannot be empty.';
 	}
@@ -68,15 +71,40 @@ if(isset($_POST['submit'])){
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Lex-icon</title>
+		<link rel='shortcut icon' type='image/gif' href='img/Lex.gif'/>
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
-		<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 		<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 		<script>document.documentElement.className="js";
 		var supportsCssVars=function(){var e,t=document.createElement("style");
 		return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};
 		supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");
-	  </script>
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+				$('#blah').attr('src', e.target.result).width(80).height(80);
+			};
+
+			reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		function disableSubmit() {
+			document.getElementById("submit").disabled = true;
+		}
+
+		function activateButton(element) {
+
+			if(element.checked) {
+				document.getElementById("submit").disabled = false;
+			}
+			else  {
+				document.getElementById("submit").disabled = true;
+			}
+		}
+		</script>
 	</head>
 	<body class="demo-1 loading">
 		<main>
@@ -99,7 +127,7 @@ if(isset($_POST['submit'])){
 					}
 					?>
 				</div>
-				<form class="form" action="index.php" method="POST" enctype='multipart/form-data'>
+				<form class="form" action="index.php" method="POST" enctype='multipart/form-data' onload="disableSubmit()">
 					<div class="form__item">
 						<label class="form__label" for="name">Full Name</label>
 						<input class="form__input" type="text" name="name" id="name" required="">
@@ -127,26 +155,10 @@ if(isset($_POST['submit'])){
 						</div>
 					</div>
 					<div class="form__item">
-						<script>
-						function readURL(input) {
-						            if (input.files && input.files[0]) {
-						                var reader = new FileReader();
-
-						                reader.onload = function (e) {
-						                    $('#blah')
-						                        .attr('src', e.target.result)
-						                        .width(80)
-						                        .height(80);
-						                };
-
-						                reader.readAsDataURL(input.files[0]);
-						            }
-						        }
-						</script>
-
 						<img id="blah" src="#" onerror="this.src='img/default.jpg'" style="height: 7em; width: 5em;" />
 						<input type='file' onchange="readURL(this);" name="file" value="upload a photo" required=""/>
 					</div>
+					<input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I Agree Terms & Coditions
 					<div class="form__item form__item--actions">
 						<span>Already have an account? <a class="form__link" href="../login/index.php">Login here</a></span>
 						<input class="form__button" type="submit" name="submit" value="Signup">

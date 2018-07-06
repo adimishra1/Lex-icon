@@ -59,6 +59,7 @@
 <link href='https://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="css/icons.css" />
+<link rel='shortcut icon' type='image/gif' href='images/Lex.gif'/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

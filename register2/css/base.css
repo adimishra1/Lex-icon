@@ -296,7 +296,7 @@ canvas {
 
 .form__item--actions {
 	color: var(--color-form-alt);
-	margin-top: 3rem;
+	margin-top: 1rem;
 	font-size: 0.8rem;
 	grid-template-columns: 3fr 1fr;
 }
