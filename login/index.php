@@ -110,16 +110,11 @@ if(isset($_POST['submit'])){
 
 <!-- <div class="container-login100"> -->
   <div class="wrap-login100">
+      <img src="images/logo.png" alt="AVATAR" style="height:80%; width:160%; padding-right:10em; top:-2em; padding-bottom:2em;">
     <form class="login100-form validate-form" method="POST" action="index.php">
       <!-- <div class="login100-form-avatar">
         <img src="images/logo.png" alt="AVATAR">
       </div> -->
-      <center>
-        <img src="images/logo.png" alt="AVATAR" style="height:200px; width:200px;">
-     <center>
-      <span class="login100-form-title p-t-20 p-b-45">
-        Lexicon
-      </span>
 
       <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
         <input class="input100" type="text" name="username" placeholder="Username">
