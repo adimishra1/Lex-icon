@@ -54,7 +54,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #fff;
+  color: #fff !important;
 }
 
 /*---------------------------------------------*/
@@ -135,7 +135,9 @@ iframe {
   color: #cccccc;
   line-height: 1.4;
 }
-
+a:hover {
+  color: #fff;
+}
 .bo1 {
   border-bottom: 1px solid #999999;
 }

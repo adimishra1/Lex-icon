@@ -83,6 +83,7 @@ if(isset($_POST['submit'])){
   	color: $link-hover;
   }
 </style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -98,7 +99,11 @@ if(isset($_POST['submit'])){
 <link rel="stylesheet" type="text/css" href="css/util.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!--===============================================================================================-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -140,7 +145,7 @@ if(isset($_POST['submit'])){
         </button>
       </div>
       <div class="text-center w-full p-t-25 ">
-        <a href="#" class="txt1">
+        <a href="#popup2" class="txt1">
           Forgot Username / Password?
         </a><br>
         <a class="txt1" href="../register2/index.php">
@@ -168,7 +173,49 @@ if(isset($_POST['submit'])){
     </div> -->
   </div>
 </div>
+<div id="popup2" class="overlay">
+
+  <div class="form-gap"></div>
+    <div class="container" style="margin-left:28%;">
+	     <div class="row" style="width:800px;">
+		       <div >
+            <div class="panel panel-default">
+              <a class="close" href="#" style="padding-right: 10px; padding-top: 10px;">&times;</a>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h3><i class="fa fa-lock fa-4x"></i></h3>
+                  <h2 class="text-center">Forgot Password?</h2>
+                  <p>You can reset your password here.</p>
+                  <div class="panel-body">
+
+                    <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                          <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                      </div>
+
+                      <input type="hidden" class="hide" name="token" id="token" value="">
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+	       </div>
+      </div>
+</div>
+
 <style>
+.form-gap {
+    padding-top: 70px;
+}
 .box {
   width: 40%;
   margin: 0 auto;
@@ -233,7 +280,11 @@ if(isset($_POST['submit'])){
   color: #333;
 }
 .popup .close:hover {
-  color: #06D85F;
+  color: #f00;
+}
+.close:hover{
+  color: #f00 ;
+  transition: 0.25s;
 }
 .popup .contentA {
   max-height: 600px;

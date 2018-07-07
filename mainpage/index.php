@@ -69,7 +69,7 @@
 <style>
 
 body {
-  margin: 40px 0;
+  margin: auto;
   font-family: "Raleway";
   font-size: 14px;
   font-weight: 500;
