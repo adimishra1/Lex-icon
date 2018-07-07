@@ -421,7 +421,12 @@ canvas {
 
 .form__button:focus {
 	outline: none;
+
 }
+.form__button:hover {
+	background-color: #4bb3e7;
+}
+
 
 .demo-2 main {
 	flex-direction: row-reverse;

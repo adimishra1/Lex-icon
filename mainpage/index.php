@@ -61,6 +61,10 @@
 <link rel="stylesheet" type="text/css" href="css/icons.css" />
 <link rel='shortcut icon' type='image/gif' href='images/Lex.gif'/>
 
+<meta name="description" content="A webapp that improves vocabulary skills" />
+<meta name="keywords" content="english, words, vocabulary, learn, language, social, mainpage" />
+<meta name="author" content="Lex-icon" />
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <link href="../css/Loader.css" rel="stylesheet">
@@ -155,7 +159,15 @@ body {
 
 <style>
 
-
+.description{
+	color:#A9A9A9;
+}
+.Meaning{
+	color:#808080;
+}
+.Usage{
+	color:#C0C0C0;
+}
 .hovereffect {
   width: 100%;
   height: 100%;
@@ -273,7 +285,7 @@ body {
 <div id="vs-container" class="vs-container">
 
 	<div class="codrops-top clearfix">
-		<span class="right"><a href="../aboutus/index.html">About</a><a href="#section-4">Favourites</a><a href="logout.php"><span>Logout</span></a></span>
+		<span class="right"><a href="../aboutus/index.html"><p>About</p></a><a href="#section-4">Favourites</a><a href="logout.php"><span>Logout</span></a></span>
 	</div>
 
 	<header class="vs-header">

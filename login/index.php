@@ -32,6 +32,9 @@ if(isset($_POST['submit'])){
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" media="screen" href="css/style.css">
   <link rel='shortcut icon' type='image/gif' href='images/Lex.gif'/>
+  <meta name="description" content="A webapp that improves vocabulary skills" />
+  <meta name="keywords" content="english, words, vocabulary, learn, language, social, login" />
+  <meta name="author" content="Lex-icon" />
 
   <style>
 
@@ -118,7 +121,8 @@ if(isset($_POST['submit'])){
 <!-- to be inserted here-->
 <!-- <div class="container-login100"> -->
   <div class="wrap-login100">
-      <img src="images/logo.png" alt="AVATAR" style="height:80%; width:160%; padding-right:10em; top:-2em; padding-bottom:2em;">
+    <a href="../index1.html">
+      <img src="images/logo.png" alt="AVATAR" style="height:80%; width:160%; padding-right:10em; top:-2em; padding-bottom:2em;"></a>
     <form class="login100-form validate-form" method="POST" action="index.php">
       <!-- <div class="login100-form-avatar">
         <img src="images/logo.png" alt="AVATAR">
@@ -151,6 +155,12 @@ if(isset($_POST['submit'])){
         <a class="txt1" href="../register2/index.php">
           Create new account
           <i class="fa fa-long-arrow-right"></i>
+        </a>
+        <a class="txt1" href="../index1.html">
+          <br />
+          <i class="fa fa-long-arrow-left"></i>
+          Go back to home page
+
         </a>
       </div>
 
