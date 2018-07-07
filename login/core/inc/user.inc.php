@@ -5,7 +5,7 @@ include("/var/www/html/Lex-icon/cred.inc.php");
 function user_exists($conn,$username){
 	$user =mysqli_real_escape_string($conn,$username);
 
-	$query = "SELECT * FROM users WHERE username='".$username."'";
+	$query = "SELECT * FROM users WHERE username='".$user."'";
 
 	$result1 = mysqli_query($conn,$query) or die (mysqli_error($conn).$query);
 	$count = mysqli_num_rows($result1);

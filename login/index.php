@@ -109,7 +109,13 @@ if(isset($_POST['submit'])){
 
 <div class="text">
 <!-- to be inserted here-->
-
+<?php
+ if(empty($errors)===false){
+        foreach($errors as $error){
+          echo "<script>alert('Username or Password Incorrect');</script>";
+        }
+      }
+  ?>
 <!-- <div class="container-login100"> -->
   <div class="wrap-login100">
       <img src="images/logo.png" alt="AVATAR" style="height:80%; width:160%; padding-right:10em; top:-2em; padding-bottom:2em;">
