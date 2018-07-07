@@ -12,6 +12,8 @@ if(isset($_POST['submit'])){
   }
   if(valid_credentials($conn,$_POST['username'],$_POST['password']) === false){
     $errors[] = 'Username / Password incorrect.';
+    header('location: index.php#popup1');
+    exit;
   }
   if(empty($errors)){
     $_SESSION['username']=htmlentities($_POST['username']);
@@ -109,13 +111,6 @@ if(isset($_POST['submit'])){
 
 <div class="text">
 <!-- to be inserted here-->
-<?php
- if(empty($errors)===false){
-        foreach($errors as $error){
-          echo "<script>alert('Username or Password Incorrect');</script>";
-        }
-      }
-  ?>
 <!-- <div class="container-login100"> -->
   <div class="wrap-login100">
       <img src="images/logo.png" alt="AVATAR" style="height:80%; width:160%; padding-right:10em; top:-2em; padding-bottom:2em;">
@@ -164,6 +159,97 @@ if(isset($_POST['submit'])){
   </div>
 <!-- </div> -->
 </div>
+<div id="popup1" class="overlay">
+  <div class="popup">
+    <p style="color:red; text-align:center;">USERNAME/PASSWORD INCORRECT</p>
+    <a class="close" href="#">&times;</a>
+    <!-- <div class="contentA">
+      <p>Close box to try again...</p>
+    </div> -->
+  </div>
+</div>
+<style>
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #000;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 90px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup p {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .contentA {
+  max-height: 600px;
+  overflow: auto;
+	width: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+</style>
 
 
 <!-- scripts -->
