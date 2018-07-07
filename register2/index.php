@@ -219,20 +219,20 @@ if(isset($_POST['submit'])){
 				<form class="form" action="index.php" method="POST" enctype='multipart/form-data' onload="disableSubmit()">
 					<div class="form__item">
 						<label class="form__label" for="name">Full Name</label>
-						<input class="form__input" type="text" name="name" id="name" required="">
+						<input class="form__input" type="text" name="name" id="name" required="" value="<?php if(isset($_POST['name'])) echo htmlentities($_POST['name']); ?>">
 					</div>
 					<div class="form__item">
 						<label class="form__label" for="email">Email Address</label>
-						<input class="form__input" type="email" name="email" id="email" required="">
+						<input class="form__input" type="email" name="email" id="email" required="" value="<?php if(isset($_POST['email'])) echo htmlentities($_POST['email']); ?>">
 					</div>
 					<div class="form__item">
 						<label class="form__label" for="username">Username</label>
-						<input class="form__input" type="username" name="username" id="username" required="">
+						<input class="form__input" type="username" name="username" id="username" required="" value="<?php if(isset($_POST['username'])) echo htmlentities($_POST['username']); ?>">
 					</div>
 					<div class="form__item">
 						<label class="form__label" for="password">Password</label>
 						<div class="form__input-wrap">
-							<input class="form__input" type="password" name="password" id="password" required="">
+							<input class="form__input" type="password" name="password" id="password" required="" value="<?php if(isset($_POST['password'])) echo htmlentities($_POST['password']); ?>">
 							<p class="form__password-strength" id="strength-output"></p>
 							<br><br>
 						</div>
@@ -240,7 +240,7 @@ if(isset($_POST['submit'])){
 					<div class="form__item">
 						<label class="form__label" for="repeat_password">Repeat Password</label>
 						<div class="form__input-wrap">
-							<input class="form__input" type="password" name="repeat_password" id="reppassword" required="">
+							<input class="form__input" type="password" name="repeat_password" id="reppassword" required="" value="<?php if(isset($_POST['repeat_password'])) echo htmlentities($_POST['repeat_password']); ?>">
 						</div>
 					</div>
 					<div class="form__item">
