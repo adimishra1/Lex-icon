@@ -125,7 +125,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 	top: 36px;
 	position: absolute;
 	display: block;
-
 }
 
 .event input[type="radio"] {
@@ -149,7 +148,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 	position: absolute;
 	text-align: center;
 }
-
 .content-perspective {
 	margin-left: 230px;
 	position: relative;
@@ -204,6 +202,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 	margin-bottom:-2px;
 	min-width: 25%;
 	overflow-x: hidden;
+	cursor:pointer;
 }
 
 .content-inner h3 {
@@ -303,6 +302,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 
 .event input[type="radio"]:checked ~ .content-perspective .content-inner h3 {
 	color: #000;
+	cursor: default;
 }
 
 .event input[type="radio"]:checked ~ .content-perspective .content {
@@ -316,11 +316,13 @@ font-family: 'IBM Plex Sans', sans-serif;
 .event input[type="radio"]:checked ~ .content-perspective .content-inner .example{
 	border-top-color: #fff !important;
 	box-shadow: 5px 10px 10px -6px rgba(0, 0, 0, 0.1);
+	cursor: default;
 }
 
 .event input[type="radio"]:checked ~ .content-perspective .content-inner .meaning{
 	border-top-color: #000;
 	box-shadow: 10px 10px 10px -6px rgba(0, 0, 0, 0.1);
+	cursor: default;
 }
 
 .event input[type="radio"]:checked ~ .content-perspective .content-inner p {
@@ -331,6 +333,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 	-o-transition-delay: 0s, 0.6s;
 	-ms-transition-delay: 0s, 0.6s;
 	transition-delay: 0s, 0.6s;
+	cursor: default;
 }
 
 .event input[type="radio"]:checked ~ .content-perspective .content-inner .meaning:before {
@@ -346,6 +349,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 	box-shadow:
 		0 0 0 8px rgba(0,0,0,1),
 		0 1px 1px rgba(255,255,255,0.5);
+		cursor: default;
 }
 
 .event input[type="radio"]:checked ~ .thumb span {
@@ -356,11 +360,14 @@ font-family: 'IBM Plex Sans', sans-serif;
 
 	/* border-top-color: #000; */
 	box-shadow: 0 10px 10px -6px rgba(0, 0, 0);
+	cursor:default;
 }
 .event input[type="radio"]:checked ~ .thumb:before {
 	background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAPUlEQVQYV2NkQAOfUjX+882+wYgujiIAU4RNMVwhuiQ6H6wQl3XI4oy4FMHcCJPHcDS6J2A2EqUQpJhohQBbNyaHFmzEqgAAAABJRU5ErkJggg==);
 }
-
+.black{
+	cursor: pointer;
+}
 .content-inner p,
 .thumb span,
 .event label {
@@ -376,7 +383,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 		font-size: 14px;
 		text-align: justify;
 	}
-
 	.event input[type="radio"]:checked ~ .content-perspective .content-inner p {
 		max-height: 500px;
 	}
@@ -416,6 +422,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 		-o-transform: scale(0.8);
 		-ms-transform: scale(0.8);
 		transform: scale(0.8);
+		cursor: pointer;
 	}
 	.thumb span {
 		color: white;
