@@ -1,11 +1,11 @@
 <?php
 	session_start();
-	include("/var/www/html/Lex-icon/cred.inc.php");
+	include("inc/cred.inc.php");
 
 	$exception =  array('register', 'login');
 
-	$path = dirname(__FILE__);
+	// $path = dirname(__FILE__);
 
-	include($path."/inc/user.inc.php");
+	include("inc/user.inc.php");
 
 ?>

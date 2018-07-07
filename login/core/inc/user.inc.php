@@ -1,5 +1,5 @@
 <?php
-include("/var/www/html/Lex-icon/cred.inc.php");
+include("cred.inc.php");
 
 //check if the username exists in the database.
 function user_exists($conn,$username){

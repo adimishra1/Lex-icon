@@ -1,5 +1,5 @@
 <?php
-include("/var/www/html/Lex-icon/cred.inc.php");
+include("inc/cred.inc.php");
 $user_id = $_POST['user_id'];
 $word_id = $_POST['word_id'];
 $table_id = $_POST['table_id'];

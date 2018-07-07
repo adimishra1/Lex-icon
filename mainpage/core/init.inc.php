@@ -2,8 +2,8 @@
 	session_start();
 
 	//$exception =  array('register', 'login');
-	$path = dirname(__FILE__);
-	include("/var/www/html/Lex-icon/cred.inc.php");
+	// $path = dirname(__FILE__);
+	include("inc/cred.inc.php");
 	if(!isset($_SESSION['username'])){
 		header("location: ../index.html");
 		exit;
@@ -21,6 +21,6 @@
 	$user_image = $user['images'];
 	/* <img src='<?php echo $image_src; ?> >                For inserting image.*/
 
-	include($path."/inc/user.inc.php");
+	include("inc/user.inc.php");
 
 ?>
