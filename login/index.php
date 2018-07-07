@@ -113,7 +113,8 @@ if(isset($_POST['submit'])){
 <!-- to be inserted here-->
 <!-- <div class="container-login100"> -->
   <div class="wrap-login100">
-      <img src="images/logo.png" alt="AVATAR" style="height:80%; width:160%; padding-right:10em; top:-2em; padding-bottom:2em;">
+    <a href="../index1.html">
+      <img src="images/logo.png" alt="AVATAR" style="height:80%; width:160%; padding-right:10em; top:-2em; padding-bottom:2em;"></a>
     <form class="login100-form validate-form" method="POST" action="index.php">
       <!-- <div class="login100-form-avatar">
         <img src="images/logo.png" alt="AVATAR">
