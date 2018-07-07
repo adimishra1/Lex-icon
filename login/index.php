@@ -151,6 +151,12 @@ if(isset($_POST['submit'])){
           Create new account
           <i class="fa fa-long-arrow-right"></i>
         </a>
+        <a class="txt1" href="../index1.html">
+          <br />
+          <i class="fa fa-long-arrow-left"></i>
+          Go back to home page
+
+        </a>
       </div>
 
       <!-- <div class="text-center w-full">

@@ -113,6 +113,7 @@ if(isset($_POST['submit'])){
 		}
 		</script>
 <style>
+
 .box {
   width: 40%;
   margin: 0 auto;
@@ -133,7 +134,6 @@ if(isset($_POST['submit'])){
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
-
 
 .overlay {
   position: fixed;
@@ -248,9 +248,13 @@ if(isset($_POST['submit'])){
 					</div>
 					<div class="form__item">
 						<img id="blah" src="#" onerror="this.src='img/default.jpg'" style="height: 7em; width: 5em;" />
-						<input type='file' onchange="readURL(this);" name="file" value="upload a photo" required=""/>
+						<div>
+						<label for="files" class="btn" style="cursor:pointer;"><span><a class="form__link">Upload your photo</a></span></label>
+						<input type='file' onchange="readURL(this);" name="file" id="files" style="visibility:hidden;" required=""/>
+					</div>
 					</div>
 					<input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" required> I Agree<a class="button" href="#popup1"> Terms & Conditions</a>
+
 					<div class="form__item form__item--actions">
 						<span>Already have an account? <a class="form__link" href="../login/index.php">Login here</a></span>
 						<input class="form__button" type="submit" name="submit" value="Signup">
