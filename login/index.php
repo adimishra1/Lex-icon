@@ -32,6 +32,9 @@ if(isset($_POST['submit'])){
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" media="screen" href="css/style.css">
   <link rel='shortcut icon' type='image/gif' href='images/Lex.gif'/>
+  <meta name="description" content="A webapp that improves vocabulary skills" />
+  <meta name="keywords" content="english, words, vocabulary, learn, language, social, login" />
+  <meta name="author" content="Lex-icon" />
 
   <style>
 

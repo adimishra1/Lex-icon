@@ -74,6 +74,9 @@ if(isset($_POST['submit'])){
 		<link rel='shortcut icon' type='image/gif' href='img/Lex.gif'/>
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
 
+		<meta name="description" content="A webapp that improves vocabulary skills" />
+		<meta name="keywords" content="english, words, vocabulary, learn, language, social, register" />
+		<meta name="author" content="Lex-icon" />
 
 		<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>

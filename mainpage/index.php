@@ -61,6 +61,10 @@
 <link rel="stylesheet" type="text/css" href="css/icons.css" />
 <link rel='shortcut icon' type='image/gif' href='images/Lex.gif'/>
 
+<meta name="description" content="A webapp that improves vocabulary skills" />
+<meta name="keywords" content="english, words, vocabulary, learn, language, social, mainpage" />
+<meta name="author" content="Lex-icon" />
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <link href="../css/Loader.css" rel="stylesheet">
