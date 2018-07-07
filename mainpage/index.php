@@ -274,7 +274,7 @@ body {
 
 
 	<video autoplay muted loop id="myVideo">
-  <source src="5.mp4" type="video/mp4">
+  <source src="../images/5.mp4" type="video/mp4">
 </video>
 
 
