@@ -122,8 +122,8 @@ if(isset($_POST['submit'])){
 <!-- <div class="container-login100"> -->
   <div class="wrap-login100">
     <a href="../index1.html">
-      <img src="images/logo.png" alt="AVATAR" style="height:80%; width:160%; padding-right:10em; top:-2em; padding-bottom:2em;"></a>
-    <form class="login100-form validate-form" method="POST" action="index.php">
+      <img src="images/logo2.png" alt="AVATAR" title="Click here to go back to home page" style="height:30vh; width:65vh; padding-right:10em; top:-2em; padding-bottom:2em;"></a>
+    <form class="login100-form validate-form" method="POST" action="index.php" align="center">
       <!-- <div class="login100-form-avatar">
         <img src="images/logo.png" alt="AVATAR">
       </div> -->
