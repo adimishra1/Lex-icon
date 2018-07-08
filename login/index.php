@@ -198,7 +198,7 @@ if(isset($_POST['submit'])){
                   <p>You can reset your password here.</p>
                   <div class="panel-body">
 
-                    <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                    <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="core/email.php">
 
                       <div class="form-group">
                         <div class="input-group">
@@ -221,7 +221,34 @@ if(isset($_POST['submit'])){
 	       </div>
       </div>
 </div>
-
+</div>
+<div id="popup3" class="overlay">
+  <div class="popup">
+    <p style="color:red; text-align:center;">MAIL SENT</p>
+    <a class="close" href="#">&times;</a>
+    <div class="contentA">
+      <p>A mail have been sent to your email address regarding the  username and password.Its a system generated mail pleases do not reply.</p>
+    </div>
+  </div>
+</div>
+<div id="popup4" class="overlay">
+  <div class="popup">
+    <p style="color:red; text-align:center;">NETWORK ERROR</p>
+    <a class="close" href="#">&times;</a>
+    <div class="contentA">
+      <p>There was either problem connecting to the server due to slow internet or any other error.</p>
+    </div>
+  </div>
+</div>
+<div id="popup5" class="overlay">
+  <div class="popup">
+    <p style="color:red; text-align:center;">MAIL NOT SENT</p>
+    <a class="close" href="#">&times;</a>
+    <div class="contentA">
+      <p>The email address you entered was incorrect please recheck the email Address or register using the new email address.</p>
+    </div>
+  </div>
+</div>
 <style>
 .form-gap {
     padding-top: 70px;
