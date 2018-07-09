@@ -443,7 +443,7 @@ body {
 									<h2 id="word">
 										<?php echo strtoupper($row["word"]);?>
 									</h2>
-									<div class="Meaning">
+									<div class="Meaning" style="color:azure;">
 									  <div class="para1" id="me">
 											<i><?php echo $row["meaning"]; ?></i>
 										</div>
