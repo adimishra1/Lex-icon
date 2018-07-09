@@ -23,6 +23,7 @@ function user_exists($conn,$username){
 //check if the given username and password combination is valid.
 function  valid_credentials($conn,$username,$password){
 	$username = mysqli_real_escape_string($conn,htmlentities($username));
+	$password = mysqli_real_escape_string($conn,htmlentities($password));
 	//$password = sha1($password);
 
 	$query = "SELECT * FROM users WHERE username='".$username."' AND password ='".$password."'";
@@ -42,6 +43,8 @@ function  valid_credentials($conn,$username,$password){
 function add_user($conn,$name,$email,$username,$password,$image){
 	$username = mysqli_real_escape_string($conn,htmlentities($username));
 	$email = mysqli_real_escape_string($conn,htmlentities($email));
+	$password = mysqli_real_escape_string($conn,htmlentities($password));
+
 	//$password = sha1($password);
 	$bool = mysqli_query($conn,"INSERT INTO `users` (`name`, `email`, `username`, `password`, `images`) VALUES ('".$name."','".$email."','".$username."','".$password."','".$image."')") or die(mysqli_error($conn));
 

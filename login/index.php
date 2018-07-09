@@ -177,7 +177,7 @@ if(isset($_POST['submit'])){
 <div id="popup1" class="overlay">
   <div class="popup">
     <p style="color:red; text-align:center;">USERNAME/PASSWORD INCORRECT</p>
-    <a class="close" href="#">&times;</a>
+    <a class="close" href=""  id="closeme">&times;</a>
     <!-- <div class="contentA">
       <p>Close box to try again...</p>
     </div> -->
@@ -190,7 +190,7 @@ if(isset($_POST['submit'])){
 	     <div class="row" style="width:800px;">
 		       <div >
             <div class="panel panel-default">
-              <a class="close" href="#" style="padding-right: 10px; padding-top: 10px;">&times;</a>
+              <a class="close" href="" id="closeme" style="padding-right: 10px; padding-top: 10px; -webkit-tap-highlight-color: #f00;">&times;</a>
               <div class="panel-body">
                 <div class="text-center">
                   <h3><i class="fa fa-lock fa-4x"></i></h3>
@@ -225,16 +225,16 @@ if(isset($_POST['submit'])){
 <div id="popup3" class="overlay">
   <div class="popup">
     <p style="color:red; text-align:center;">MAIL SENT</p>
-    <a class="close" href="#">&times;</a>
+    <a class="close" id="closeme" href="">&times;</a>
     <div class="contentA">
-      <p>A mail have been sent to your email address regarding the  username and password.Its a system generated mail pleases do not reply.</p>
+      <p style="color:#06D85F;">A mail have been sent to your email address regarding the  username and password.Its a system generated mail pleases do not reply.</p>
     </div>
   </div>
 </div>
 <div id="popup4" class="overlay">
   <div class="popup">
     <p style="color:red; text-align:center;">NETWORK ERROR</p>
-    <a class="close" href="#">&times;</a>
+    <a class="close" href="" id="closeme">&times;</a>
     <div class="contentA">
       <p>There was either problem connecting to the server due to slow internet or any other error.</p>
     </div>
@@ -243,7 +243,7 @@ if(isset($_POST['submit'])){
 <div id="popup5" class="overlay">
   <div class="popup">
     <p style="color:red; text-align:center;">MAIL NOT SENT</p>
-    <a class="close" href="#">&times;</a>
+    <a class="close" href="" id="closeme">&times;</a>
     <div class="contentA">
       <p>The email address you entered was incorrect please recheck the email Address or register using the new email address.</p>
     </div>
@@ -336,6 +336,9 @@ if(isset($_POST['submit'])){
   .popup{
     width: 70%;
   }
+}
+#closeme: hover{
+  color: #f00;
 }
 </style>
 

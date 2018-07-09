@@ -285,7 +285,7 @@ body {
 <div id="vs-container" class="vs-container">
 
 	<div class="codrops-top clearfix">
-		<span class="right"><a href="../aboutus/index.html">About</a><a href="#section-4">Favourites</a><a href="logout.php"><span>Logout</span></a></span>
+		<span class="right"><a href="../aboutus/index.html">About</a><a href="#section-3">Favourites</a><a href="logout.php"><span>Logout</span></a></span>
 	</div>
 
 	<header class="vs-header">

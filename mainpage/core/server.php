@@ -21,7 +21,7 @@ if($count>'0'){
   $favrow = mysqli_fetch_array($result);
   $status = $favrow['status'];
   if($status == '0'){
-    $sql2 = "UPDATE fav SET status='1' WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."'";
+    $sql2 = "UPDATE fav SET status='1' WHERE user_id='".$user_id."' AND word_id='".$word_id."' AND table_id='".$table_id."'";//instead of updating write the code for inserting in trending for chronological order display in favourite
     if ($table_id=='0') {
       $no_of_likes++;
       $sql3 = "UPDATE trending SET no_of_likes='".$no_of_likes."' WHERE id='".$word_id."'";
