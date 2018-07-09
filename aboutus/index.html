@@ -14,6 +14,11 @@
 		<link rel="stylesheet" type="text/css" href="css/demo-switch.css" />
 		<link rel="stylesheet" type="text/css" href="css/pater.css" />
 		<link rel='shortcut icon' type='image/gif' href='img/Lex.gif'/>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<link href="../css/Loader.css" rel="stylesheet">
+
 		<script>document.documentElement.className = 'js';</script>
 		<style>
 
@@ -60,6 +65,14 @@
 		</style>
 	</head>
 	<body class="demo-switch loading">
+
+
+			<div id="loader-wrapper">
+			  <div id="loader"></div>
+			</div>
+
+
+
 		<svg class="hidden">
 			<symbol id="icon-arrow" viewBox="0 0 24 24">
 				<title>arrow</title>
@@ -78,7 +91,8 @@
 				<header class="content__header">
 					<div class="captiona1">
 			      <span class="bordera1 " >
-			        <div class="blacken"><h1><a href="../index1.html" class="previous round">&#8249;</a> Created By</h1><br>
+			        <!-- <div class="blacken"><h1><a href="../index1.html" class="previous round">&#8249;</a> Created By</h1><br> -->
+				      <div class="blacken"><h1><a href="../comingsoon/index.html" class="previous round">&#8249;</a> Created By</h1><br>
 			         </div>
 			      </span>
 			    </div>
@@ -183,6 +197,23 @@
 			menuItems.forEach((item,pos) => item.addEventListener('click', (ev) => openImage(ev,item,pos)));
 		}
 		</script>
+
+
+		<script>
+
+
+		jQuery(document).ready(function() {
+		    jQuery('#loader').fadeOut(2000);
+		});
+
+
+		jQuery(document).ready(function() {
+		    jQuery('#loader-wrapper').fadeOut(2000);
+		});
+
+
+		</script>
+
 		<script src="pater/pater.js"></script>
 	</body>
 </html>
