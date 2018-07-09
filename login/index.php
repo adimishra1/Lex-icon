@@ -177,7 +177,7 @@ if(isset($_POST['submit'])){
 <div id="popup1" class="overlay">
   <div class="popup">
     <p style="color:red; text-align:center;">USERNAME/PASSWORD INCORRECT</p>
-    <a class="close" href=""  id="closeme">&times;</a>
+    <a class="close" href="#"  id="closeme">&times;</a>
     <!-- <div class="contentA">
       <p>Close box to try again...</p>
     </div> -->

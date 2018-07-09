@@ -29,8 +29,6 @@
 			}else{
 				echo "Failed to Insert";
 			}
-		}else{
-			//error to be shown.
 		}
 	}
 ?>
@@ -273,7 +271,7 @@ body {
 <body>
 
 
-	<video autoplay muted loop id="myVideo">
+<video autoplay muted loop id="myVideo">
   <source src="../images/5.mp4" type="video/mp4">
 </video>
 
@@ -309,7 +307,6 @@ body {
 							<?php echo "<div class='thumb user-".$user_id."' style='background-image: url(".$user_image.");  background-size: cover; background-size: contain; background-size: 100% 100%;'>"; ?><span><?php echo $username; ?></span></div>
 							<div class="content-perspective">
 								<div class="content">
-									<!-- <div id="result"></div> -->
 									<form method="post" action="index.php">
 										<div class="content-inner black">
 											<h3>
@@ -812,8 +809,6 @@ body {
 
 
 <script>
-// jQuery('#loader').fadeOut(2000);
-// jQuery('#loader-wrapper').fadeOut(2000);
 
 
 jQuery(document).ready(function() {

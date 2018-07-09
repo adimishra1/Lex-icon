@@ -26,7 +26,6 @@ html, body, .vs-container {
 
 .vs-container > header h1 {
 	margin: 0 0 1em 0;   /* to change distance b/w heading and lex-icon adjust 3rd parameter here*/
-	/* padding: 0 0 0.8em; */
   padding-bottom: 0px;
 	font-weight: 300;
 	font-size: 2.4em;
@@ -74,8 +73,6 @@ html, body, .vs-container {
 	margin: 0 10px;
 	padding: 10px 0;
 	outline: none;
-	/* border-top: 2px solid #000;
-	border-bottom: 2px solid #000; */
 	color: #ffe0bd;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -179,12 +176,6 @@ html, body, .vs-container {
 	background-position: 100% 0;
 	background-repeat: no-repeat;
 }
-
-/*#section-1 { background-image: url(../images/cat1.png); }
-#section-2 { background-image: url(../images/cat2.png); }
-#section-3 { background-image: url(../images/cat3.png); }
-#section-4 { background-image: url(../images/cat4.png); }
-#section-5 { background-image: url(../images/cat5.png); }*/
 
 .vs-triplelayout .vs-wrapper > section {
 	position: absolute;
@@ -291,22 +282,6 @@ html, body, .vs-container {
 	font-weight: 700;
 	font-size: 3em;
 }
-/*
-.vs-content .col {
-	margin: 0 auto;
-	color: #000;
-	text-align: justify;
-	line-height: 1.4;
-	-webkit-column-width: 30%;
-	-moz-column-width: 30%;
-	column-width: 30%;
-	-webkit-column-count: 3;
-	-moz-column-count: 3;
-	column-count: 3;
-	-webkit-column-gap: 1%;
-	-moz-column-gap: 1%;
-	column-gap: 1%;
-}*/
 
 .vs-content .timeline p {/*initially for all now for only timeline*/
 	margin: 10px 20px 10px 20px;

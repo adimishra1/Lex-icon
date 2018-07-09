@@ -83,40 +83,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 
 }
 
-.user-1 {
-	background-image: url(../images/chewbacca.jpg);
-}
-
-.user-2 {
-	background-image: url(../images/barf.jpg);
-}
-
-.user-3 {
-	background-image: url(../images/darkhelmet.jpg);
-}
-
-.user-4 {
-	background-image: url(../images/darthvader.jpg);
-}
-
-.user-5 {
-	background-image: url(../images/leia.jpg);
-}
-
-.user-6 {
-	background-image: url(../images/vespa.jpg);
-}
-
-.user-7 {
-	background-image: url(../images/c3po.jpg);
-}
-
-.user-8 {
-	background-image: url(../images/dotmatrix.jpg);
-}
-
-/* Transparent Checkbox/radio hack: leave the checkbox on top, hide it with opacity 0 */
-
 .event label,
 .event input[type="radio"] {
 	width: 24px;
@@ -508,7 +474,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 /*content of word of the week*/
 
 .wordOfTheWeak{
-/*	background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));*/
 	min-width: 100px;
 	height: 25em;
 	background-size: cover;
@@ -516,7 +481,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 	margin: auto;
 	padding: 0;
 	font-family: 'Noto Serif', serif;
-	/*text-overflow: scroll;*/
 	text-align: center;
 }
 
@@ -524,8 +488,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 	position: absolute;
 	top: 25%;
 	left: 12.5%;
-	/*transform: translate(-50%,-50%);*/
-	/*overflow: scroll;*/
 	height: 66%;
 	width: 75%;
 	padding: 4px;
@@ -548,11 +510,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 	position: relative;
 	top: 30%;
 	background-color: rgba(0,0,0,0.2);
-<<<<<<< HEAD
-	/* text-align:justify; */
-=======
-	text-align:right;
->>>>>>> f4d3af3c591916ec4c50381ec29e9939ff7f0df9
 	font-weight: bold;
 }
 .para2{
@@ -560,11 +517,6 @@ font-family: 'IBM Plex Sans', sans-serif;
 	margin-top: 20px;
 	margin-bottom: 12px;
 	background-color: rgba(0,0,0,0.3);
-<<<<<<< HEAD
-	/* text-align: justify; */
-=======
-	text-align: right;
->>>>>>> f4d3af3c591916ec4c50381ec29e9939ff7f0df9
 }
 .para3{
 	padding: auto ;

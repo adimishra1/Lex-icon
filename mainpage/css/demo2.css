@@ -12,7 +12,6 @@ se/* General Demo Style */
 	margin: 0;
 }
 
-/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after {
     content: " ";
@@ -37,10 +36,6 @@ se/* General Demo Style */
     overflow-x: hidden;
 }
 
-/*.a {
-	color: #555;
-	text-decoration: none;
-}*/
 
 .container {
 	width: 100%;
