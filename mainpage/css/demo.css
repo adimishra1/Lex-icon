@@ -24,7 +24,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwPe2diu3y48fa5SU95aKhUkji7VDjNjdlsKJ4_eDy-Ss2CvzY);  /*to be changed*/
+    background-image: url(../images/back.png);  /*to be changed*/
 		background-blend-mode: lighten;
 }
 
