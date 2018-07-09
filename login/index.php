@@ -149,14 +149,14 @@ if(isset($_POST['submit'])){
         </button>
       </div>
       <div class="text-center w-full p-t-25 ">
-        <a href="#popup2" class="txt1">
+        <a href="#popup2" class="txt1" onMouseOver="this.style.color='#fff'"   onMouseOut="this.style.color='#c0c0c0'">
           Forgot Username / Password?
         </a><br>
-        <a class="txt1" href="../register2/index.php">
+        <a class="txt1" onMouseOver="this.style.color='#fff'"   onMouseOut="this.style.color='#c0c0c0'" href="../register2/index.php">
           Create new account
           <i class="fa fa-long-arrow-right"></i>
         </a>
-        <a class="txt1" href="../index1.html">
+        <a class="txt1" onMouseOver="this.style.color='#fff'"   onMouseOut="this.style.color='#c0c0c0'" href="../index1.html">
           <br />
           <i class="fa fa-long-arrow-left"></i>
           Go back to home page
