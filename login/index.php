@@ -224,10 +224,10 @@ if(isset($_POST['submit'])){
 </div>
 <div id="popup3" class="overlay">
   <div class="popup">
-    <p style="color:red; text-align:center;">MAIL SENT</p>
+    <p style="color:#06D85F; text-align:center;">MAIL SENT</p>
     <a class="close" id="closeme" href="">&times;</a>
     <div class="contentA">
-      <p style="color:#06D85F;">A mail have been sent to your email address regarding the  username and password.Its a system generated mail pleases do not reply.</p>
+      <p>A mail have been sent to your email address regarding the  username and password.Its a system generated mail please do not reply.</p>
     </div>
   </div>
 </div>
