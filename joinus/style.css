@@ -1,13 +1,3 @@
-
-/*!
- * Project_Name: Themezy Movie Review
- * Author: Themezy
- * Email: info@themezy.com
- * URL: http://themezy.com
- */
-/*===========================================
- * Importing CSS Libraries
- *===========================================*/
 article,
 aside,
 details,
@@ -208,9 +198,6 @@ table {
   -moz-box-sizing: border-box;
        box-sizing: border-box; }
 
-/*
- * Global Styles
- */
 body {
   background-color: #131a20;
   background-image: url(dummy/background.jpg);
