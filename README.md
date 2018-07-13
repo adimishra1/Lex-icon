@@ -1,4 +1,4 @@
-## Our site is live [Here](lex-icon.azurewebsites.com)
+## Our site is live [Here](https://lex-icon.azurewebsites.com)
 
 # Lex-icon
 English in today's world is no longer a way of  communication but is turning out to be a need of the present. Without the knowledge of the English Language, it is becoming difficult to survive because it is now the language of science, aviation, computers, diplomacy, education, multinational communication, tourism or simply the language of everything. Keeping in mind it's importance, we are aiming to come up with a platform that would offer a great opportunity to enhance vocabulary skills in English based on audio and textual learning. The app would be easy to use and user-friendly so that anyone can use it. This would help carry forward the idea of Education for all and would also help in improving the English literacy percentage of present India.
